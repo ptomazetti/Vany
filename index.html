@@ -45,7 +45,7 @@ const CONFIG = {
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Rozha+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&display=swap" rel="stylesheet">
 
 <style>
   /* Paleta tirada do mundo da Vany. Confirmar todas as cores com ela. */
@@ -57,7 +57,7 @@ const CONFIG = {
     --fumo: #2A1015;        /* fumo: texto sobre o papel */
     --arruda: #55663F;      /* arruda: links sobre o papel */
 
-    --titulo: "Rozha One", Georgia, serif;
+    --titulo: "Bodoni Moda", Didot, Georgia, serif;
     --texto: "Alegreya Sans", system-ui, sans-serif;
     --medida: 62ch;
   }
@@ -78,7 +78,7 @@ const CONFIG = {
   :focus-visible { outline: 3px solid var(--cera); outline-offset: 3px; }
   .papel :focus-visible, .rotulo :focus-visible { outline-color: var(--fumo); }
 
-  h1, h2, h3 { font-family: var(--titulo); font-weight: 400; line-height: 1.05; margin: 0 0 .4em; }
+  h1, h2, h3 { font-family: var(--titulo); font-weight: 500; line-height: 1.1; margin: 0 0 .4em; }
   h2 { font-size: clamp(2.3rem, 9vw, 3.4rem); }
   h3 { font-size: 1.9rem; }
   p { margin: 0 0 1em; max-width: var(--medida); }
@@ -92,8 +92,8 @@ const CONFIG = {
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 10px;
     min-height: 54px; padding: 12px 26px;
-    border: 2px solid transparent; border-radius: 4px;
-    font: 700 1.05rem var(--texto); text-decoration: none; text-align: center;
+    border: 1px solid transparent; border-radius: 2px;
+    font: 500 1.05rem var(--texto); letter-spacing: .01em; text-decoration: none; text-align: center;
     cursor: pointer;
   }
   .btn-cera { background: var(--cera); color: var(--fumo); }
@@ -103,7 +103,7 @@ const CONFIG = {
   .foto {
     position: relative; overflow: hidden;
     background: var(--terra-funda);
-    border: 2px dashed rgba(227, 164, 126, .6);
+    border: 1px dashed rgba(227, 164, 126, .6);
   }
   .foto .pedido {
     position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
@@ -115,24 +115,29 @@ const CONFIG = {
 
   /* Topo */
   .topo .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
-  .topo .marca { font-family: var(--titulo); font-size: 1.6rem; text-decoration: none; color: var(--cera); }
+  .topo .marca { font-family: var(--titulo); font-style: italic; font-size: 1.6rem; text-decoration: none; color: var(--cera); }
   .topo nav { display: flex; gap: 18px; font-size: 1.05rem; }
   .topo nav a { text-decoration: none; padding: 10px 0; }
   .topo nav a:hover { text-decoration: underline; }
   .topo .so-largo { display: none; }
 
   /* Abertura: o nome como desenho */
-  .abertura { padding: 8px 0 72px; overflow: hidden; }
+  /* Luz baixa de vela atrás do nome: o único brilho da página */
+  .abertura {
+    padding: 8px 0 72px; overflow: hidden;
+    background: radial-gradient(circle at 30% 18%, rgba(227, 164, 126, .16), transparent 60%);
+  }
   .nome {
     font-family: var(--titulo);
-    font-size: clamp(9rem, 44vw, 22rem);
-    line-height: .8;
+    font-size: clamp(8rem, 40vw, 20rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: .85;
     color: var(--cera);
-    margin: 0 0 0 -.04em;
-    letter-spacing: -.02em;
+    margin: 0 0 0 -.03em;
   }
   .nome { position: relative; z-index: 2; }
-  .abertura .foto { aspect-ratio: 4 / 5; margin: -0.18em 0 0 18%; font-size: clamp(9rem, 44vw, 22rem); }
+  .abertura .foto { aspect-ratio: 4 / 5; margin: -0.12em 0 0 18%; font-size: clamp(8rem, 40vw, 20rem); }
   .abertura .foto .pedido { font-size: 1rem; }
   .abertura .quem { font-size: 1.25rem; font-weight: 700; margin: 32px 0 4px; color: var(--cera); }
   .abertura .frase { font-size: 1.35rem; line-height: 1.5; }
@@ -162,28 +167,30 @@ const CONFIG = {
   .pacotes .abre { margin-bottom: 40px; }
   .rotulos { display: grid; gap: 44px; }
   .rotulo {
-    --corte: 16px;
+    --corte: 10px;
     background: var(--algodao); color: var(--fumo);
     clip-path: polygon(var(--corte) 0, calc(100% - var(--corte)) 0, 100% var(--corte), 100% calc(100% - var(--corte)), calc(100% - var(--corte)) 100%, var(--corte) 100%, 0 calc(100% - var(--corte)), 0 var(--corte));
     padding: 10px;
     transform: rotate(var(--giro, 0deg));
   }
   .rotulo .moldura {
-    border: 5px double var(--tinta);
-    padding: 0 20px 22px;
+    border: 1px solid var(--tinta);
+    box-shadow: inset 0 0 0 4px var(--algodao), inset 0 0 0 5px var(--tinta);
+    padding: 6px 22px 24px;
     height: 100%;
     display: flex; flex-direction: column;
   }
   .rotulo .faixa {
-    background: var(--faixa, var(--tinta)); color: var(--algodao);
-    margin: 0 -20px 18px; padding: 8px 20px;
-    font-weight: 700; font-size: 1rem;
+    color: var(--tinta);
+    border-bottom: 1px solid var(--faixa, var(--tinta));
+    margin: 8px 0 18px; padding: 6px 0 10px;
+    font-style: italic; font-size: 1.05rem;
   }
   .rotulo h3 { color: var(--tinta); font-size: 2rem; }
   .rotulo .para { font-size: 1.1rem; }
   .rotulo .inclui { font-weight: 700; margin: 6px 0 4px; }
   .rotulo ul { margin: 0 0 18px; padding-left: 22px; }
-  .rotulo .preco { font-family: var(--titulo); font-size: 2.3rem; line-height: 1.1; color: var(--tinta); margin: auto 0 14px; }
+  .rotulo .preco { font-family: var(--titulo); font-size: 2.1rem; line-height: 1.1; color: var(--tinta); margin: auto 0 14px; }
   .rotulo .preco span { display: block; font-family: var(--texto); font-size: 1.05rem; color: var(--fumo); }
   .rotulo .preco { margin-bottom: 2px; }
   .pix { font-weight: 700; margin: 0 0 14px; }
@@ -191,12 +198,11 @@ const CONFIG = {
   .rotulo .btn-tinta { background: var(--tinta); color: var(--algodao); }
   .rotulo .btn-linha { color: var(--tinta); }
 
-  .r-iansa     { --tinta: #9C3D23; --giro: -1.2deg; }
-  .r-padilha   { --tinta: #8E1622; --faixa: #1E1414; --giro: .9deg; }
-  .r-oxum      { --tinta: #8A5A00; --faixa: #C98A12; --giro: -.6deg; }
-  .r-oxum .faixa { color: var(--fumo); }
-  .r-cleopatra { --tinta: #22406B; --giro: 1.1deg; }
-  .r-holistico { --tinta: #55663F; --giro: -.8deg; }
+  .r-iansa     { --tinta: #9C3D23; --giro: -.3deg; }
+  .r-padilha   { --tinta: #8E1622; --faixa: #1E1414; --giro: .5deg; }
+  .r-oxum      { --tinta: #8A5A00; --faixa: #C98A12; --giro: -.3deg; }
+  .r-cleopatra { --tinta: #22406B; --giro: .6deg; }
+  .r-holistico { --tinta: #55663F; --giro: -.4deg; }
 
   .pacotes .lembrete { margin-top: 48px; font-size: 1.05rem; }
 
@@ -217,7 +223,7 @@ const CONFIG = {
   .passos li::before {
     content: counter(passo);
     grid-row: span 2;
-    font-family: var(--titulo); font-size: 3.2rem; line-height: 1; color: var(--cera);
+    font-family: var(--titulo); font-style: italic; font-size: 3rem; line-height: 1; color: var(--cera);
   }
   .passos strong { font-size: 1.3rem; }
   .passos span { max-width: 48ch; }
@@ -249,7 +255,7 @@ const CONFIG = {
 
   /* Rodapé */
   footer { background: var(--terra-funda); padding: 48px 0 116px; font-size: 1rem; }
-  footer .marca { font-family: var(--titulo); font-size: 2.4rem; color: var(--cera); margin: 0; }
+  footer .marca { font-family: var(--titulo); font-style: italic; font-size: 2.4rem; color: var(--cera); margin: 0; }
   footer nav { display: grid; margin: 20px 0; }
   footer nav a { text-decoration: none; padding: 9px 0; }
   footer nav a:hover { text-decoration: underline; }
@@ -275,7 +281,7 @@ const CONFIG = {
   @media (min-width: 1000px) {
     .abertura .container { display: grid; grid-template-columns: 1.2fr .8fr; align-items: end; gap: 0 48px; }
     .nome { grid-column: 1 / -1; }
-    .abertura .foto { grid-column: 2; grid-row: 2 / span 2; margin: -.55em 0 0; font-size: 22rem; }
+    .abertura .foto { grid-column: 2; grid-row: 2 / span 2; margin: -.45em 0 0; font-size: 20rem; }
     .abertura .texto { grid-column: 1; grid-row: 2; align-self: end; }
     .sobre .container { grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; }
     .rotulos { grid-template-columns: repeat(3, 1fr); }

@@ -28,11 +28,11 @@ Cores próprias de cada pacote (só nos rótulos):
 As cores de orixá e entidade variam de casa para casa. A Vany precisa aprovar cada uma.
 
 ### Fontes
-Rozha One, nos títulos e no nome "Vany". É uma letra gorda de alto contraste, da família dos tipos de rótulo de farmácia, de vela e de artigo religioso impressos no Brasil. Usada bem grande, o nome vira desenho.
+Bodoni Moda, nos títulos e no nome "Vany" (em itálico). Alto contraste, com traços finíssimos e curvas longas: delicada e sensual, como o nome num frasco de perfume ou de óleo preparado à mão. Substituiu a Rozha One, que era pesada demais para o tom que a Vany quer.
 
 Alegreya Sans, no texto. Uma sem serifa humanista, com traço de caligrafia, quente e muito legível no celular. Tem todos os acentos do português.
 
-As duas são bem diferentes entre si: uma pesada e decorativa, a outra leve e de leitura. Escala: texto 19px, subtítulos 1.5rem, títulos de seção 2.4rem, nome da abertura entre 9rem e 22rem. Linhas de texto com até 62 caracteres.
+As duas são bem diferentes entre si: uma pesada e decorativa, a outra leve e de leitura. Escala: texto 19px, subtítulos 1.5rem, títulos de seção 2.4rem, nome da abertura entre 8rem e 20rem. Linhas de texto com até 62 caracteres.
 
 ### Esboço (celular)
 ```
@@ -91,3 +91,9 @@ As duas são bem diferentes entre si: uma pesada e decorativa, a outra leve e de
 
 ## 3. Elemento decorativo retirado antes da entrega
 O furo com barbante desenhado no topo de cada rótulo. Os cantos cortados e a borda dupla já dizem "rótulo". O barbante só pesava.
+
+## 4. Ajuste: mais delicado, sensual e espiritual
+- Títulos trocados para Bodoni Moda; o nome "Vany" em itálico.
+- Rótulos com fio duplo fino no lugar da borda grossa, cantos menores, inclinação mais leve e faixa da inspiração em itálico com um fio embaixo.
+- Botões com borda fina e peso de letra mais leve.
+- Uma luz baixa de vela atrás do nome na abertura. É o único brilho da página.
