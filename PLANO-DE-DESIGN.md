@@ -97,3 +97,7 @@ O furo com barbante desenhado no topo de cada rótulo. Os cantos cortados e a bo
 - Rótulos com fio duplo fino no lugar da borda grossa, cantos menores, inclinação mais leve e faixa da inspiração em itálico com um fio embaixo.
 - Botões com borda fina e peso de letra mais leve.
 - Uma luz baixa de vela atrás do nome na abertura. É o único brilho da página.
+
+## 5. Sistema de design "Terreiro e Acolhimento Espiritual da Vany"
+Substitui as cores e fontes acima. Base Terra Escura #141013, Rubi Terreiro #89182A, Ametista Noturno #35143F, Chama de Vela #D97724, texto #F7EFE8 e #C4B2B8. Fontes: EB Garamond (títulos), Manrope (texto), Space Grotesk (rótulos e botões). Cantos de 4px a 12px, cartões com faixa rubi (pacotes espirituais) ou ametista (holístico e coletivo), brilho de vela no foco e no hover.
+O cinza #806C76 não passa no contraste para texto pequeno sobre o fundo escuro e não é usado em texto corrido.
