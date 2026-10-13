@@ -21,9 +21,15 @@ const CONFIG = {
     holistico:     { assinatura: "[PREENCHER]", pix: "[PREENCHER]", paypal: "[PREENCHER]" }
   },
   avulsos: {
-    avulso1: { cartao: "[PREENCHER]", pix: "[PREENCHER]", paypal: "[PREENCHER]" },
-    avulso2: { cartao: "[PREENCHER]", pix: "[PREENCHER]", paypal: "[PREENCHER]" },
-    avulso3: { cartao: "[PREENCHER]", pix: "[PREENCHER]", paypal: "[PREENCHER]" }
+    consulta:     { pix: "[PREENCHER]", cartao: "[PREENCHER]", paypal: "[PREENCHER]" },
+    caminhos:     { pix: "[PREENCHER]", cartao: "[PREENCHER]", paypal: "[PREENCHER]" },
+    limpeza:      { pix: "[PREENCHER]", cartao: "[PREENCHER]", paypal: "[PREENCHER]" },
+    protecao:     { pix: "[PREENCHER]", cartao: "[PREENCHER]", paypal: "[PREENCHER]" },
+    prosperidade: { pix: "[PREENCHER]", cartao: "[PREENCHER]", paypal: "[PREENCHER]" },
+    demanda:      { pix: "[PREENCHER]", cartao: "[PREENCHER]", paypal: "[PREENCHER]" },
+    adocamento:   { pix: "[PREENCHER]", cartao: "[PREENCHER]", paypal: "[PREENCHER]" },
+    afastamento:  { pix: "[PREENCHER]", cartao: "[PREENCHER]", paypal: "[PREENCHER]" },
+    familia:      { pix: "[PREENCHER]", cartao: "[PREENCHER]", paypal: "[PREENCHER]" }
   },
   portalCliente: "[PREENCHER: link do portal do cliente Stripe]",
   whatsapp: "https://wa.me/555197089510",
@@ -215,7 +221,8 @@ const CONFIG = {
   .avulsos .valor { font-family: var(--titulo); font-size: 1.6rem; }
   .avulsos p { margin: 6px 0 14px; }
   .avulsos .btn { color: var(--fumo); min-height: 48px; padding: 8px 18px; }
-  .avulsos .botoes { display: flex; flex-wrap: wrap; gap: 10px; }
+  .avulsos .outras { margin: 10px 0 0; font-size: 1rem; }
+  .avulsos .outras a { display: inline-block; padding: 10px 0; }
 
   /* Como funciona: sequência real */
   .passos { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 28px; counter-reset: passo; }
@@ -446,37 +453,70 @@ const CONFIG = {
   <section class="avulsos papel" id="avulsos">
     <div class="container">
       <h2>Trabalhos avulsos</h2>
-      <p>Para quem quer um atendimento só, sem pacote mensal.</p>
+      <p>Para quem quer um trabalho só, sem pacote mensal. Se não souber qual escolher, comece pela consulta.</p>
       <ul>
         <li>
-          <div class="linha"><h3>[PREENCHER: nome do trabalho]</h3><span class="valor">R$ [PREENCHER]</span></div>
-          <p>[PREENCHER: descrição curta]</p>
+          <div class="linha"><h3>Consulta de búzios, tarô ou cartas</h3><span class="valor">R$ [PREENCHER]</span></div>
+          <p>Normalmente é o primeiro passo, antes de qualquer trabalho. [PREENCHER: como é feita e quanto tempo dura]</p>
           <p class="pix">No Pix: R$ [PREENCHER]</p>
-          <div class="botoes">
-            <a class="btn btn-linha" data-link="avulsos.avulso1.pix">Pagar no Pix</a>
-            <a class="btn btn-linha" data-link="avulsos.avulso1.cartao">Pagar no cartão</a>
-            <a class="btn btn-linha" data-link="avulsos.avulso1.paypal">Pagar no PayPal</a>
-          </div>
+          <a class="btn btn-linha" data-link="avulsos.consulta.pix">Pagar no Pix</a>
+          <p class="outras">Ou pague <a data-link="avulsos.consulta.cartao">no cartão</a> ou <a data-link="avulsos.consulta.paypal">no PayPal</a>.</p>
         </li>
         <li>
-          <div class="linha"><h3>[PREENCHER: nome do trabalho]</h3><span class="valor">R$ [PREENCHER]</span></div>
-          <p>[PREENCHER: descrição curta]</p>
+          <div class="linha"><h3>Abertura de caminhos</h3><span class="valor">R$ [PREENCHER]</span></div>
+          <p>Para quando a vida parece travada.</p>
           <p class="pix">No Pix: R$ [PREENCHER]</p>
-          <div class="botoes">
-            <a class="btn btn-linha" data-link="avulsos.avulso2.pix">Pagar no Pix</a>
-            <a class="btn btn-linha" data-link="avulsos.avulso2.cartao">Pagar no cartão</a>
-            <a class="btn btn-linha" data-link="avulsos.avulso2.paypal">Pagar no PayPal</a>
-          </div>
+          <a class="btn btn-linha" data-link="avulsos.caminhos.pix">Pagar no Pix</a>
+          <p class="outras">Ou pague <a data-link="avulsos.caminhos.cartao">no cartão</a> ou <a data-link="avulsos.caminhos.paypal">no PayPal</a>.</p>
         </li>
         <li>
-          <div class="linha"><h3>[PREENCHER: nome do trabalho]</h3><span class="valor">R$ [PREENCHER]</span></div>
-          <p>[PREENCHER: descrição curta]</p>
+          <div class="linha"><h3>Limpeza espiritual e descarrego</h3><span class="valor">R$ [PREENCHER]</span></div>
+          <p>Para tirar o peso que ficou de pessoas, lugares e situações.</p>
           <p class="pix">No Pix: R$ [PREENCHER]</p>
-          <div class="botoes">
-            <a class="btn btn-linha" data-link="avulsos.avulso3.pix">Pagar no Pix</a>
-            <a class="btn btn-linha" data-link="avulsos.avulso3.cartao">Pagar no cartão</a>
-            <a class="btn btn-linha" data-link="avulsos.avulso3.paypal">Pagar no PayPal</a>
-          </div>
+          <a class="btn btn-linha" data-link="avulsos.limpeza.pix">Pagar no Pix</a>
+          <p class="outras">Ou pague <a data-link="avulsos.limpeza.cartao">no cartão</a> ou <a data-link="avulsos.limpeza.paypal">no PayPal</a>.</p>
+        </li>
+        <li>
+          <div class="linha"><h3>Proteção espiritual e fechamento de corpo</h3><span class="valor">R$ [PREENCHER]</span></div>
+          <p>Para se proteger de quem não quer o seu bem.</p>
+          <p class="pix">No Pix: R$ [PREENCHER]</p>
+          <a class="btn btn-linha" data-link="avulsos.protecao.pix">Pagar no Pix</a>
+          <p class="outras">Ou pague <a data-link="avulsos.protecao.cartao">no cartão</a> ou <a data-link="avulsos.protecao.paypal">no PayPal</a>.</p>
+        </li>
+        <li>
+          <div class="linha"><h3>Prosperidade, dinheiro e emprego</h3><span class="valor">R$ [PREENCHER]</span></div>
+          <p>Para pedir firmeza na vida financeira e no trabalho.</p>
+          <p class="pix">No Pix: R$ [PREENCHER]</p>
+          <a class="btn btn-linha" data-link="avulsos.prosperidade.pix">Pagar no Pix</a>
+          <p class="outras">Ou pague <a data-link="avulsos.prosperidade.cartao">no cartão</a> ou <a data-link="avulsos.prosperidade.paypal">no PayPal</a>.</p>
+        </li>
+        <li>
+          <div class="linha"><h3>Quebra de demanda e desmanche de feitiço</h3><span class="valor">R$ [PREENCHER]</span></div>
+          <p>Para quem sente que tem trabalho feito contra si.</p>
+          <p class="pix">No Pix: R$ [PREENCHER]</p>
+          <a class="btn btn-linha" data-link="avulsos.demanda.pix">Pagar no Pix</a>
+          <p class="outras">Ou pague <a data-link="avulsos.demanda.cartao">no cartão</a> ou <a data-link="avulsos.demanda.paypal">no PayPal</a>.</p>
+        </li>
+        <li>
+          <div class="linha"><h3>Adoçamento e união do casal</h3><span class="valor">R$ [PREENCHER]</span></div>
+          <p>Para adoçar e fortalecer a relação.</p>
+          <p class="pix">No Pix: R$ [PREENCHER]</p>
+          <a class="btn btn-linha" data-link="avulsos.adocamento.pix">Pagar no Pix</a>
+          <p class="outras">Ou pague <a data-link="avulsos.adocamento.cartao">no cartão</a> ou <a data-link="avulsos.adocamento.paypal">no PayPal</a>.</p>
+        </li>
+        <li>
+          <div class="linha"><h3>Afastamento e separação</h3><span class="valor">R$ [PREENCHER]</span></div>
+          <p>Para afastar uma rival ou uma pessoa indesejada.</p>
+          <p class="pix">No Pix: R$ [PREENCHER]</p>
+          <a class="btn btn-linha" data-link="avulsos.afastamento.pix">Pagar no Pix</a>
+          <p class="outras">Ou pague <a data-link="avulsos.afastamento.cartao">no cartão</a> ou <a data-link="avulsos.afastamento.paypal">no PayPal</a>.</p>
+        </li>
+        <li>
+          <div class="linha"><h3>Saúde e questões de família</h3><span class="valor">R$ [PREENCHER]</span></div>
+          <p>Apoio espiritual em momentos difíceis de saúde e de família. Não substitui médico nem tratamento.</p>
+          <p class="pix">No Pix: R$ [PREENCHER]</p>
+          <a class="btn btn-linha" data-link="avulsos.familia.pix">Pagar no Pix</a>
+          <p class="outras">Ou pague <a data-link="avulsos.familia.cartao">no cartão</a> ou <a data-link="avulsos.familia.paypal">no PayPal</a>.</p>
         </li>
       </ul>
     </div>
