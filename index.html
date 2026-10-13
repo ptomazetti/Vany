@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script>
+/* =========================================================
+   LINKS DE PAGAMENTO, CONTATO E CONFIGURAÇÃO
+   Troque só o que está entre aspas. Nada mais precisa mudar.
+   ========================================================= */
+const CONFIG = {
+  pacotes: {
+    paginaVirada:  { assinatura: "[PREENCHER: link Stripe assinatura]", pix: "[PREENCHER: link Stripe avulso Pix]" },
+    fogoPadilha:   { assinatura: "[PREENCHER: link Stripe assinatura]", pix: "[PREENCHER: link Stripe avulso Pix]" },
+    melOxum:       { assinatura: "[PREENCHER: link Stripe assinatura]", pix: "[PREENCHER: link Stripe avulso Pix]" },
+    brilho:        { assinatura: "[PREENCHER: link Stripe assinatura]", pix: "[PREENCHER: link Stripe avulso Pix]" },
+    holistico:     { assinatura: "[PREENCHER: link Stripe assinatura]", pix: "[PREENCHER: link Stripe avulso Pix]" }
+  },
+  avulsos: {
+    avulso1: "[PREENCHER: link Stripe]",
+    avulso2: "[PREENCHER: link Stripe]",
+    avulso3: "[PREENCHER: link Stripe]"
+  },
+  portalCliente: "[PREENCHER: link do portal do cliente Stripe]",
+  whatsapp: "[PREENCHER: link wa.me, ex. https://wa.me/5511999999999]",
+  email: "[PREENCHER: e-mail]",
+  instagram: "[PREENCHER: link do Instagram]"
+};
+</script>
+
+<title>Vany | Trabalhos espirituais e holísticos</title>
+<meta name="description" content="Vany, mãe de santo e terapeuta holística. Pacotes mensais de trabalhos espirituais e holísticos, com atendimento pelo WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Vany | Trabalhos espirituais e holísticos">
+<meta property="og:description" content="Pacotes mensais de trabalhos espirituais e holísticos com a Vany, mãe de santo e terapeuta holística.">
+<meta property="og:image" content="fotos/compartilhamento.jpg">
+<meta property="og:image:alt" content="Vany, mãe de santo e terapeuta holística">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#3B1A17">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --creme: #F7EFE4;
+    --areia: #EDE0CE;
+    --terra: #8E4426;
+    --vinho: #5A1E1E;
+    --noite: #2A1512;
+    --ouro: #C49A4A;
+    --ouro-texto: #7D5A1B;
+    --texto: #2A1A14;
+    --texto-suave: #5C4A3F;
+    --branco: #FFFDF9;
+    --raio: 14px;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--creme);
+    color: var(--texto);
+    font-family: var(--sans);
+    font-size: 18px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--terra); }
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 3px solid var(--ouro);
+    outline-offset: 3px;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 0 0 .5em;
+  }
+  h1 { font-size: clamp(3.2rem, 14vw, 6rem); letter-spacing: .01em; }
+  h2 { font-size: clamp(2.1rem, 8vw, 3.2rem); }
+  h3 { font-size: 1.75rem; }
+  p { margin: 0 0 1em; }
+
+  .container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 72px 0; }
+  .rotulo {
+    display: inline-block;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ouro-texto);
+    margin-bottom: 12px;
+  }
+  .ornamento {
+    width: 64px; height: 2px; background: var(--ouro);
+    margin: 0 0 24px; border: 0;
+  }
+  .centro { text-align: center; }
+  .centro .ornamento { margin-left: auto; margin-right: auto; }
+  .intro { max-width: 640px; color: var(--texto-suave); }
+  .centro .intro { margin-left: auto; margin-right: auto; }
+
+  /* Botões */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 52px; padding: 14px 28px;
+    border-radius: 999px; border: 2px solid transparent;
+    font-family: var(--sans); font-size: 1rem; font-weight: 600;
+    text-decoration: none; text-align: center; cursor: pointer;
+    transition: transform .15s ease, background .15s ease;
+  }
+  .btn:active { transform: scale(.98); }
+  .btn-principal { background: var(--vinho); color: var(--branco); }
+  .btn-principal:hover { background: var(--noite); }
+  .btn-ouro { background: var(--ouro); color: var(--noite); }
+  .btn-ouro:hover { background: #D4AC5E; }
+  .btn-contorno { background: transparent; color: var(--vinho); border-color: var(--vinho); }
+  .btn-contorno:hover { background: var(--vinho); color: var(--branco); }
+
+  /* Topo */
+  .topo {
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(42, 21, 18, .96);
+    color: var(--creme);
+  }
+  .topo .container { display: flex; align-items: center; justify-content: space-between; min-height: 60px; }
+  .marca { font-family: var(--serif); font-size: 1.7rem; font-weight: 600; color: var(--creme); text-decoration: none; }
+  .menu-btn {
+    background: none; border: 0; color: var(--creme);
+    font: 600 .95rem var(--sans); min-height: 48px; padding: 0 4px; cursor: pointer;
+  }
+  .nav { display: none; }
+  .nav.aberto {
+    display: block; position: absolute; top: 60px; left: 0; right: 0;
+    background: var(--noite); padding: 8px 20px 20px;
+  }
+  .nav a {
+    display: block; color: var(--creme); text-decoration: none;
+    padding: 12px 0; border-bottom: 1px solid rgba(196, 154, 74, .25);
+  }
+
+  /* Abertura */
+  .abertura {
+    position: relative;
+    background: radial-gradient(ellipse at 50% 0%, #6B2A22 0%, var(--noite) 70%);
+    color: var(--creme);
+    padding: 64px 0 80px;
+    overflow: hidden;
+  }
+  .abertura .container { display: grid; gap: 36px; }
+  .abertura .rotulo { color: var(--ouro); }
+  .abertura p.frase {
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(1.4rem, 5.5vw, 1.9rem); line-height: 1.4;
+    max-width: 520px; color: #F3E6D3;
+  }
+  .abertura .acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+  .abertura .btn-contorno { color: var(--creme); border-color: var(--ouro); }
+  .abertura .btn-contorno:hover { background: var(--ouro); color: var(--noite); }
+
+  .foto {
+    position: relative;
+    background: linear-gradient(160deg, #A65A3A, #5A1E1E);
+    border-radius: var(--raio);
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+  .foto::after {
+    content: attr(data-label);
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px; text-align: center;
+    color: rgba(255, 253, 249, .85); font-size: .95rem;
+  }
+  .foto img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
+  .abertura .foto { border: 1px solid rgba(196, 154, 74, .5); }
+
+  /* Sobre */
+  .sobre .container { display: grid; gap: 36px; }
+  .sobre .detalhes {
+    display: grid; gap: 12px; margin-top: 24px;
+    padding: 20px; background: var(--areia); border-radius: var(--raio);
+    font-size: 1rem;
+  }
+  .sobre .detalhes strong { color: var(--vinho); }
+
+  /* Pacotes */
+  .pacotes { background: var(--areia); }
+  .cartoes { display: grid; gap: 24px; margin-top: 40px; }
+  .cartao {
+    background: var(--branco);
+    border-radius: var(--raio);
+    padding: 28px 24px;
+    border-top: 5px solid var(--cor, var(--terra));
+    box-shadow: 0 6px 24px rgba(42, 21, 18, .07);
+    display: flex; flex-direction: column;
+  }
+  .cartao .inspiracao {
+    font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--cor-texto, var(--terra));
+  }
+  .cartao h3 { margin-top: 6px; }
+  .cartao .para-quem { color: var(--texto-suave); }
+  .cartao h4 { font-size: .95rem; margin: 12px 0 6px; color: var(--vinho); }
+  .cartao ul { margin: 0 0 16px; padding-left: 20px; }
+  .preco {
+    font-family: var(--serif); font-size: 2.2rem; font-weight: 600; color: var(--vinho);
+    margin: auto 0 4px; line-height: 1.2;
+  }
+  .preco small { font-family: var(--sans); font-size: 1rem; font-weight: 500; color: var(--texto-suave); }
+  .cartao .botoes { display: grid; gap: 10px; margin-top: 16px; }
+  .cartao .btn { width: 100%; }
+  .nota-pix { font-size: .85rem; color: var(--texto-suave); margin: 10px 0 0; text-align: center; }
+
+  .c-iansa   { --cor: #8E4426; --cor-texto: #8E4426; }
+  .c-padilha { --cor: #8B1A1A; --cor-texto: #8B1A1A; }
+  .c-oxum    { --cor: #C49A4A; --cor-texto: #7D5A1B; }
+  .c-brilho  { --cor: #6B4A2B; --cor-texto: #6B4A2B; }
+  .c-holistico { --cor: #4F6146; --cor-texto: #4F6146; }
+
+  .aviso-curto {
+    margin: 32px auto 0; max-width: 720px; text-align: center;
+    font-size: .95rem; color: var(--texto-suave);
+  }
+
+  /* Avulsos */
+  .lista-avulsos { display: grid; gap: 16px; margin-top: 32px; }
+  .avulso {
+    display: grid; gap: 8px;
+    padding: 22px 20px; border: 1px solid #D9C6AC; border-radius: var(--raio);
+    background: var(--branco);
+  }
+  .avulso h3 { font-size: 1.5rem; margin: 0; }
+  .avulso p { margin: 0; color: var(--texto-suave); }
+  .avulso .preco { font-size: 1.7rem; margin: 6px 0; }
+  .avulso .btn { width: 100%; }
+
+  /* Como funciona */
+  .como { background: var(--noite); color: var(--creme); }
+  .como .rotulo { color: var(--ouro); }
+  .como .intro { color: #E6D6C0; }
+  .passos { list-style: none; padding: 0; margin: 40px 0 0; display: grid; gap: 20px; counter-reset: passo; }
+  .passos li {
+    counter-increment: passo;
+    position: relative; padding: 20px 20px 20px 76px;
+    border: 1px solid rgba(196, 154, 74, .35); border-radius: var(--raio);
+  }
+  .passos li::before {
+    content: counter(passo);
+    position: absolute; left: 20px; top: 18px;
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--ouro); color: var(--noite);
+    font-family: var(--serif); font-size: 1.4rem; font-weight: 600;
+  }
+  .passos strong { display: block; font-family: var(--serif); font-size: 1.4rem; color: #FFF6E8; }
+  .passos span { color: #E6D6C0; }
+
+  /* FAQ e Políticas */
+  .faq-lista, .politicas-lista { margin-top: 32px; display: grid; gap: 12px; max-width: 760px; }
+  details {
+    background: var(--branco); border-radius: var(--raio);
+    border: 1px solid #E0CFB8;
+  }
+  summary {
+    list-style: none; cursor: pointer;
+    padding: 18px 52px 18px 20px; min-height: 56px;
+    font-weight: 600; position: relative;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+"; position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+    font-size: 1.6rem; color: var(--terra); font-weight: 400;
+  }
+  details[open] summary::after { content: "−"; }
+  details .resposta { padding: 0 20px 18px; color: var(--texto-suave); }
+  details .resposta ul { padding-left: 20px; margin: 0 0 1em; }
+
+  .politicas { background: var(--areia); }
+
+  /* Contato */
+  .contato-lista { display: grid; gap: 12px; margin-top: 32px; max-width: 520px; }
+  .contato-lista .btn { width: 100%; justify-content: flex-start; gap: 12px; }
+  .contato-lista svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+  /* Rodapé */
+  footer {
+    background: var(--noite); color: #D8C6AE;
+    padding: 48px 0 110px; font-size: .95rem;
+  }
+  footer .marca { display: inline-block; margin-bottom: 12px; }
+  footer nav { display: grid; gap: 4px; margin: 20px 0; }
+  footer nav a { color: #F3E6D3; text-decoration: none; padding: 8px 0; }
+  footer nav a:hover { color: var(--ouro); }
+  footer .pequeno { font-size: .85rem; color: #B8A48C; }
+
+  /* WhatsApp fixo */
+  .whats-fixo {
+    position: fixed; right: 16px; bottom: 16px; z-index: 30;
+    width: 62px; height: 62px; border-radius: 50%;
+    background: #1F7A4D; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .3);
+  }
+  .whats-fixo svg { width: 32px; height: 32px; }
+
+  /* Tablet e desktop */
+  @media (min-width: 720px) {
+    section { padding: 96px 0; }
+    .cartoes { grid-template-columns: repeat(2, 1fr); }
+    .lista-avulsos { grid-template-columns: repeat(2, 1fr); }
+    .passos { grid-template-columns: repeat(2, 1fr); }
+    .cartao .botoes { grid-template-columns: 1fr; }
+  }
+  @media (min-width: 960px) {
+    .menu-btn { display: none; }
+    .nav, .nav.aberto { display: flex; gap: 24px; position: static; background: none; padding: 0; }
+    .nav a { border: 0; padding: 8px 0; font-size: .95rem; }
+    .abertura { padding: 96px 0 112px; }
+    .abertura .container { grid-template-columns: 1.15fr .85fr; align-items: center; gap: 56px; }
+    .sobre .container { grid-template-columns: .85fr 1.15fr; align-items: center; gap: 64px; }
+    .cartoes { grid-template-columns: repeat(3, 1fr); }
+    .lista-avulsos { grid-template-columns: repeat(3, 1fr); }
+    .passos { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#conteudo" class="btn btn-ouro" style="position:absolute;left:-9999px;top:8px" onfocus="this.style.left='8px'" onblur="this.style.left='-9999px'">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="container">
+    <a href="#inicio" class="marca">Vany</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu" id="menu-btn">Menu</button>
+    <nav class="nav" id="menu" aria-label="Menu principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#pacotes">Pacotes</a>
+      <a href="#avulsos">Avulsos</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#perguntas">Perguntas</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- 1. ABERTURA -->
+  <section class="abertura" id="inicio">
+    <div class="container">
+      <div>
+        <span class="rotulo">Mãe de santo e terapeuta holística</span>
+        <h1>Vany</h1>
+        <p class="frase">[PREENCHER: uma frase da Vany sobre o trabalho dela]</p>
+        <div class="acoes">
+          <a href="#pacotes" class="btn btn-ouro">Ver pacotes</a>
+          <a href="#como-funciona" class="btn btn-contorno">Como funciona</a>
+        </div>
+      </div>
+      <div class="foto" data-label="[FOTO DA VANY]">
+        <img src="fotos/vany-abertura.jpg" alt="[PREENCHER: descrição da foto, ex. Vany sorrindo no terreiro]" onerror="this.remove()">
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="container">
+      <div class="foto" data-label="[FOTO DO ESPAÇO]">
+        <img src="fotos/espaco.jpg" alt="[PREENCHER: descrição da foto do espaço]" loading="lazy" onerror="this.remove()">
+      </div>
+      <div>
+        <span class="rotulo">Sobre a Vany</span>
+        <h2>Quem cuida do seu trabalho</h2>
+        <hr class="ornamento">
+        <p>Vany responde a Iansã e à Pombagira Rainha.</p>
+        <p>[PREENCHER: história curta da Vany, com as palavras dela]</p>
+        <div class="detalhes">
+          <div><strong>Tradição:</strong> [PREENCHER: Umbanda / Candomblé / outra]</div>
+          <div><strong>Atendimento:</strong> [PREENCHER: online / presencial em CIDADE / os dois]</div>
+          <div><strong>Onde atende:</strong> clientes no Brasil e no exterior, em português.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. PACOTES MENSAIS -->
+  <section class="pacotes" id="pacotes">
+    <div class="container">
+      <div class="centro">
+        <span class="rotulo">Pacotes mensais</span>
+        <h2>Escolha o seu caminho</h2>
+        <hr class="ornamento">
+        <p class="intro">Cada pacote é um acompanhamento de um mês. Você pode assinar no cartão ou pagar um mês no Pix.</p>
+      </div>
+
+      <div class="cartoes">
+
+        <article class="cartao c-iansa">
+          <span class="inspiracao">Inspiração: Iansã</span>
+          <h3>[CONFIRMAR NOME: Página Virada ou Castigo do Ex]</h3>
+          <p class="para-quem">Para quem quer cortar o laço com o ex e seguir em frente.</p>
+          <h4>O que inclui no mês</h4>
+          <ul>
+            <li>[PREENCHER]</li>
+          </ul>
+          <p class="preco">R$ [PREENCHER] <small>por mês</small></p>
+          <div class="botoes">
+            <a class="btn btn-principal" data-link="pacotes.paginaVirada.assinatura">Assinar no cartão</a>
+            <a class="btn btn-contorno" data-link="pacotes.paginaVirada.pix">Pagar 1 mês no Pix</a>
+          </div>
+        </article>
+
+        <article class="cartao c-padilha">
+          <span class="inspiracao">Inspiração: Pombagira Maria Padilha</span>
+          <h3>Fogo de Padilha</h3>
+          <p class="para-quem">Para libido, afastamento de rivais e abafado de emoções.</p>
+          <h4>O que inclui no mês</h4>
+          <ul>
+            <li>[PREENCHER]</li>
+          </ul>
+          <p class="preco">R$ [PREENCHER] <small>por mês</small></p>
+          <div class="botoes">
+            <a class="btn btn-principal" data-link="pacotes.fogoPadilha.assinatura">Assinar no cartão</a>
+            <a class="btn btn-contorno" data-link="pacotes.fogoPadilha.pix">Pagar 1 mês no Pix</a>
+          </div>
+        </article>
+
+        <article class="cartao c-oxum">
+          <span class="inspiracao">Inspiração: Oxum</span>
+          <h3>Mel de Oxum</h3>
+          <p class="para-quem">Para fortalecer e adoçar a relação.</p>
+          <h4>O que inclui no mês</h4>
+          <ul>
+            <li>[PREENCHER]</li>
+          </ul>
+          <p class="preco">R$ [PREENCHER] <small>por mês</small></p>
+          <div class="botoes">
+            <a class="btn btn-principal" data-link="pacotes.melOxum.assinatura">Assinar no cartão</a>
+            <a class="btn btn-contorno" data-link="pacotes.melOxum.pix">Pagar 1 mês no Pix</a>
+          </div>
+        </article>
+
+        <article class="cartao c-brilho">
+          <span class="inspiracao">Inspiração: Cleópatra</span>
+          <h3>Brilho de Cleópatra</h3>
+          <p class="para-quem">Para brilho feminino, autoestima e magnetismo.</p>
+          <h4>O que inclui no mês</h4>
+          <ul>
+            <li>[PREENCHER]</li>
+          </ul>
+          <p class="preco">R$ [PREENCHER] <small>por mês</small></p>
+          <div class="botoes">
+            <a class="btn btn-principal" data-link="pacotes.brilho.assinatura">Assinar no cartão</a>
+            <a class="btn btn-contorno" data-link="pacotes.brilho.pix">Pagar 1 mês no Pix</a>
+          </div>
+        </article>
+
+        <article class="cartao c-holistico">
+          <span class="inspiracao">Terapias holísticas</span>
+          <h3>[PREENCHER: nome do pacote holístico]</h3>
+          <p class="para-quem">[PREENCHER: para quem é]</p>
+          <h4>O que inclui no mês</h4>
+          <ul>
+            <li>[PREENCHER: trabalhos incluídos]</li>
+          </ul>
+          <p class="preco">R$ [PREENCHER] <small>por mês</small></p>
+          <div class="botoes">
+            <a class="btn btn-principal" data-link="pacotes.holistico.assinatura">Assinar no cartão</a>
+            <a class="btn btn-contorno" data-link="pacotes.holistico.pix">Pagar 1 mês no Pix</a>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="aviso-curto">A assinatura no cartão renova todo mês até você cancelar. O Pix paga um mês, sem renovação. Os trabalhos são espirituais, baseados em fé, e não têm resultado nem prazo garantidos.</p>
+    </div>
+  </section>
+
+  <!-- 4. TRABALHOS HOLÍSTICOS AVULSOS -->
+  <section id="avulsos">
+    <div class="container">
+      <span class="rotulo">Avulsos</span>
+      <h2>Trabalhos holísticos avulsos</h2>
+      <hr class="ornamento">
+      <p class="intro">Para quem quer um atendimento só, sem pacote mensal.</p>
+
+      <div class="lista-avulsos">
+        <div class="avulso">
+          <h3>[PREENCHER: nome do trabalho]</h3>
+          <p>[PREENCHER: descrição curta]</p>
+          <p class="preco">R$ [PREENCHER]</p>
+          <a class="btn btn-contorno" data-link="avulsos.avulso1">Quero este</a>
+        </div>
+        <div class="avulso">
+          <h3>[PREENCHER: nome do trabalho]</h3>
+          <p>[PREENCHER: descrição curta]</p>
+          <p class="preco">R$ [PREENCHER]</p>
+          <a class="btn btn-contorno" data-link="avulsos.avulso2">Quero este</a>
+        </div>
+        <div class="avulso">
+          <h3>[PREENCHER: nome do trabalho]</h3>
+          <p>[PREENCHER: descrição curta]</p>
+          <p class="preco">R$ [PREENCHER]</p>
+          <a class="btn btn-contorno" data-link="avulsos.avulso3">Quero este</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. COMO FUNCIONA -->
+  <section class="como" id="como-funciona">
+    <div class="container">
+      <span class="rotulo">Como funciona</span>
+      <h2>Quatro passos simples</h2>
+      <hr class="ornamento">
+      <p class="intro">Sem formulário longo. Depois do pagamento, a conversa segue pelo WhatsApp.</p>
+      <ol class="passos">
+        <li><strong>Escolha</strong><span>Veja os pacotes e escolha o que faz sentido para você agora.</span></li>
+        <li><strong>Pague</strong><span>Assine no cartão ou pague um mês no Pix. O pagamento é feito pela Stripe.</span></li>
+        <li><strong>Converse</strong><span>A Vany chama você no WhatsApp em até [PREENCHER: prazo] para entender o seu caso.</span></li>
+        <li><strong>Trabalho feito</strong><span>A Vany realiza o trabalho e mantém você informada durante o mês.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 6. DEPOIMENTOS
+       Só ativar com depoimentos reais enviados pela Vany e autorizados pelos clientes.
+       Para ativar: apagar as linhas de comentário em volta da seção abaixo.
+  <section id="depoimentos">
+    <div class="container">
+      <span class="rotulo">Depoimentos</span>
+      <h2>Quem já passou por aqui</h2>
+      <hr class="ornamento">
+      <blockquote>"[texto real do cliente]"<br><cite>[nome ou iniciais, com autorização]</cite></blockquote>
+    </div>
+  </section>
+  -->
+
+  <!-- 7. PERGUNTAS FREQUENTES -->
+  <section id="perguntas">
+    <div class="container">
+      <span class="rotulo">Perguntas frequentes</span>
+      <h2>Antes de escolher</h2>
+      <hr class="ornamento">
+      <div class="faq-lista">
+        <details>
+          <summary>Como recebo o trabalho?</summary>
+          <div class="resposta"><p>Depois do pagamento, a Vany entra em contato pelo WhatsApp em até [PREENCHER: prazo]. Ela pede as informações necessárias e explica como o trabalho vai ser feito. [PREENCHER: se envia fotos, vídeos ou relatório do trabalho]</p></div>
+        </details>
+        <details>
+          <summary>Quanto tempo leva?</summary>
+          <div class="resposta"><p>Cada pacote cobre um mês de trabalho. O tempo de cada pessoa é diferente, e por isso não existe prazo garantido de resultado. [PREENCHER: detalhes da Vany]</p></div>
+        </details>
+        <details>
+          <summary>Posso cancelar?</summary>
+          <div class="resposta"><p>Sim. A assinatura no cartão pode ser cancelada a qualquer momento pelo <a data-link="portalCliente">portal do cliente</a>. O cancelamento vale para as próximas cobranças. Veja a <a href="#politica-cancelamento">política de cancelamento</a>.</p></div>
+        </details>
+        <details>
+          <summary>Atende fora do Brasil?</summary>
+          <div class="resposta"><p>Sim. A Vany atende clientes no Brasil e no exterior, em português. O pagamento no cartão funciona de qualquer país. [PREENCHER: confirmar se o Pix está disponível para quem está fora]</p></div>
+        </details>
+        <details>
+          <summary>Quais as formas de pagamento?</summary>
+          <div class="resposta"><p>Cartão de crédito, em assinatura mensal, ou Pix, para pagar um mês. Os dois são processados pela Stripe. O site não guarda dados de cartão.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CONTATO -->
+  <section class="pacotes" id="contato">
+    <div class="container">
+      <span class="rotulo">Contato</span>
+      <h2>Fale com a Vany</h2>
+      <hr class="ornamento">
+      <p class="intro">Ficou com alguma dúvida? Mande uma mensagem.</p>
+      <div class="contato-lista">
+        <a class="btn btn-principal" data-link="whatsapp">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3z"/></svg>
+          WhatsApp: [PREENCHER: número]
+        </a>
+        <a class="btn btn-contorno" data-link="email" data-tipo="email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          [PREENCHER: e-mail]
+        </a>
+        <a class="btn btn-contorno" data-link="instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          Instagram: [PREENCHER: @]
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POLÍTICAS -->
+  <section class="politicas" id="politicas">
+    <div class="container">
+      <span class="rotulo">Políticas</span>
+      <h2>Regras claras</h2>
+      <hr class="ornamento">
+      <div class="politicas-lista">
+
+        <details id="politica-reembolso">
+          <summary>Reembolso e disputas</summary>
+          <div class="resposta">
+            <p>[PREENCHER: regras de reembolso da Vany, por exemplo em quais casos devolve o valor e em quanto tempo]</p>
+            <p>Se tiver qualquer problema com um pagamento, fale primeiro com a Vany pelo WhatsApp ou e-mail. A maioria das questões se resolve numa conversa. [PREENCHER: prazo de resposta e como funciona uma disputa]</p>
+          </div>
+        </details>
+
+        <details id="politica-cancelamento">
+          <summary>Cancelamento da assinatura</summary>
+          <div class="resposta">
+            <p>Você pode cancelar a assinatura a qualquer momento pelo <a data-link="portalCliente">portal do cliente da Stripe</a>, usando o e-mail da compra.</p>
+            <p>[PREENCHER: regras da Vany, por exemplo se o mês já pago continua até o fim]</p>
+            <p>O pagamento no Pix vale para um mês e não renova sozinho.</p>
+          </div>
+        </details>
+
+        <details id="politica-privacidade">
+          <summary>Privacidade</summary>
+          <div class="resposta">
+            <p>Coletamos só o necessário para fazer o seu trabalho e falar com você:</p>
+            <ul>
+              <li>Nome, e-mail e telefone, informados no pagamento, para identificar a sua compra e entrar em contato.</li>
+              <li>Informações que você compartilha com a Vany no WhatsApp, usadas apenas para realizar o trabalho.</li>
+            </ul>
+            <p>Os seus dados não são vendidos nem compartilhados com terceiros, exceto a Stripe, que processa o pagamento. Para pedir a exclusão dos seus dados, fale com a Vany pelo e-mail ou WhatsApp. [PREENCHER: confirmar com a Vany se usa outras ferramentas, como planilhas ou agenda]</p>
+          </div>
+        </details>
+
+        <details id="politica-seguranca">
+          <summary>Segurança do pagamento</summary>
+          <div class="resposta">
+            <p>Todo pagamento é processado pela Stripe, em página segura da própria Stripe. Este site não recebe nem guarda dados de cartão.</p>
+          </div>
+        </details>
+
+        <details id="aviso">
+          <summary>Aviso importante</summary>
+          <div class="resposta">
+            <p>Os trabalhos oferecidos aqui são espirituais e holísticos, baseados em fé. Não há garantia de resultado nem de prazo.</p>
+            <p>Eles não substituem acompanhamento médico, psicológico ou jurídico. Se você está passando por um problema de saúde, emocional ou legal, procure também um profissional da área.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 9. RODAPÉ -->
+<footer>
+  <div class="container">
+    <a href="#inicio" class="marca">Vany</a>
+    <p>Mãe de santo e terapeuta holística.</p>
+    <nav aria-label="Políticas">
+      <a href="#politica-reembolso">Reembolso e disputas</a>
+      <a href="#politica-cancelamento">Cancelamento da assinatura</a>
+      <a href="#politica-privacidade">Privacidade</a>
+      <a href="#politica-seguranca">Segurança do pagamento</a>
+      <a href="#aviso">Aviso importante</a>
+    </nav>
+    <p class="pequeno">Pagamentos processados pela Stripe. Trabalhos espirituais baseados em fé, sem garantia de resultado.</p>
+    <p class="pequeno">© <span id="ano"></span> Vany.</p>
+  </div>
+</footer>
+
+<a class="whats-fixo" data-link="whatsapp" aria-label="Falar com a Vany no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3z"/></svg>
+</a>
+
+<script>
+  // Liga cada botão ao link certo do CONFIG
+  document.querySelectorAll("[data-link]").forEach(function (el) {
+    var valor = el.dataset.link.split(".").reduce(function (o, k) { return o && o[k]; }, CONFIG);
+    var pronto = typeof valor === "string" && valor.indexOf("PREENCHER") === -1;
+    if (pronto) {
+      el.href = el.dataset.tipo === "email" ? "mailto:" + valor : valor;
+      if (el.dataset.tipo !== "email") { el.target = "_blank"; el.rel = "noopener"; }
+    } else {
+      el.href = "#";
+      el.addEventListener("click", function (e) {
+        e.preventDefault();
+        alert("Link ainda não configurado.");
+      });
+    }
+  });
+
+  // Menu no celular
+  var menuBtn = document.getElementById("menu-btn");
+  var menu = document.getElementById("menu");
+  menuBtn.addEventListener("click", function () {
+    var aberto = menu.classList.toggle("aberto");
+    menuBtn.setAttribute("aria-expanded", aberto);
+    menuBtn.textContent = aberto ? "Fechar" : "Menu";
+  });
+  menu.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function () {
+      menu.classList.remove("aberto");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.textContent = "Menu";
+    });
+  });
+
+  // Abre a política certa quando vem de um link
+  function abrirDoHash() {
+    var alvo = location.hash && document.querySelector(location.hash);
+    if (alvo && alvo.tagName === "DETAILS") { alvo.open = true; }
+  }
+  window.addEventListener("hashchange", abrirDoHash);
+  abrirDoHash();
+
+  document.getElementById("ano").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
