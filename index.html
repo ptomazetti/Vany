@@ -42,11 +42,11 @@ const CONFIG = {
 </script>
 
 <title>Vany | Trabalhos espirituais e terapias holísticas</title>
-<meta name="description" content="Trabalhos espirituais e terapias holísticas com a Vany, em [PREENCHER: cidade] e online. Pacotes mensais e acompanhamento pelo WhatsApp.">
+<meta name="description" content="Trabalhos espirituais e terapias holísticas com a Vany, para quem está no Brasil ou fora dele. Pacotes mensais e acompanhamento pelo WhatsApp.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Vany | Trabalhos espirituais e terapias holísticas">
-<meta property="og:description" content="Trabalhos espirituais e terapias holísticas com a Vany, em [PREENCHER: cidade] e online. Pacotes mensais e acompanhamento pelo WhatsApp.">
+<meta property="og:description" content="Trabalhos espirituais e terapias holísticas com a Vany, para quem está no Brasil ou fora dele. Pacotes mensais e acompanhamento pelo WhatsApp.">
 <!-- O WhatsApp e o Instagram só mostram a imagem com o endereço completo: trocar pelo domínio do site -->
 <meta property="og:image" content="https://[PREENCHER-DOMINIO]/fotos/altar-velas.jpg">
 <meta property="og:image:alt" content="Mesa de trabalho à luz de velas">
@@ -449,14 +449,7 @@ const CONFIG = {
   /* Computador */
   @media (min-width: 1024px) {
     .container { padding: 0 3rem; }
-    .abertura .container { display: grid; grid-template-columns: 1.2fr .8fr; align-items: start; gap: 0 3.5rem; }
-    .nome { grid-column: 1 / -1; }
-    .abertura .foto { grid-column: 2; grid-row: 2 / span 2; margin: 0; align-self: start; }
-    .abertura .texto { grid-column: 1; grid-row: 2; }
-    .procura { grid-column: 1; grid-row: 3; }
-    .sobre .container { grid-template-columns: 1fr 1fr; align-items: center; gap: 3.5rem; }
-    .pacotes .abre { grid-template-columns: 1.3fr .7fr; align-items: center; gap: 3.5rem; }
-    .pacotes .abre .foto { aspect-ratio: 3 / 4; }
+    .abertura .texto, .procura { max-width: 760px; }
     .cuidado-abre { display: grid; grid-template-columns: 1.2fr .8fr; gap: 0 3.5rem; align-items: start; }
     .cuidado-abre > * { grid-column: 1; }
     .cuidado-abre .foto { grid-column: 2; grid-row: 1 / span 5; margin-top: 0; aspect-ratio: 3 / 4; }
@@ -518,7 +511,7 @@ const CONFIG = {
       <p class="nome">Vany</p>
       <div class="texto">
         <h1>Você sabe quem faz, como faz e quando faz.</h1>
-        <p class="frase">Sou a Vany. Faço trabalhos espirituais e terapias holísticas em [PREENCHER: cidade] e online, para quem está no Brasil ou fora dele.</p>
+        <p class="frase">Sou a Vany. Faço trabalhos espirituais e terapias holísticas para quem está no Brasil ou fora dele.</p>
       </div>
 
       <nav class="procura" aria-labelledby="procura-titulo">
@@ -535,25 +528,19 @@ const CONFIG = {
         </ul>
       </nav>
 
-      <div class="foto">
-        <img src="fotos/altar-velas.jpg" width="960" height="1280" alt="Mesa de trabalho à luz de velas, com pimentas, cebolas roxas e pipoca sobre pano vermelho" fetchpriority="high">
-      </div>
     </div>
   </section>
 
   <!-- 2. SOBRE -->
   <section class="sobre" id="sobre">
     <div class="container">
-      <div class="foto">
-        <img src="fotos/altar-cartas.jpg" width="963" height="1280" alt="Altar com imagem de vestido vermelho, cartas, rosas e pipoca, à meia-luz" loading="lazy">
-      </div>
       <div>
         <h2>Sobre a Vany</h2>
         <p>Vany responde a Iansã e à Pombagira Rainha.</p>
         <p>[PREENCHER: história curta da Vany, com as palavras dela]</p>
         <dl>
           <dt>Tradição</dt><dd>[PREENCHER: Umbanda / Candomblé / outra]</dd>
-          <dt>Atendimento</dt><dd>[PREENCHER: online / presencial em CIDADE / os dois]</dd>
+          <dt>Atendimento</dt><dd>[PREENCHER: online / presencial / os dois]</dd>
           <dt>Para quem</dt><dd>Clientes no Brasil e no exterior, em português.</dd>
         </dl>
       </div>
@@ -567,9 +554,6 @@ const CONFIG = {
         <div>
           <h2>Pacotes mensais</h2>
           <p>Para quem quer acompanhamento todo mês. Cada pacote é um mês de trabalho. No cartão, a assinatura renova todo mês até você cancelar. No Pix e no PayPal, você paga um mês de cada vez. O valor é o mesmo nas três formas.</p>
-        </div>
-        <div class="foto">
-          <img src="fotos/altar-macas.jpg" width="720" height="1280" alt="Maçãs amarradas com fitas coloridas em volta de uma rosa sob redoma, com flores e vela acesa" loading="lazy">
         </div>
       </div>
 
