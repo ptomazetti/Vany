@@ -12,8 +12,8 @@
 const CONFIG = {
   pacotes: {
     // assinatura = Stripe, cartão, renova todo mês
-    // pix        = Stripe, 1 mês, valor com desconto
-    // paypal     = PayPal, mesmo valor do cartão
+    // pix        = Stripe, 1 mês, mesmo valor
+    // paypal     = PayPal, 1 mês, mesmo valor
     paginaVirada:  { assinatura: "[PREENCHER]", pix: "[PREENCHER]", paypal: "[PREENCHER]" },
     fogoPadilha:   { assinatura: "[PREENCHER]", pix: "[PREENCHER]", paypal: "[PREENCHER]" },
     melOxum:       { assinatura: "[PREENCHER]", pix: "[PREENCHER]", paypal: "[PREENCHER]" },
@@ -261,7 +261,7 @@ const CONFIG = {
   .rotulo ul { margin: 0 0 18px; padding-left: 22px; color: var(--texto-2); }
   .rotulo .preco { font-family: var(--serifa); font-size: 2.25rem; font-weight: 500; line-height: 1.1; color: var(--ambar); margin: auto 0 2px; }
   .rotulo .preco span { display: block; font: 400 .875rem var(--corpo); color: var(--texto-2); margin-top: 4px; }
-  .pix { font-weight: 600; margin: 0 0 16px; }
+  .rotulo .preco { margin-bottom: 16px; }
   .rotulo .botoes { display: grid; gap: 10px; }
 
   .r-holistico, .r-coletivo { --faixa: var(--ametista); }
@@ -275,7 +275,6 @@ const CONFIG = {
   .avulsos h3 { margin: 0; }
   .avulsos .valor { font-family: var(--serifa); font-size: 1.75rem; color: var(--ambar); }
   .avulsos p { margin: 6px 0 14px; color: var(--texto-2); }
-  .avulsos .pix { color: var(--texto); }
   .avulsos .btn { min-height: 48px; }
   .avulsos .outras { margin: 10px 0 0; font-size: .875rem; }
   .avulsos .outras a { display: inline-block; padding: 10px 0; }
@@ -497,7 +496,7 @@ const CONFIG = {
     <div class="container">
       <div class="abre">
         <h2>Pacotes mensais</h2>
-        <p>Para quem quer acompanhamento todo mês. Cada pacote é um mês de trabalho. No cartão, a assinatura renova todo mês até você cancelar. No Pix e no PayPal, você paga um mês de cada vez. O Pix tem desconto.</p>
+        <p>Para quem quer acompanhamento todo mês. Cada pacote é um mês de trabalho. No cartão, a assinatura renova todo mês até você cancelar. No Pix e no PayPal, você paga um mês de cada vez. O valor é o mesmo nas três formas.</p>
       </div>
 
       <div class="rotulos">
@@ -509,8 +508,7 @@ const CONFIG = {
             <p class="para">Para cortar o laço com o ex e seguir em frente.</p>
             <p class="inclui">No mês:</p>
             <ul><li>[PREENCHER]</li></ul>
-            <p class="preco">R$ [PREENCHER] <span>por mês, no cartão ou PayPal</span></p>
-            <p class="pix">No Pix: R$ [PREENCHER] por 1 mês</p>
+            <p class="preco">R$ [PREENCHER] <span>por mês, no cartão, Pix ou PayPal</span></p>
             <div class="botoes">
               <a class="btn btn-tinta" data-link="pacotes.paginaVirada.assinatura">Assinar no cartão</a>
               <a class="btn btn-linha" data-link="pacotes.paginaVirada.pix">Pagar 1 mês no Pix</a>
@@ -526,8 +524,7 @@ const CONFIG = {
             <p class="para">Para a libido, para afastar rivais e para abafar emoções.</p>
             <p class="inclui">No mês:</p>
             <ul><li>[PREENCHER]</li></ul>
-            <p class="preco">R$ [PREENCHER] <span>por mês, no cartão ou PayPal</span></p>
-            <p class="pix">No Pix: R$ [PREENCHER] por 1 mês</p>
+            <p class="preco">R$ [PREENCHER] <span>por mês, no cartão, Pix ou PayPal</span></p>
             <div class="botoes">
               <a class="btn btn-tinta" data-link="pacotes.fogoPadilha.assinatura">Assinar no cartão</a>
               <a class="btn btn-linha" data-link="pacotes.fogoPadilha.pix">Pagar 1 mês no Pix</a>
@@ -543,8 +540,7 @@ const CONFIG = {
             <p class="para">Para fortalecer e adoçar a relação.</p>
             <p class="inclui">No mês:</p>
             <ul><li>[PREENCHER]</li></ul>
-            <p class="preco">R$ [PREENCHER] <span>por mês, no cartão ou PayPal</span></p>
-            <p class="pix">No Pix: R$ [PREENCHER] por 1 mês</p>
+            <p class="preco">R$ [PREENCHER] <span>por mês, no cartão, Pix ou PayPal</span></p>
             <div class="botoes">
               <a class="btn btn-tinta" data-link="pacotes.melOxum.assinatura">Assinar no cartão</a>
               <a class="btn btn-linha" data-link="pacotes.melOxum.pix">Pagar 1 mês no Pix</a>
@@ -560,8 +556,7 @@ const CONFIG = {
             <p class="para">Para o brilho feminino, a autoestima e o magnetismo.</p>
             <p class="inclui">No mês:</p>
             <ul><li>[PREENCHER]</li></ul>
-            <p class="preco">R$ [PREENCHER] <span>por mês, no cartão ou PayPal</span></p>
-            <p class="pix">No Pix: R$ [PREENCHER] por 1 mês</p>
+            <p class="preco">R$ [PREENCHER] <span>por mês, no cartão, Pix ou PayPal</span></p>
             <div class="botoes">
               <a class="btn btn-tinta" data-link="pacotes.brilho.assinatura">Assinar no cartão</a>
               <a class="btn btn-linha" data-link="pacotes.brilho.pix">Pagar 1 mês no Pix</a>
@@ -575,8 +570,7 @@ const CONFIG = {
             <p class="faixa">Terapias holísticas</p>
             <h3>[PREENCHER: nome do pacote holístico]</h3>
             <p class="para">[PREENCHER: quantidade] sessões por mês de [PREENCHER: terapias].</p>
-            <p class="preco">R$ [PREENCHER] <span>por mês, no cartão ou PayPal</span></p>
-            <p class="pix">No Pix: R$ [PREENCHER] por 1 mês</p>
+            <p class="preco">R$ [PREENCHER] <span>por mês, no cartão, Pix ou PayPal</span></p>
             <div class="botoes">
               <a class="btn btn-tinta" data-link="pacotes.holistico.assinatura">Assinar no cartão</a>
               <a class="btn btn-linha" data-link="pacotes.holistico.pix">Pagar 1 mês no Pix</a>
@@ -592,8 +586,7 @@ const CONFIG = {
             <p class="para">[PREENCHER: como funciona, quantas pessoas, com que frequência]</p>
             <p class="inclui">No mês:</p>
             <ul><li>[PREENCHER]</li></ul>
-            <p class="preco">R$ [PREENCHER] <span>por mês, no cartão ou PayPal</span></p>
-            <p class="pix">No Pix: R$ [PREENCHER] por 1 mês</p>
+            <p class="preco">R$ [PREENCHER] <span>por mês, no cartão, Pix ou PayPal</span></p>
             <div class="botoes">
               <a class="btn btn-tinta" data-link="pacotes.coletivo.assinatura">Assinar no cartão</a>
               <a class="btn btn-linha" data-link="pacotes.coletivo.pix">Pagar 1 mês no Pix</a>
@@ -620,63 +613,54 @@ const CONFIG = {
         <li>
           <div class="linha"><h3>Consulta de búzios, tarô ou cartas</h3><span class="valor">R$ [PREENCHER]</span></div>
           <p>Normalmente é o primeiro passo, antes de qualquer trabalho. [PREENCHER: como é feita e quanto tempo dura]</p>
-          <p class="pix">No Pix: R$ [PREENCHER]</p>
           <a class="btn btn-linha" data-link="avulsos.consulta.pix">Pagar no Pix</a>
           <p class="outras">Ou pague <a data-link="avulsos.consulta.cartao">no cartão</a> ou <a data-link="avulsos.consulta.paypal">no PayPal</a>.</p>
         </li>
         <li>
           <div class="linha"><h3>Abertura de caminhos</h3><span class="valor">R$ [PREENCHER]</span></div>
           <p>Para quando a vida parece travada.</p>
-          <p class="pix">No Pix: R$ [PREENCHER]</p>
           <a class="btn btn-linha" data-link="avulsos.caminhos.pix">Pagar no Pix</a>
           <p class="outras">Ou pague <a data-link="avulsos.caminhos.cartao">no cartão</a> ou <a data-link="avulsos.caminhos.paypal">no PayPal</a>.</p>
         </li>
         <li>
           <div class="linha"><h3>Limpeza espiritual e descarrego</h3><span class="valor">R$ [PREENCHER]</span></div>
           <p>Para tirar o peso que ficou de pessoas, lugares e situações.</p>
-          <p class="pix">No Pix: R$ [PREENCHER]</p>
           <a class="btn btn-linha" data-link="avulsos.limpeza.pix">Pagar no Pix</a>
           <p class="outras">Ou pague <a data-link="avulsos.limpeza.cartao">no cartão</a> ou <a data-link="avulsos.limpeza.paypal">no PayPal</a>.</p>
         </li>
         <li>
           <div class="linha"><h3>Proteção espiritual e fechamento de corpo</h3><span class="valor">R$ [PREENCHER]</span></div>
           <p>Para se proteger de quem não quer o seu bem.</p>
-          <p class="pix">No Pix: R$ [PREENCHER]</p>
           <a class="btn btn-linha" data-link="avulsos.protecao.pix">Pagar no Pix</a>
           <p class="outras">Ou pague <a data-link="avulsos.protecao.cartao">no cartão</a> ou <a data-link="avulsos.protecao.paypal">no PayPal</a>.</p>
         </li>
         <li>
           <div class="linha"><h3>Prosperidade, dinheiro e emprego</h3><span class="valor">R$ [PREENCHER]</span></div>
           <p>Para pedir firmeza na vida financeira e no trabalho.</p>
-          <p class="pix">No Pix: R$ [PREENCHER]</p>
           <a class="btn btn-linha" data-link="avulsos.prosperidade.pix">Pagar no Pix</a>
           <p class="outras">Ou pague <a data-link="avulsos.prosperidade.cartao">no cartão</a> ou <a data-link="avulsos.prosperidade.paypal">no PayPal</a>.</p>
         </li>
         <li>
           <div class="linha"><h3>Quebra de demanda e desmanche de feitiço</h3><span class="valor">R$ [PREENCHER]</span></div>
           <p>Para quem sente que tem trabalho feito contra si.</p>
-          <p class="pix">No Pix: R$ [PREENCHER]</p>
           <a class="btn btn-linha" data-link="avulsos.demanda.pix">Pagar no Pix</a>
           <p class="outras">Ou pague <a data-link="avulsos.demanda.cartao">no cartão</a> ou <a data-link="avulsos.demanda.paypal">no PayPal</a>.</p>
         </li>
         <li>
           <div class="linha"><h3>Adoçamento e união do casal</h3><span class="valor">R$ [PREENCHER]</span></div>
           <p>Para adoçar e fortalecer a relação.</p>
-          <p class="pix">No Pix: R$ [PREENCHER]</p>
           <a class="btn btn-linha" data-link="avulsos.adocamento.pix">Pagar no Pix</a>
           <p class="outras">Ou pague <a data-link="avulsos.adocamento.cartao">no cartão</a> ou <a data-link="avulsos.adocamento.paypal">no PayPal</a>.</p>
         </li>
         <li>
           <div class="linha"><h3>Afastamento e separação</h3><span class="valor">R$ [PREENCHER]</span></div>
           <p>Para afastar uma rival ou uma pessoa indesejada.</p>
-          <p class="pix">No Pix: R$ [PREENCHER]</p>
           <a class="btn btn-linha" data-link="avulsos.afastamento.pix">Pagar no Pix</a>
           <p class="outras">Ou pague <a data-link="avulsos.afastamento.cartao">no cartão</a> ou <a data-link="avulsos.afastamento.paypal">no PayPal</a>.</p>
         </li>
         <li>
           <div class="linha"><h3>Saúde e questões de família</h3><span class="valor">R$ [PREENCHER]</span></div>
           <p>Apoio espiritual em momentos difíceis de saúde e de família. Não substitui médico nem tratamento.</p>
-          <p class="pix">No Pix: R$ [PREENCHER]</p>
           <a class="btn btn-linha" data-link="avulsos.familia.pix">Pagar no Pix</a>
           <p class="outras">Ou pague <a data-link="avulsos.familia.cartao">no cartão</a> ou <a data-link="avulsos.familia.paypal">no PayPal</a>.</p>
         </li>
@@ -692,7 +676,7 @@ const CONFIG = {
       <h2>Como funciona</h2>
       <ol class="passos">
         <li><strong>Você escolhe</strong><span>Leia os pacotes e escolha o que faz sentido agora.</span></li>
-        <li><strong>Você paga</strong><span>No cartão, em assinatura, ou um mês no Pix ou no PayPal. O Pix tem desconto.</span></li>
+        <li><strong>Você paga</strong><span>No cartão, em assinatura, ou um mês no Pix ou no PayPal.</span></li>
         <li><strong>A Vany chama você</strong><span>Pelo WhatsApp, em até [PREENCHER: prazo], para entender o seu caso.</span></li>
         <li><strong>A Vany faz o trabalho</strong><span>E conta para você como foi durante o mês.</span></li>
       </ol>
@@ -733,7 +717,7 @@ const CONFIG = {
       </details>
       <details>
         <summary>Como posso pagar?</summary>
-        <div class="resposta"><p>Cartão de crédito, em assinatura mensal pela Stripe. Pix, para pagar um mês, com desconto. PayPal, para pagar um mês, bom para quem está fora do Brasil. Este site não guarda dados de cartão.</p></div>
+        <div class="resposta"><p>Cartão de crédito, em assinatura mensal pela Stripe. Pix, para pagar um mês. PayPal, para pagar um mês, bom para quem está fora do Brasil. Este site não guarda dados de cartão.</p></div>
       </details>
     </div>
   </section>
@@ -759,7 +743,7 @@ const CONFIG = {
 
   <!-- POLÍTICAS
        Base: Código de Defesa do Consumidor (Lei 8.078/1990), Decreto 7.962/2013 (comércio eletrônico),
-       LGPD (Lei 13.709/2018), Lei 13.455/2017 (preço por forma de pagamento) e Código Penal, arts. 283 e 284.
+       LGPD (Lei 13.709/2018) e Código Penal, arts. 283 e 284.
        Revisar com um advogado antes de publicar. -->
   <section class="politicas papel" id="politicas">
     <div class="container">
@@ -809,7 +793,7 @@ const CONFIG = {
         <summary>Preços e pagamento</summary>
         <div class="resposta">
           <p>Os preços estão em reais (R$) e já incluem tudo. Não existe taxa extra cobrada pela Vany.</p>
-          <p>O Pix tem desconto, mostrado ao lado de cada preço. O cartão e o PayPal têm o mesmo valor.</p>
+          <p>O valor é o mesmo no cartão, no Pix e no PayPal.</p>
           <p>Quem paga de fora do Brasil pode ter cobrança de câmbio ou IOF feita pelo próprio banco ou cartão. Esse custo não é da Vany e não aparece no site.</p>
         </div>
       </details>
