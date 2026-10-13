@@ -46,8 +46,8 @@ const CONFIG = {
 <meta property="og:title" content="Vany | Trabalhos espirituais e terapias holísticas">
 <meta property="og:description" content="Trabalhos espirituais e terapias holísticas com a Vany, em [PREENCHER: cidade] e online. Pacotes mensais e acompanhamento pelo WhatsApp.">
 <!-- O WhatsApp e o Instagram só mostram a imagem com o endereço completo: trocar pelo domínio do site -->
-<meta property="og:image" content="https://[PREENCHER-DOMINIO]/fotos/compartilhamento.jpg">
-<meta property="og:image:alt" content="Vany, mãe de santo e terapeuta holística">
+<meta property="og:image" content="https://[PREENCHER-DOMINIO]/fotos/altar-velas.jpg">
+<meta property="og:image:alt" content="Mesa de trabalho à luz de velas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#141013">
 
@@ -65,14 +65,14 @@ const CONFIG = {
     --mais-baixo: #110D10;
     --rubi: #89182A;            /* Rubi Terreiro */
     --ametista: #35143F;        /* Ametista Noturno */
-    --ambar: #D97724;           /* Chama de Vela */
+    --ambar: #FFB3B5;           /* Rosa Vela (primary do sistema) */
     --texto: #F7EFE8;           /* Alabaster Linen */
     --texto-2: #C4B2B8;         /* Ash Mist */
     --texto-mudo: #806C76;      /* Worn Clay: só em texto grande */
-    --borda-suave: rgba(217, 119, 36, .15);
+    --borda-suave: rgba(255, 179, 181, .15);
     --borda-forte: rgba(137, 24, 42, .45);
-    --brilho: 0 0 20px 2px rgba(217, 119, 36, .28);
-    --fio: linear-gradient(90deg, transparent, rgba(217, 119, 36, .35), transparent);
+    --brilho: 0 0 20px 2px rgba(255, 179, 181, .28);
+    --fio: linear-gradient(90deg, transparent, rgba(255, 179, 181, .35), transparent);
 
     --serifa: "EB Garamond", Garamond, Georgia, serif;
     --corpo: "Manrope", system-ui, sans-serif;
@@ -86,7 +86,7 @@ const CONFIG = {
     margin: 0;
     background-color: var(--base);
     /* grão quente bem fino */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .85 0 0 0 0 .47 0 0 0 0 .14 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .99 0 0 0 0 .70 0 0 0 0 .71 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
     color: var(--texto);
     font-family: var(--corpo);
     font-size: 1.125rem;
@@ -95,7 +95,7 @@ const CONFIG = {
   }
   img { max-width: 100%; display: block; }
   a { color: var(--ambar); text-underline-offset: 3px; }
-  :focus-visible { outline: 2px solid var(--ambar); outline-offset: 3px; box-shadow: 0 0 0 5px rgba(217, 119, 36, .2); }
+  :focus-visible { outline: 2px solid var(--ambar); outline-offset: 3px; box-shadow: 0 0 0 5px rgba(255, 179, 181, .2); }
 
   h1, h2, h3, h4 { font-family: var(--serifa); font-weight: 500; margin: 0 0 .4em; color: var(--texto); }
   h1 { font-size: 2.5rem; line-height: 1.2; letter-spacing: -.01em; }
@@ -121,19 +121,19 @@ const CONFIG = {
     transition: box-shadow .2s ease, transform .2s ease, background .2s ease, color .2s ease;
   }
   /* principal: âmbar */
-  .btn-cera, .btn-tinta { background: var(--ambar); color: var(--base); box-shadow: 0 2px 10px rgba(217, 119, 36, .35); }
-  .btn-cera:hover, .btn-tinta:hover { box-shadow: 0 0 16px rgba(217, 119, 36, .6); transform: translateY(-1px); }
+  .btn-cera, .btn-tinta { background: var(--ambar); color: #40000B; box-shadow: 0 2px 10px rgba(255, 179, 181, .35); }
+  .btn-cera:hover, .btn-tinta:hover { box-shadow: 0 0 16px rgba(255, 179, 181, .6); transform: translateY(-1px); }
   /* fantasma */
-  .btn-linha { background: transparent; color: var(--texto); border-color: rgba(217, 119, 36, .35); }
+  .btn-linha { background: transparent; color: var(--texto); border-color: rgba(255, 179, 181, .35); }
   .btn-linha:hover { box-shadow: var(--brilho); border-color: var(--ambar); }
   /* secundário: rubi */
-  .avulsos .btn-linha, .terapias .btn-linha { background: var(--rubi); color: var(--texto); border-color: rgba(217, 119, 36, .3); }
+  .avulsos .btn-linha, .terapias .btn-linha { background: var(--rubi); color: var(--texto); border-color: rgba(255, 179, 181, .3); }
 
   /* Fotos que a Vany ainda precisa tirar */
   .foto {
     position: relative; overflow: hidden; border-radius: .5rem;
     background: linear-gradient(180deg, var(--elevado), var(--container));
-    border: 1px dashed rgba(217, 119, 36, .35);
+    border: 1px dashed rgba(255, 179, 181, .35);
   }
   .foto .pedido {
     position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
@@ -169,7 +169,7 @@ const CONFIG = {
     width: min(86vw, 360px); overflow-y: auto;
     background: var(--container-alto); color: var(--texto);
     border-left: 1px solid var(--borda-suave); border-radius: .75rem 0 0 .75rem;
-    box-shadow: 0 16px 40px -12px rgba(10, 6, 9, .8), 0 0 24px 0 rgba(217, 119, 36, .08);
+    box-shadow: 0 16px 40px -12px rgba(10, 6, 9, .8), 0 0 24px 0 rgba(255, 179, 181, .08);
     padding: 8px 24px 32px;
   }
   .menu-lateral[hidden], .menu-fundo[hidden] { display: none; }
@@ -191,7 +191,7 @@ const CONFIG = {
   .abertura {
     padding: 8px 0 3.5rem; overflow: hidden;
     background:
-      radial-gradient(circle at 28% 16%, rgba(217, 119, 36, .16), transparent 55%),
+      radial-gradient(circle at 28% 16%, rgba(255, 179, 181, .16), transparent 55%),
       radial-gradient(circle at 85% 70%, rgba(137, 24, 42, .22), transparent 55%);
   }
   .nome {
@@ -199,7 +199,7 @@ const CONFIG = {
     font-family: var(--serifa); font-style: italic; font-weight: 400;
     font-size: clamp(5.5rem, 28vw, 15rem); line-height: .85; letter-spacing: -.02em;
     color: var(--ambar);
-    text-shadow: 0 0 40px rgba(217, 119, 36, .35);
+    text-shadow: 0 0 40px rgba(255, 179, 181, .35);
     margin: 0 0 .22em -.03em;
   }
   .abertura .foto { aspect-ratio: 4 / 5; margin: 40px 0 0 18%; }
@@ -218,9 +218,9 @@ const CONFIG = {
     color: var(--texto); text-decoration: none; font-weight: 600; font-size: 1rem; line-height: 1.3;
     transition: box-shadow .2s ease, border-color .2s ease;
   }
-  .procura a:hover { box-shadow: var(--brilho); border-color: rgba(217, 119, 36, .5); }
+  .procura a:hover { box-shadow: var(--brilho); border-color: rgba(255, 179, 181, .5); }
   .procura .nao-sei { grid-column: 1 / -1; }
-  .procura .nao-sei a { background: var(--ambar); color: var(--base); border-color: var(--ambar); }
+  .procura .nao-sei a { background: var(--ambar); color: #40000B; border-color: var(--ambar); }
   .procura .nao-sei span { font-weight: 400; font-size: .875rem; }
 
   /* O nome acende como vela */
@@ -234,7 +234,14 @@ const CONFIG = {
 
   /* Sobre */
   .sobre .container { display: grid; gap: 32px; }
-  .sobre .foto { aspect-ratio: 3 / 2; }
+  .sobre .foto { aspect-ratio: 4 / 5; }
+  .sobre .foto img { object-position: center 40%; }
+  .pacotes .abre { display: grid; gap: 1.5rem; }
+  .pacotes .abre .foto { aspect-ratio: 4 / 3; }
+  .pacotes .abre .foto img { object-position: center 55%; }
+  .cuidado-abre .foto { aspect-ratio: 4 / 3; margin-top: 2rem; }
+  .cuidado-abre .foto img { object-position: center 60%; }
+  .foto img { filter: saturate(.92) contrast(1.04); }
   .sobre dl { margin: 24px 0 0; display: grid; gap: 4px; max-width: var(--medida); }
   .sobre dt { font: 600 .75rem var(--rotulo); letter-spacing: .08em; text-transform: uppercase; color: var(--ambar); margin-top: 10px; }
   .sobre dd { margin: 0; color: var(--texto-2); }
@@ -253,7 +260,7 @@ const CONFIG = {
     background: var(--faixa, var(--rubi)); color: var(--texto);
     margin: 0 -1.25rem 1.25rem; padding: 10px 1.25rem;
     font: 600 .6875rem var(--rotulo); letter-spacing: .1em; text-transform: uppercase;
-    border-bottom: 1px solid rgba(217, 119, 36, .3);
+    border-bottom: 1px solid rgba(255, 179, 181, .3);
   }
   .rotulo h3 { margin-bottom: .3em; }
   .rotulo .para { color: var(--texto-2); }
@@ -326,7 +333,7 @@ const CONFIG = {
   .indice ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
   .indice a {
     display: inline-flex; align-items: center; min-height: 44px; padding: 6px 14px;
-    background: rgba(53, 20, 63, .6); border: 1px solid rgba(217, 119, 36, .35); border-radius: .25rem;
+    background: rgba(53, 20, 63, .6); border: 1px solid rgba(255, 179, 181, .35); border-radius: .25rem;
     font: 600 .6875rem var(--rotulo); letter-spacing: .1em; text-transform: uppercase;
     color: var(--texto); text-decoration: none; transition: box-shadow .2s ease;
   }
@@ -389,6 +396,11 @@ const CONFIG = {
     .abertura .texto { grid-column: 1; grid-row: 2; }
     .procura { grid-column: 1; grid-row: 3; }
     .sobre .container { grid-template-columns: 1fr 1fr; align-items: center; gap: 3.5rem; }
+    .pacotes .abre { grid-template-columns: 1.3fr .7fr; align-items: center; gap: 3.5rem; }
+    .pacotes .abre .foto { aspect-ratio: 3 / 4; }
+    .cuidado-abre { display: grid; grid-template-columns: 1.2fr .8fr; gap: 0 3.5rem; align-items: start; }
+    .cuidado-abre > * { grid-column: 1; }
+    .cuidado-abre .foto { grid-column: 2; grid-row: 1 / span 5; margin-top: 0; aspect-ratio: 3 / 4; }
     .rotulos { grid-template-columns: repeat(3, 1fr); }
     .passos { grid-template-columns: repeat(4, 1fr); }
   }
@@ -465,8 +477,7 @@ const CONFIG = {
       </nav>
 
       <div class="foto">
-        <p class="pedido"><span><strong>Foto a tirar</strong>As mãos da Vany segurando as guias, de perto, só com luz de vela. Sem flash. Vertical.</span></p>
-        <img src="fotos/maos-guias.jpg" alt="Mãos da Vany segurando as guias à luz de vela" onerror="this.remove()">
+        <img src="fotos/altar-velas.jpg" width="960" height="1280" alt="Mesa de trabalho à luz de velas, com pimentas, cebolas roxas e pipoca sobre pano vermelho" fetchpriority="high">
       </div>
     </div>
   </section>
@@ -475,8 +486,7 @@ const CONFIG = {
   <section class="sobre" id="sobre">
     <div class="container">
       <div class="foto">
-        <p class="pedido"><span><strong>Foto a tirar</strong>O espaço onde a Vany atende, com a luz do dia ou de vela. Horizontal.</span></p>
-        <img src="fotos/espaco.jpg" alt="[PREENCHER: descrição da foto do espaço]" loading="lazy" onerror="this.remove()">
+        <img src="fotos/altar-cartas.jpg" width="963" height="1280" alt="Altar com imagem de vestido vermelho, cartas, rosas e pipoca, à meia-luz" loading="lazy">
       </div>
       <div>
         <h2>Sobre a Vany</h2>
@@ -495,8 +505,13 @@ const CONFIG = {
   <section class="pacotes" id="pacotes">
     <div class="container">
       <div class="abre">
-        <h2>Pacotes mensais</h2>
-        <p>Para quem quer acompanhamento todo mês. Cada pacote é um mês de trabalho. No cartão, a assinatura renova todo mês até você cancelar. No Pix e no PayPal, você paga um mês de cada vez. O valor é o mesmo nas três formas.</p>
+        <div>
+          <h2>Pacotes mensais</h2>
+          <p>Para quem quer acompanhamento todo mês. Cada pacote é um mês de trabalho. No cartão, a assinatura renova todo mês até você cancelar. No Pix e no PayPal, você paga um mês de cada vez. O valor é o mesmo nas três formas.</p>
+        </div>
+        <div class="foto">
+          <img src="fotos/altar-macas.jpg" width="720" height="1280" alt="Maçãs amarradas com fitas coloridas em volta de uma rosa sob redoma, com flores e vela acesa" loading="lazy">
+        </div>
       </div>
 
       <div class="rotulos">
@@ -854,6 +869,9 @@ const CONFIG = {
       <p class="frase">Um tempo só seu, para desacelerar, respirar e se ouvir.</p>
       <p>Não sabe qual escolher? Me conta o seu momento no WhatsApp que eu te indico.</p>
       <a class="btn btn-tinta" data-link="whatsapp" data-msg="Oi, Vany! Quero ajuda para escolher uma terapia.">Chamar no WhatsApp</a>
+      <div class="foto">
+        <img src="fotos/cesta-oferenda.jpg" width="963" height="1280" alt="Cesta com pães, maçã e pipoca, incensos acesos, cartas e lanterna" loading="lazy">
+      </div>
     </div>
 
     <nav class="indice" aria-label="Grupos de terapias">
