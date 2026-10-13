@@ -342,6 +342,8 @@ const CONFIG = {
   .cuidado .rotulo { max-width: 420px; margin-top: 24px; }
   .cuidado .rotulo h4 { font-family: var(--titulo); font-weight: 500; font-size: 2rem; color: var(--tinta); margin: 0 0 .4em; line-height: 1.1; }
   .ponte { margin-top: 32px; font-size: 1.1rem; }
+  .aviso-compra { margin-top: 40px; font-size: 1rem; padding-left: 14px; border-left: 2px solid currentColor; }
+  .pacotes .aviso-compra a { color: var(--cera); }
   .aviso-pequeno { margin-top: 48px; font-size: .95rem; }
   @media (min-width: 720px) {
     .terapias { grid-template-columns: 1fr 1fr; column-gap: 48px; }
@@ -596,6 +598,7 @@ const CONFIG = {
 
       </div>
 
+      <p class="aviso-compra">Antes de pagar: a assinatura renova sozinha todo mês até você cancelar. Você pode desistir em até 7 dias e receber o valor de volta. Ao pagar, você confirma que tem 18 anos ou mais e leu as <a href="#politicas">Regras da casa</a>.</p>
       <p class="lembrete">Os trabalhos espirituais são baseados em fé, e as terapias holísticas são complementares. Não existe resultado garantido nem prazo garantido.</p>
     </div>
   </section>
@@ -670,6 +673,7 @@ const CONFIG = {
           <p class="outras">Ou pague <a data-link="avulsos.familia.cartao">no cartão</a> ou <a data-link="avulsos.familia.paypal">no PayPal</a>.</p>
         </li>
       </ul>
+      <p class="aviso-compra">Antes de pagar: você pode desistir em até 7 dias e receber o valor de volta. Ao pagar, você confirma que tem 18 anos ou mais e leu as <a href="#politicas">Regras da casa</a>. Os trabalhos são baseados em fé e não têm resultado garantido.</p>
       <p class="ponte">Prefere acompanhamento todo mês? <a href="#pacotes">Veja os pacotes mensais</a>.</p>
     </div>
   </section>
@@ -688,7 +692,8 @@ const CONFIG = {
   </section>
 
   <!-- 6. DEPOIMENTOS
-       Só ativar com depoimentos reais enviados pela Vany e autorizados pelos clientes.
+       Só ativar com depoimentos reais enviados pela Vany, com autorização por escrito de cada cliente
+       para usar o texto, o nome e a foto (Código Civil, art. 20, e LGPD). Sem promessa de cura nem de resultado.
        Para ativar: apagar as linhas de comentário em volta da seção abaixo.
   <section id="depoimentos">
     <div class="container">
@@ -712,7 +717,7 @@ const CONFIG = {
       </details>
       <details>
         <summary>Posso cancelar?</summary>
-        <div class="resposta"><p>Pode. A assinatura no cartão é cancelada a qualquer momento pelo <a data-link="portalCliente">portal do cliente</a>, e o cancelamento vale para as próximas cobranças. Leia a <a href="#politica-cancelamento">regra de cancelamento</a>.</p></div>
+        <div class="resposta"><p>Pode. Em até 7 dias depois do pagamento, você desiste e recebe o valor de volta, pelo <a href="#politica-arrependimento">direito de arrependimento</a>. Depois disso, a assinatura no cartão é cancelada a qualquer momento, sem multa, pelo <a data-link="portalCliente">portal do cliente</a>, e o cancelamento vale para as próximas cobranças. Leia a <a href="#politica-cancelamento">regra de cancelamento</a>.</p></div>
       </details>
       <details>
         <summary>Atende fora do Brasil?</summary>
@@ -744,37 +749,77 @@ const CONFIG = {
     </div>
   </section>
 
-  <!-- POLÍTICAS -->
+  <!-- POLÍTICAS
+       Base: Código de Defesa do Consumidor (Lei 8.078/1990), Decreto 7.962/2013 (comércio eletrônico),
+       LGPD (Lei 13.709/2018), Lei 13.455/2017 (preço por forma de pagamento) e Código Penal, arts. 283 e 284.
+       Revisar com um advogado antes de publicar. -->
   <section class="politicas papel" id="politicas">
     <div class="container">
       <h2>Regras da casa</h2>
+      <p>Leia antes de pagar. Ao pagar, você confirma que leu estas regras e que tem 18 anos ou mais.</p>
+
+      <details id="politica-identificacao">
+        <summary>Quem presta o serviço</summary>
+        <div class="resposta">
+          <p>Nome: [PREENCHER: nome completo ou razão social]</p>
+          <p>CPF ou CNPJ: [PREENCHER]</p>
+          <p>Endereço: [PREENCHER: endereço completo]</p>
+          <p>E-mail: <a data-link="email" data-tipo="email">[PREENCHER: e-mail]</a>. WhatsApp: +55 51 9708-9510.</p>
+          <p>Respondo dúvidas, reclamações, pedidos de cancelamento e de arrependimento em até 5 dias.</p>
+        </div>
+      </details>
+
+      <details id="politica-arrependimento">
+        <summary>Direito de arrependimento (7 dias)</summary>
+        <div class="resposta">
+          <p>Como a contratação é feita pela internet, você pode desistir em até 7 dias corridos depois do pagamento, sem precisar explicar o motivo. O valor pago é devolvido por inteiro.</p>
+          <p>Para desistir, mande uma mensagem pelo WhatsApp ou pelo e-mail informando o seu nome e o que comprou. Você recebe a confirmação na hora. No cartão, o estorno é pedido à Stripe ou ao PayPal logo em seguida. No Pix, o valor volta para a mesma conta que pagou.</p>
+          <p>[CONFIRMAR COM ADVOGADO: regra para quando você pede que o trabalho comece antes de terminar os 7 dias]</p>
+        </div>
+      </details>
 
       <details id="politica-reembolso">
         <summary>Reembolso e disputas</summary>
         <div class="resposta">
-          <p>[PREENCHER: regras de reembolso da Vany, por exemplo em que casos devolve o valor e em quanto tempo]</p>
-          <p>Se tiver algum problema com um pagamento, fale primeiro com a Vany pelo WhatsApp ou e-mail. [PREENCHER: prazo de resposta e como funciona uma disputa]</p>
+          <p>Além do direito de arrependimento: [PREENCHER: regras de reembolso da Vany depois dos 7 dias]</p>
+          <p>Se tiver algum problema com um pagamento, fale primeiro com a Vany pelo WhatsApp ou e-mail. A resposta chega em até 5 dias. Abrir uma disputa no banco, no cartão ou no PayPal é um direito seu, e a Vany responde com o histórico do atendimento.</p>
         </div>
       </details>
 
       <details id="politica-cancelamento">
-        <summary>Cancelamento da assinatura</summary>
+        <summary>Assinatura e cancelamento</summary>
         <div class="resposta">
-          <p>Você cancela a assinatura quando quiser pelo <a data-link="portalCliente">portal do cliente da Stripe</a>, com o e-mail usado na compra.</p>
-          <p>[PREENCHER: regras da Vany, por exemplo se o mês já pago continua até o fim]</p>
+          <p>A assinatura no cartão renova sozinha todo mês, na mesma data da primeira cobrança, pelo mesmo valor, até você cancelar.</p>
+          <p>Você cancela quando quiser, sem multa, pelo <a data-link="portalCliente">portal do cliente da Stripe</a>, com o e-mail usado na compra. Também pode pedir o cancelamento pelo WhatsApp ou e-mail. O cancelamento vale para as próximas cobranças.</p>
+          <p>[PREENCHER: o que acontece com o mês já pago depois do cancelamento]</p>
+          <p>Se o valor da assinatura mudar, você é avisada antes da próxima cobrança e pode cancelar.</p>
           <p>Os pagamentos no Pix e no PayPal valem um mês e não renovam sozinhos.</p>
         </div>
       </details>
 
-      <details id="politica-privacidade">
-        <summary>Privacidade</summary>
+      <details id="politica-precos">
+        <summary>Preços e pagamento</summary>
         <div class="resposta">
-          <p>Guardamos só o necessário para fazer o trabalho e falar com você:</p>
+          <p>Os preços estão em reais (R$) e já incluem tudo. Não existe taxa extra cobrada pela Vany.</p>
+          <p>O Pix tem desconto, mostrado ao lado de cada preço. O cartão e o PayPal têm o mesmo valor.</p>
+          <p>Quem paga de fora do Brasil pode ter cobrança de câmbio ou IOF feita pelo próprio banco ou cartão. Esse custo não é da Vany e não aparece no site.</p>
+        </div>
+      </details>
+
+      <details id="politica-privacidade">
+        <summary>Privacidade e dados pessoais</summary>
+        <div class="resposta">
+          <p>Esta política segue a Lei Geral de Proteção de Dados (Lei 13.709/2018). Quem decide sobre os seus dados é a pessoa indicada em "Quem presta o serviço".</p>
+          <p>Dados que eu guardo e para quê:</p>
           <ul>
-            <li>Nome, e-mail e telefone informados no pagamento, para identificar a compra e entrar em contato.</li>
-            <li>O que você conta para a Vany no WhatsApp, usado só para fazer o trabalho.</li>
+            <li>Nome, e-mail, telefone e dados da compra: para identificar o pagamento, falar com você e cumprir obrigações fiscais.</li>
+            <li>O que você conta no WhatsApp para fazer o trabalho.</li>
           </ul>
-          <p>Os seus dados não são vendidos nem passados a ninguém, a não ser a Stripe e o PayPal, que processam os pagamentos. Para pedir que seus dados sejam apagados, fale com a Vany. [PREENCHER: confirmar se a Vany usa outras ferramentas, como planilha ou agenda]</p>
+          <p>Algumas dessas informações são dados sensíveis pela lei, como fé, religião, saúde e vida íntima. Eles só são usados com o seu consentimento, pedido no início do atendimento, e só para fazer o seu trabalho. Você pode retirar o consentimento a qualquer momento.</p>
+          <p>Com quem os dados são compartilhados: Stripe e PayPal, que processam os pagamentos, e WhatsApp, por onde a conversa acontece. Essas empresas podem guardar dados fora do Brasil, com as proteções que oferecem aos seus clientes. [PREENCHER: outras ferramentas que a Vany usa, como planilha ou agenda]</p>
+          <p>Os dados não são vendidos. Ficam guardados por [PREENCHER: prazo] ou pelo tempo que a lei exigir.</p>
+          <p>Você pode pedir a qualquer momento: confirmação de que tenho seus dados, uma cópia deles, correção, exclusão, informação sobre com quem foram compartilhados e a retirada do consentimento. Basta escrever pelo e-mail ou WhatsApp. Se não ficar satisfeita, pode reclamar na Autoridade Nacional de Proteção de Dados (ANPD).</p>
+          <p>Este site não usa cookies de rastreamento nem ferramentas de análise. As fontes das letras vêm do Google Fonts, que recebe o endereço de internet de quem visita.</p>
         </div>
       </details>
 
@@ -788,8 +833,20 @@ const CONFIG = {
       <details id="aviso">
         <summary>Aviso importante</summary>
         <div class="resposta">
-          <p>Os trabalhos daqui são espirituais e holísticos, baseados em fé. Não há garantia de resultado nem de prazo.</p>
-          <p>Eles não substituem acompanhamento médico, psicológico ou jurídico. Se você está passando por um problema de saúde, emocional ou legal, procure também um profissional.</p>
+          <p>Os trabalhos daqui são espirituais, baseados em fé. As terapias holísticas são práticas complementares. Não há garantia de resultado nem de prazo, e nenhum trabalho promete cura.</p>
+          <p>A Vany não faz diagnóstico de doenças, não receita remédios e nunca pede que você pare um tratamento. Os trabalhos não substituem médico, psicólogo, advogado ou polícia.</p>
+          <p>Banhos de ervas, óleos e defumação são de uso externo e não são remédio. Avise antes se estiver grávida, amamentando, tiver alergia, asma ou pele sensível.</p>
+          <p>Nenhum trabalho tem o objetivo de fazer mal a alguém nem de tirar a liberdade de escolha de outra pessoa.</p>
+          <p>Os serviços são só para maiores de 18 anos.</p>
+          <p>Se você estiver em perigo, ligue 190 (Polícia). Para violência contra a mulher, ligue 180. Se estiver em sofrimento emocional, o CVV atende de graça pelo 188, a qualquer hora.</p>
+        </div>
+      </details>
+
+      <details id="politica-lei">
+        <summary>Lei aplicável</summary>
+        <div class="resposta">
+          <p>Estas regras seguem a lei brasileira, incluindo o Código de Defesa do Consumidor. Se precisar resolver algo na Justiça, você pode usar o foro da cidade onde mora.</p>
+          <p>Última atualização: [PREENCHER: data].</p>
         </div>
       </details>
     </div>
@@ -935,7 +992,7 @@ const CONFIG = {
 
     <p class="ponte">Prefere acompanhamento todo mês? <a href="#pacotes">Veja os pacotes mensais</a>.</p>
 
-    <p class="aviso-pequeno">As terapias holísticas são complementares e não substituem acompanhamento médico ou psicológico.</p>
+    <p class="aviso-pequeno">As terapias holísticas são práticas complementares. Não fazem diagnóstico, não prometem cura e não substituem acompanhamento médico ou psicológico. Banhos, óleos e ervas são de uso externo: avise se estiver grávida, amamentando ou tiver alergia. Atendimento só para maiores de 18 anos. Leia as <a href="#politicas">Regras da casa</a>.</p>
   </div>
 </main>
 
@@ -945,13 +1002,17 @@ const CONFIG = {
     <p class="marca">Vany</p>
     <p>Mãe de santo e terapeuta holística.</p>
     <nav aria-label="Políticas">
+      <a href="#politica-identificacao">Quem presta o serviço</a>
+      <a href="#politica-arrependimento">Direito de arrependimento</a>
       <a href="#politica-reembolso">Reembolso e disputas</a>
-      <a href="#politica-cancelamento">Cancelamento da assinatura</a>
-      <a href="#politica-privacidade">Privacidade</a>
+      <a href="#politica-cancelamento">Assinatura e cancelamento</a>
+      <a href="#politica-precos">Preços e pagamento</a>
+      <a href="#politica-privacidade">Privacidade e dados pessoais</a>
       <a href="#politica-seguranca">Segurança do pagamento</a>
       <a href="#aviso">Aviso importante</a>
     </nav>
-    <p class="miudo">Pagamentos processados pela Stripe e pelo PayPal. Trabalhos espirituais baseados em fé, sem garantia de resultado.</p>
+    <p class="miudo">[PREENCHER: nome ou razão social], CPF/CNPJ [PREENCHER], [PREENCHER: endereço]. Pagamentos processados pela Stripe e pelo PayPal.</p>
+    <p class="miudo">Trabalhos espirituais baseados em fé e terapias complementares. Sem garantia de resultado. Não substituem médico, psicólogo ou advogado. Para maiores de 18 anos.</p>
     <p class="miudo">© <span id="ano"></span> Vany</p>
   </div>
 </footer>
