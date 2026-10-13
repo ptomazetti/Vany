@@ -104,3 +104,4 @@ O cinza #806C76 não passa no contraste para texto pequeno sobre o fundo escuro 
 
 ## 6. Bordô e dourado
 Base #12060A (bordô quase preto), superfícies #1C0A10, #261018 e #301520, dourado champanhe #D9BC7A em textos de destaque, bordas e brilhos, vermelho bordô #8A1230 nos botões principais (texto claro e borda dourada), bordô profundo #5E0B1C nas faixas e botões secundários. O dourado é claro e frio de propósito, para não puxar para o mostarda.
+Ajuste pela regra 60-30-10: 60% bordô escuro (#170810, nunca preto puro), 30% bordô em seções e faixas, 10% dourado só no nome (dourado metálico, por ser grande e decorativo), preços, links e bordas dos botões principais. Texto em off-white #F3E9DF.

@@ -60,16 +60,16 @@ const CONFIG = {
 <style>
   /* Sistema de design: Terreiro e Acolhimento Espiritual da Vany */
   :root {
-    --base: #12060A;            /* Bordô quase preto */
-    --elevado: #1C0A10;
-    --container: #261018;
-    --container-alto: #301520;
-    --mais-baixo: #0B0306;
-    --rubi: #5E0B1C;            /* Bordô profundo: faixas e botões secundários */
+    --base: #170810;            /* 60%: bordô escuro, nunca preto puro */
+    --elevado: #220B15;
+    --container: #2D0F1B;
+    --container-alto: #391423;
+    --mais-baixo: #0F0408;
+    --rubi: #6E0F23;            /* Bordô profundo: faixas e botões secundários */
     --ametista: #4A0A18;        /* Bordô escuro: chips */
     --ambar: #D9BC7A;           /* Dourado champanhe: textos de destaque e bordas */
     --roxo-forte: #8A1230;      /* Vermelho bordô: botões principais */
-    --texto: #F7EFE8;
+    --texto: #F3E9DF;
     --texto-2: #D6C6BC;
     --texto-mudo: #806C76;      /* Worn Clay: só em texto grande */
     --borda-suave: rgba(217, 188, 122, .15);
@@ -110,7 +110,7 @@ const CONFIG = {
   .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.25rem; }
   section { padding: 3.5rem 0; }
   .papel {
-    background: linear-gradient(180deg, var(--elevado), var(--container));
+    background: linear-gradient(180deg, #2A0B17, #220B15);
     border-top: 1px solid rgba(138, 18, 48, .25);
   }
 
@@ -226,8 +226,10 @@ const CONFIG = {
     font-family: var(--serifa); font-style: italic; font-weight: 400;
     font-size: clamp(5.5rem, 28vw, 15rem); line-height: .85; letter-spacing: -.02em;
     color: var(--ambar);
-    text-shadow: 0 0 40px rgba(217, 188, 122, .35);
-    margin: 0 0 .22em -.03em;
+    background: linear-gradient(100deg, #F2DFA8 0%, #C9A55C 38%, #EBD291 62%, #B8924A 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 22px rgba(217, 188, 122, .28));
+    display: inline-block; margin: 0 0 0 -.03em; padding: .04em .1em .24em 0;
   }
   .abertura .foto { aspect-ratio: 4 / 5; margin: 40px 0 0 18%; }
   .abertura h1 { max-width: 18ch; margin: 4px 0 12px; }
@@ -252,16 +254,16 @@ const CONFIG = {
 
   /* O nome acende como vela */
   @keyframes acender {
-    0%   { opacity: 0; filter: blur(6px); }
-    55%  { opacity: .75; filter: blur(1px); }
+    0%   { opacity: 0; }
+    55%  { opacity: .75; }
     70%  { opacity: .6; }
-    100% { opacity: 1; filter: blur(0); }
+    100% { opacity: 1; }
   }
   @keyframes tremula {
-    0%   { text-shadow: 0 0 40px rgba(217, 188, 122, .30); }
-    45%  { text-shadow: 0 0 48px rgba(217, 188, 122, .42); }
-    60%  { text-shadow: 0 0 36px rgba(217, 188, 122, .28); }
-    100% { text-shadow: 0 0 46px rgba(217, 188, 122, .38); }
+    0%   { filter: drop-shadow(0 0 20px rgba(217, 188, 122, .24)); }
+    45%  { filter: drop-shadow(0 0 28px rgba(217, 188, 122, .36)); }
+    60%  { filter: drop-shadow(0 0 18px rgba(217, 188, 122, .22)); }
+    100% { filter: drop-shadow(0 0 26px rgba(217, 188, 122, .32)); }
   }
   .nome { animation: acender 1.6s ease-out both, tremula 6s 1.6s ease-in-out infinite alternate; }
 
@@ -324,7 +326,7 @@ const CONFIG = {
   }
   .rotulo h3 { margin-bottom: .3em; }
   .rotulo .para { color: var(--texto-2); }
-  .rotulo .inclui { font: 600 .75rem var(--rotulo); letter-spacing: .08em; text-transform: uppercase; color: var(--ambar); margin: 6px 0 4px; }
+  .rotulo .inclui { font: 600 .75rem var(--rotulo); letter-spacing: .08em; text-transform: uppercase; color: var(--texto-2); margin: 6px 0 4px; }
   .rotulo ul { margin: 0 0 18px; padding-left: 22px; color: var(--texto-2); }
   .rotulo .preco { font-family: var(--serifa); font-size: 2.25rem; font-weight: 500; line-height: 1.1; color: var(--ambar); margin: auto 0 2px; }
   .rotulo .preco span { display: block; font: 400 .875rem var(--corpo); color: var(--texto-2); margin-top: 4px; }
@@ -406,7 +408,7 @@ const CONFIG = {
   .terapias p { margin: 0 0 10px; color: var(--texto-2); }
   .ficha { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 0 0 14px; font-size: .875rem; }
   .ficha div { display: flex; gap: 6px; align-items: baseline; }
-  .ficha dt { font: 600 .6875rem var(--rotulo); letter-spacing: .1em; text-transform: uppercase; color: var(--ambar); }
+  .ficha dt { font: 600 .6875rem var(--rotulo); letter-spacing: .1em; text-transform: uppercase; color: var(--texto-2); }
   .ficha dd { margin: 0; }
   .terapias .btn { min-height: 48px; }
   .ponte { margin-top: 2rem; }
