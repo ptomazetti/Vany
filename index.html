@@ -38,13 +38,14 @@ const CONFIG = {
 };
 </script>
 
-<title>Vany | Trabalhos espirituais e holísticos</title>
-<meta name="description" content="Vany, mãe de santo e terapeuta holística. Pacotes mensais de trabalhos espirituais e holísticos, com atendimento pelo WhatsApp.">
+<title>Vany | Trabalhos espirituais e terapias holísticas</title>
+<meta name="description" content="Trabalhos espirituais e terapias holísticas com a Vany, em [PREENCHER: cidade] e online. Pacotes mensais e acompanhamento pelo WhatsApp.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Vany | Trabalhos espirituais e holísticos">
-<meta property="og:description" content="Pacotes mensais de trabalhos espirituais e holísticos com a Vany, mãe de santo e terapeuta holística.">
-<meta property="og:image" content="fotos/compartilhamento.jpg">
+<meta property="og:title" content="Vany | Trabalhos espirituais e terapias holísticas">
+<meta property="og:description" content="Trabalhos espirituais e terapias holísticas com a Vany, em [PREENCHER: cidade] e online. Pacotes mensais e acompanhamento pelo WhatsApp.">
+<!-- O WhatsApp e o Instagram só mostram a imagem com o endereço completo: trocar pelo domínio do site -->
+<meta property="og:image" content="https://[PREENCHER-DOMINIO]/fotos/compartilhamento.jpg">
 <meta property="og:image:alt" content="Vany, mãe de santo e terapeuta holística">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#3E1520">
@@ -120,12 +121,18 @@ const CONFIG = {
   .foto:has(img) { border: 0; }
 
   /* Topo */
+  .topo {
+    position: sticky; top: 0; z-index: 20;
+    background: var(--terra-funda);
+    border-bottom: 1px solid rgba(227, 164, 126, .25);
+  }
   .topo .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
   .topo .marca { font-family: var(--titulo); font-style: italic; font-size: 1.6rem; text-decoration: none; color: var(--cera); }
   .topo nav { display: flex; gap: 18px; font-size: 1.05rem; }
   .topo nav a { text-decoration: none; padding: 10px 0; }
   .topo nav a:hover { text-decoration: underline; }
   .topo .so-largo { display: none; }
+  [id] { scroll-margin-top: 72px; }
 
   /* Abertura: o nome como desenho */
   /* Luz baixa de vela atrás do nome: o único brilho da página */
@@ -135,19 +142,33 @@ const CONFIG = {
   }
   .nome {
     font-family: var(--titulo);
-    font-size: clamp(8rem, 40vw, 20rem);
+    font-size: clamp(5.5rem, 28vw, 15rem);
     font-style: italic;
     font-weight: 400;
     line-height: .85;
     color: var(--cera);
-    margin: 0 0 0 -.03em;
+    margin: 0 0 .22em -.03em;
   }
   .nome { position: relative; z-index: 2; }
-  .abertura .foto { aspect-ratio: 4 / 5; margin: -0.12em 0 0 18%; font-size: clamp(8rem, 40vw, 20rem); }
+  .abertura .foto { aspect-ratio: 4 / 5; margin: 40px 0 0 18%; }
   .abertura .foto .pedido { font-size: 1rem; }
-  .abertura .quem { font-size: 1.25rem; font-weight: 700; margin: 32px 0 4px; color: var(--cera); }
-  .abertura .frase { font-size: 1.35rem; line-height: 1.5; }
-  .abertura .btn { margin-top: 8px; }
+  .abertura h1 { font-size: clamp(1.9rem, 7.5vw, 3.2rem); margin: 4px 0 12px; max-width: 18ch; }
+  .abertura .frase { font-size: 1.15rem; line-height: 1.55; }
+
+  /* O que você procura? */
+  .procura { margin-top: 20px; }
+  .procura h2 { font-size: 1.35rem; font-style: italic; color: var(--cera); margin-bottom: 10px; }
+  .procura ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .procura a {
+    display: flex; flex-direction: column; justify-content: center;
+    min-height: 54px; padding: 8px 14px;
+    border: 1px solid rgba(227, 164, 126, .55); border-radius: 2px;
+    text-decoration: none; font-weight: 500; line-height: 1.25;
+  }
+  .procura a:hover { background: rgba(227, 164, 126, .12); }
+  .procura .nao-sei { grid-column: 1 / -1; }
+  .procura .nao-sei a { background: var(--cera); color: var(--fumo); border-color: var(--cera); }
+  .procura .nao-sei span { font-weight: 400; font-size: .95rem; }
 
   /* O único movimento da página: o nome acende como vela */
   @keyframes acender {
@@ -260,6 +281,36 @@ const CONFIG = {
   .contato .outros a { padding: 8px 0; display: inline-block; }
   .contato svg { width: 24px; height: 24px; flex-shrink: 0; }
 
+  /* Cuidado holístico */
+  .cuidado { padding: 56px 0 80px; }
+  .cuidado-abre h2 { font-size: clamp(2.6rem, 11vw, 4rem); }
+  .cuidado-abre .frase { font-family: var(--titulo); font-style: italic; font-size: 1.5rem; line-height: 1.35; }
+  .cuidado .btn-tinta { background: var(--terra); color: var(--algodao); }
+  .indice { margin: 36px 0 8px; }
+  .indice ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .indice a {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 6px 14px;
+    border: 1px solid rgba(42, 16, 21, .35); border-radius: 2px; text-decoration: none; color: var(--fumo);
+  }
+  .grupo { padding: 48px 0 0; }
+  .grupo > h3 { font-size: clamp(2rem, 8vw, 2.6rem); border-bottom: 1px solid rgba(42, 16, 21, .3); padding-bottom: 10px; }
+  .terapias { list-style: none; margin: 0; padding: 0; display: grid; }
+  .terapias li { padding: 22px 0; border-bottom: 1px solid rgba(42, 16, 21, .15); }
+  .terapias h4 { font-family: var(--titulo); font-weight: 500; font-size: 1.5rem; margin: 0 0 4px; }
+  .terapias p { margin: 0 0 10px; }
+  .ficha { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 0 0 14px; font-size: 1rem; }
+  .ficha div { display: flex; gap: 6px; }
+  .ficha dt { font-weight: 700; }
+  .ficha dt::after { content: ":"; }
+  .ficha dd { margin: 0; }
+  .terapias .btn { color: var(--fumo); min-height: 48px; padding: 8px 18px; }
+  .cuidado .rotulo { max-width: 420px; margin-top: 24px; }
+  .cuidado .rotulo h4 { font-family: var(--titulo); font-weight: 500; font-size: 2rem; color: var(--tinta); margin: 0 0 .4em; line-height: 1.1; }
+  .aviso-pequeno { margin-top: 48px; font-size: .95rem; }
+  @media (min-width: 720px) {
+    .terapias { grid-template-columns: 1fr 1fr; column-gap: 48px; }
+  }
+
   /* Rodapé */
   footer { background: var(--terra-funda); padding: 48px 0 116px; font-size: 1rem; }
   footer .marca { font-family: var(--titulo); font-style: italic; font-size: 2.4rem; color: var(--cera); margin: 0; }
@@ -282,14 +333,16 @@ const CONFIG = {
   @media (min-width: 720px) {
     section { padding: 104px 0; }
     .topo .so-largo { display: inline; }
+    .topo .so-curto { display: none; }
     .rotulos { grid-template-columns: repeat(2, 1fr); gap: 52px 40px; }
     .passos { grid-template-columns: repeat(2, 1fr); gap: 36px; }
   }
   @media (min-width: 1000px) {
-    .abertura .container { display: grid; grid-template-columns: 1.2fr .8fr; align-items: end; gap: 0 48px; }
+    .abertura .container { display: grid; grid-template-columns: 1.2fr .8fr; align-items: start; gap: 0 56px; }
     .nome { grid-column: 1 / -1; }
-    .abertura .foto { grid-column: 2; grid-row: 2 / span 2; margin: -.45em 0 0; font-size: 20rem; }
-    .abertura .texto { grid-column: 1; grid-row: 2; align-self: end; }
+    .abertura .foto { grid-column: 2; grid-row: 2 / span 2; margin: 0; align-self: start; }
+    .abertura .texto { grid-column: 1; grid-row: 2; }
+    .procura { grid-column: 1; grid-row: 3; }
     .sobre .container { grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; }
     .rotulos { grid-template-columns: repeat(3, 1fr); }
     .passos { grid-template-columns: repeat(4, 1fr); }
@@ -302,28 +355,42 @@ const CONFIG = {
   <div class="container">
     <a href="#inicio" class="marca">Vany</a>
     <nav aria-label="Menu principal">
-      <a href="#sobre" class="so-largo">Sobre</a>
-      <a href="#pacotes">Pacotes</a>
+      <a href="#trabalhos"><span class="so-largo">Trabalhos </span><span class="so-curto">Espiritual</span><span class="so-largo">espirituais</span></a>
+      <a href="#cuidado"><span class="so-largo">Cuidado </span><span class="so-curto">Holístico</span><span class="so-largo">holístico</span></a>
       <a href="#perguntas">Dúvidas</a>
-      <a href="#contato">Contato</a>
+      <a href="#contato" class="so-largo">Contato</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="inicio-vista" data-vista="inicio">
 
   <!-- 1. ABERTURA -->
   <section class="abertura" id="inicio">
     <div class="container">
-      <h1 class="nome">Vany</h1>
+      <p class="nome">Vany</p>
+      <div class="texto">
+        <h1>Você sabe quem faz, como faz e quando faz.</h1>
+        <p class="frase">Sou a Vany. Faço trabalhos espirituais e terapias holísticas em [PREENCHER: cidade] e online, para quem está no Brasil ou fora dele.</p>
+      </div>
+
+      <nav class="procura" aria-labelledby="procura-titulo">
+        <h2 id="procura-titulo">O que você procura?</h2>
+        <ul>
+          <li><a href="#pacote-pagina-virada">Fechar um ciclo</a></li>
+          <li><a href="#pacote-mel-oxum">Amor e relação</a></li>
+          <li><a href="#pacote-fogo-padilha">Desejo e rivais</a></li>
+          <li><a href="#pacote-brilho">Autoestima e brilho</a></li>
+          <li><a href="#cuidado">Desacelerar e me cuidar</a></li>
+          <li><a href="#cuidado-autoconhecimento">Me conhecer melhor</a></li>
+          <!-- Se a Vany escolher a consulta como porta de entrada, trocar este link por href="#avulsos" -->
+          <li class="nao-sei"><a data-link="whatsapp" data-msg="Oi, Vany! Ainda não sei o que escolher.">Ainda não sei<span>Me conta o seu momento que eu te ajudo a escolher.</span></a></li>
+        </ul>
+      </nav>
+
       <div class="foto">
         <p class="pedido"><span><strong>Foto a tirar</strong>As mãos da Vany segurando as guias, de perto, só com luz de vela. Sem flash. Vertical.</span></p>
         <img src="fotos/maos-guias.jpg" alt="Mãos da Vany segurando as guias à luz de vela" onerror="this.remove()">
-      </div>
-      <div class="texto">
-        <p class="quem">Mãe de santo e terapeuta holística</p>
-        <p class="frase">[PREENCHER: uma frase da Vany sobre o trabalho dela]</p>
-        <a href="#pacotes" class="btn btn-cera">Ver pacotes</a>
       </div>
     </div>
   </section>
@@ -348,17 +415,17 @@ const CONFIG = {
     </div>
   </section>
 
-  <!-- 3. PACOTES MENSAIS -->
-  <section class="pacotes" id="pacotes">
+  <!-- 3. TRABALHOS ESPIRITUAIS: PACOTES MENSAIS -->
+  <section class="pacotes" id="trabalhos">
     <div class="container">
       <div class="abre">
-        <h2>Pacotes do mês</h2>
-        <p>Cada pacote é um mês de trabalho. No cartão, a assinatura renova todo mês até você cancelar. No Pix e no PayPal, você paga um mês de cada vez. O Pix tem desconto.</p>
+        <h2>Trabalhos espirituais</h2>
+        <p>Pacotes mensais. Cada pacote é um mês de trabalho. No cartão, a assinatura renova todo mês até você cancelar. No Pix e no PayPal, você paga um mês de cada vez. O Pix tem desconto.</p>
       </div>
 
       <div class="rotulos">
 
-        <article class="rotulo r-iansa">
+        <article class="rotulo r-iansa" id="pacote-pagina-virada">
           <div class="moldura">
             <p class="faixa">Inspiração: Iansã</p>
             <h3>[CONFIRMAR NOME: Página Virada ou Castigo do Ex]</h3>
@@ -375,7 +442,7 @@ const CONFIG = {
           </div>
         </article>
 
-        <article class="rotulo r-padilha">
+        <article class="rotulo r-padilha" id="pacote-fogo-padilha">
           <div class="moldura">
             <p class="faixa">Inspiração: Pombagira Maria Padilha</p>
             <h3>Fogo de Padilha</h3>
@@ -392,7 +459,7 @@ const CONFIG = {
           </div>
         </article>
 
-        <article class="rotulo r-oxum">
+        <article class="rotulo r-oxum" id="pacote-mel-oxum">
           <div class="moldura">
             <p class="faixa">Inspiração: Oxum</p>
             <h3>Mel de Oxum</h3>
@@ -409,7 +476,7 @@ const CONFIG = {
           </div>
         </article>
 
-        <article class="rotulo r-cleopatra">
+        <article class="rotulo r-cleopatra" id="pacote-brilho">
           <div class="moldura">
             <p class="faixa">Inspiração: Cleópatra</p>
             <h3>Brilho de Cleópatra</h3>
@@ -426,22 +493,6 @@ const CONFIG = {
           </div>
         </article>
 
-        <article class="rotulo r-holistico">
-          <div class="moldura">
-            <p class="faixa">Terapias holísticas</p>
-            <h3>[PREENCHER: nome do pacote holístico]</h3>
-            <p class="para">[PREENCHER: para quem é]</p>
-            <p class="inclui">No mês:</p>
-            <ul><li>[PREENCHER: trabalhos incluídos]</li></ul>
-            <p class="preco">R$ [PREENCHER] <span>por mês, no cartão ou PayPal</span></p>
-            <p class="pix">No Pix: R$ [PREENCHER] por 1 mês</p>
-            <div class="botoes">
-              <a class="btn btn-tinta" data-link="pacotes.holistico.assinatura">Assinar no cartão</a>
-              <a class="btn btn-linha" data-link="pacotes.holistico.pix">Pagar 1 mês no Pix</a>
-              <a class="btn btn-linha" data-link="pacotes.holistico.paypal">Pagar no PayPal</a>
-            </div>
-          </div>
-        </article>
 
       </div>
 
@@ -449,7 +500,7 @@ const CONFIG = {
     </div>
   </section>
 
-  <!-- 4. TRABALHOS HOLÍSTICOS AVULSOS -->
+  <!-- 4. TRABALHOS ESPIRITUAIS AVULSOS -->
   <section class="avulsos papel" id="avulsos">
     <div class="container">
       <h2>Trabalhos avulsos</h2>
@@ -645,6 +696,284 @@ const CONFIG = {
 
 </main>
 
+<!-- CUIDADO HOLÍSTICO: abre como uma página própria pelo link #cuidado -->
+<main class="cuidado papel" id="cuidado" data-vista="cuidado">
+  <div class="container">
+    <div class="cuidado-abre">
+      <h2>Cuidado holístico</h2>
+      <p class="frase">Um tempo só seu, para desacelerar, respirar e se ouvir.</p>
+      <p>Não sabe qual escolher? Me conta o seu momento no WhatsApp que eu te indico.</p>
+      <a class="btn btn-tinta" data-link="whatsapp" data-msg="Oi, Vany! Quero ajuda para escolher uma terapia.">Chamar no WhatsApp</a>
+    </div>
+
+    <nav class="indice" aria-label="Grupos de terapias">
+      <ul>
+          <li><a href="#cuidado-energeticas">Energéticas</a></li>
+          <li><a href="#cuidado-radiestesia">Radiestesia</a></li>
+          <li><a href="#cuidado-elementos">Com elementos</a></li>
+          <li><a href="#cuidado-corporais">Corporais</a></li>
+          <li><a href="#cuidado-emocionais">Emocionais</a></li>
+          <li><a href="#cuidado-som">Som</a></li>
+          <li><a href="#cuidado-autoconhecimento">Autoconhecimento e leitura</a></li>
+      </ul>
+    </nav>
+
+      <section class="grupo" id="cuidado-energeticas" aria-labelledby="titulo-energeticas">
+        <h3 id="titulo-energeticas">Energéticas</h3>
+        <ul class="terapias">
+          <li>
+            <h4>Reiki</h4>
+            <p>Técnica de origem japonesa de imposição de mãos. Você fica na maca, de roupa, ou recebe à distância.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Reiki.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Apometria</h4>
+            <p>Terapia de base espiritualista, conduzida por mim em sessão guiada, presencial ou à distância.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Apometria.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>ThetaHealing</h4>
+            <p>Técnica que usa meditação guiada e conversa para trabalhar crenças e emoções.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: ThetaHealing.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Barras de Access</h4>
+            <p>Toque leve em 32 pontos da cabeça, com você deitada na maca.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Barras de Access.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Cura Prânica</h4>
+            <p>Método sem toque, em que eu trabalho o campo de energia ao redor do corpo.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Cura Prânica.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Imposição de mãos</h4>
+            <p>As mãos ficam sobre o corpo ou bem perto dele, sem massagem.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Imposição de mãos.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Limpeza e harmonização energética</h4>
+            <p>Sessão para limpar e equilibrar a sua energia. [CONFIRMAR COMO A VANY FAZ]</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Limpeza e harmonização energética.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Alinhamento de chakras</h4>
+            <p>Trabalho focado nos sete chakras principais, um por um.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Alinhamento de chakras.">Agendar no WhatsApp</a>
+          </li>
+        </ul>
+      </section>
+      <section class="grupo" id="cuidado-radiestesia" aria-labelledby="titulo-radiestesia">
+        <h3 id="titulo-radiestesia">Radiestesia</h3>
+        <ul class="terapias">
+          <li>
+            <h4>Mesa Radiônica</h4>
+            <p>Uso de uma mesa com gráficos e um pêndulo para avaliar e trabalhar a sua energia. Pode ser feita à distância.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Mesa Radiônica.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Radiestesia com pêndulo</h4>
+            <p>Uso do pêndulo para leitura e ajuste da sua energia.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Radiestesia com pêndulo.">Agendar no WhatsApp</a>
+          </li>
+        </ul>
+      </section>
+      <section class="grupo" id="cuidado-elementos" aria-labelledby="titulo-elementos">
+        <h3 id="titulo-elementos">Com elementos</h3>
+        <ul class="terapias">
+          <li>
+            <h4>Cristaloterapia</h4>
+            <p>Cristais posicionados sobre o corpo ou ao redor dele.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Cristaloterapia.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Cromoterapia</h4>
+            <p>Uso de cores, com luz ou objetos coloridos, durante a sessão.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Cromoterapia.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Aromaterapia</h4>
+            <p>Uso de óleos essenciais escolhidos para o seu momento.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Aromaterapia.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Florais de Bach</h4>
+            <p>Essências florais do sistema criado pelo médico inglês Edward Bach, escolhidas depois de uma conversa.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Florais de Bach.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Florais de Saint Germain</h4>
+            <p>Essências florais do sistema brasileiro Saint Germain, escolhidas depois de uma conversa.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Florais de Saint Germain.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Banho de ervas</h4>
+            <p>Banho preparado com ervas escolhidas para o seu momento.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Banho de ervas.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Defumação</h4>
+            <p>Queima de ervas para limpar o ambiente ou a pessoa.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Defumação.">Agendar no WhatsApp</a>
+          </li>
+        </ul>
+      </section>
+      <section class="grupo" id="cuidado-corporais" aria-labelledby="titulo-corporais">
+        <h3 id="titulo-corporais">Corporais</h3>
+        <ul class="terapias">
+          <li>
+            <h4>Massagem relaxante</h4>
+            <p>Massagem com movimentos lentos e pressão leve.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>Presencial</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Massagem relaxante.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Reflexologia</h4>
+            <p>Pressão em pontos específicos dos pés.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>Presencial</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Reflexologia.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Auriculoterapia</h4>
+            <p>Estímulo de pontos da orelha com [CONFIRMAR: sementes, cristais ou outro].</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>Presencial</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Auriculoterapia.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Ventosaterapia</h4>
+            <p>Copos que fazem sucção sobre a pele. Pode deixar marcas roxas por alguns dias.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>Presencial</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Ventosaterapia.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Shantala</h4>
+            <p>Massagem para bebês, de tradição indiana. [CONFIRMAR: aplicada pela Vany ou ensinada aos pais]</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>Presencial</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Shantala.">Agendar no WhatsApp</a>
+          </li>
+        </ul>
+      </section>
+      <section class="grupo" id="cuidado-emocionais" aria-labelledby="titulo-emocionais">
+        <h3 id="titulo-emocionais">Emocionais</h3>
+        <ul class="terapias">
+          <li>
+            <h4>Constelação Familiar</h4>
+            <p>Sessão que olha para as relações e as histórias da sua família. [CONFIRMAR: individual ou em grupo]</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Constelação Familiar.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Hipnoterapia</h4>
+            <p>Sessão com hipnose, em que você fica em relaxamento profundo e consciente.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Hipnoterapia.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Terapia de Regressão</h4>
+            <p>Sessão guiada para revisitar memórias.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Terapia de Regressão.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Meditação guiada</h4>
+            <p>Meditação conduzida pela minha voz, presencial ou online.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Meditação guiada.">Agendar no WhatsApp</a>
+          </li>
+        </ul>
+      </section>
+      <section class="grupo" id="cuidado-som" aria-labelledby="titulo-som">
+        <h3 id="titulo-som">Som</h3>
+        <ul class="terapias">
+          <li>
+            <h4>Terapia com taças tibetanas</h4>
+            <p>Você fica na maca enquanto eu toco taças tibetanas perto ou sobre o corpo.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Terapia com taças tibetanas.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Musicoterapia</h4>
+            <p>Uso de música e sons durante a sessão.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Musicoterapia.">Agendar no WhatsApp</a>
+          </li>
+        </ul>
+      </section>
+      <section class="grupo" id="cuidado-autoconhecimento" aria-labelledby="titulo-autoconhecimento">
+        <h3 id="titulo-autoconhecimento">Autoconhecimento e leitura</h3>
+        <ul class="terapias">
+          <li>
+            <h4>Leitura de aura</h4>
+            <p>Leitura do seu campo de energia e do que ele mostra sobre o seu momento.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Leitura de aura.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Tarô</h4>
+            <p>Leitura de cartas de tarô sobre o seu momento ou sobre uma pergunta específica.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Tarô.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Baralho Cigano</h4>
+            <p>Leitura com as 36 cartas do baralho cigano.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Numerologia</h4>
+            <p>Estudo dos números do seu nome e da sua data de nascimento.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Numerologia.">Agendar no WhatsApp</a>
+          </li>
+          <li>
+            <h4>Mapa astral</h4>
+            <p>Leitura da posição dos astros no dia, na hora e no local em que você nasceu.</p>
+            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
+            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Mapa astral.">Agendar no WhatsApp</a>
+          </li>
+        </ul>
+      </section>
+
+    <section class="grupo" id="cuidado-pacote" aria-labelledby="titulo-pacote">
+      <h3 id="titulo-pacote">Pacote mensal</h3>
+      <article class="rotulo r-holistico">
+        <div class="moldura">
+          <p class="faixa">Terapias holísticas</p>
+          <h4>[PREENCHER: nome do pacote holístico]</h4>
+          <p class="para">[PREENCHER: quantidade] sessões por mês de [PREENCHER: terapias].</p>
+          <p class="preco">R$ [PREENCHER] <span>por mês, no cartão ou PayPal</span></p>
+          <p class="pix">No Pix: R$ [PREENCHER] por 1 mês</p>
+          <div class="botoes">
+            <a class="btn btn-tinta" data-link="pacotes.holistico.assinatura">Assinar no cartão</a>
+            <a class="btn btn-linha" data-link="pacotes.holistico.pix">Pagar 1 mês no Pix</a>
+            <a class="btn btn-linha" data-link="pacotes.holistico.paypal">Pagar no PayPal</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <p class="aviso-pequeno">As terapias holísticas são complementares e não substituem acompanhamento médico ou psicológico.</p>
+  </div>
+</main>
+
 <!-- 9. RODAPÉ -->
 <footer>
   <div class="container">
@@ -672,6 +1001,7 @@ const CONFIG = {
     var valor = el.dataset.link.split(".").reduce(function (o, k) { return o && o[k]; }, CONFIG);
     var pronto = typeof valor === "string" && valor.indexOf("PREENCHER") === -1;
     if (pronto) {
+      if (el.dataset.msg) { valor += "?text=" + encodeURIComponent(el.dataset.msg); }
       el.href = el.dataset.tipo === "email" ? "mailto:" + valor : valor;
       if (el.dataset.tipo !== "email") { el.target = "_blank"; el.rel = "noopener"; }
     } else {
@@ -683,10 +1013,23 @@ const CONFIG = {
     }
   });
 
-  // Abre a política certa quando vem de um link
+  // Duas vistas no mesmo arquivo: início e Cuidado holístico.
+  // Sem JavaScript, as duas aparecem uma depois da outra.
+  var vistas = document.querySelectorAll("[data-vista]");
   function abrirDoHash() {
-    var alvo = location.hash && document.querySelector(location.hash);
+    var alvo = null;
+    try { alvo = location.hash ? document.querySelector(location.hash) : null; } catch (e) {}
+    var vista = alvo ? alvo.closest("[data-vista]") : null;
+    var nome = vista ? vista.dataset.vista : "inicio";
+    var trocou = false;
+    vistas.forEach(function (v) {
+      var esconder = v.dataset.vista !== nome;
+      if (v.hidden !== esconder) { v.hidden = esconder; trocou = true; }
+    });
     if (alvo && alvo.tagName === "DETAILS") { alvo.open = true; }
+    // Ao trocar de vista, pula direto, sem rolagem animada
+    var modo = trocou ? { behavior: "instant" } : { behavior: "auto" };
+    if (alvo) { alvo.scrollIntoView(modo); } else { window.scrollTo(0, 0); }
   }
   window.addEventListener("hashchange", abrirDoHash);
   abrirDoHash();
