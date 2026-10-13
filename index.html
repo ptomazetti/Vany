@@ -67,14 +67,14 @@ const CONFIG = {
     --mais-baixo: #110D10;
     --rubi: #89182A;            /* Rubi Terreiro */
     --ametista: #35143F;        /* Ametista Noturno */
-    --ambar: #FFB3B5;           /* Rosa Vela (primary do sistema) */
+    --ambar: #E5B7ED;           /* Lilás (secondary do sistema) */
     --texto: #F7EFE8;           /* Alabaster Linen */
     --texto-2: #C4B2B8;         /* Ash Mist */
     --texto-mudo: #806C76;      /* Worn Clay: só em texto grande */
-    --borda-suave: rgba(255, 179, 181, .15);
+    --borda-suave: rgba(229, 183, 237, .15);
     --borda-forte: rgba(137, 24, 42, .45);
-    --brilho: 0 0 20px 2px rgba(255, 179, 181, .28);
-    --fio: linear-gradient(90deg, transparent, rgba(255, 179, 181, .35), transparent);
+    --brilho: 0 0 20px 2px rgba(229, 183, 237, .28);
+    --fio: linear-gradient(90deg, transparent, rgba(229, 183, 237, .35), transparent);
 
     --serifa: "EB Garamond", Garamond, Georgia, serif;
     --corpo: "Manrope", system-ui, sans-serif;
@@ -88,7 +88,7 @@ const CONFIG = {
     margin: 0;
     background-color: var(--base);
     /* grão quente bem fino */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .99 0 0 0 0 .70 0 0 0 0 .71 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .90 0 0 0 0 .72 0 0 0 0 .93 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
     color: var(--texto);
     font-family: var(--corpo);
     font-size: 1.125rem;
@@ -97,7 +97,7 @@ const CONFIG = {
   }
   img { max-width: 100%; display: block; }
   a { color: var(--ambar); text-underline-offset: 3px; }
-  :focus-visible { outline: 2px solid var(--ambar); outline-offset: 3px; box-shadow: 0 0 0 5px rgba(255, 179, 181, .2); }
+  :focus-visible { outline: 2px solid var(--ambar); outline-offset: 3px; box-shadow: 0 0 0 5px rgba(229, 183, 237, .2); }
 
   h1, h2, h3, h4 { font-family: var(--serifa); font-weight: 500; margin: 0 0 .4em; color: var(--texto); }
   h1 { font-size: 2.5rem; line-height: 1.2; letter-spacing: -.01em; }
@@ -123,19 +123,19 @@ const CONFIG = {
     transition: box-shadow .2s ease, transform .2s ease, background .2s ease, color .2s ease;
   }
   /* principal: âmbar */
-  .btn-cera, .btn-tinta { background: var(--ambar); color: #40000B; box-shadow: 0 2px 10px rgba(255, 179, 181, .35); }
-  .btn-cera:hover, .btn-tinta:hover { box-shadow: 0 0 16px rgba(255, 179, 181, .6); transform: translateY(-1px); }
+  .btn-cera, .btn-tinta { background: var(--ambar); color: #2D0C38; box-shadow: 0 2px 10px rgba(229, 183, 237, .35); }
+  .btn-cera:hover, .btn-tinta:hover { box-shadow: 0 0 16px rgba(229, 183, 237, .6); transform: translateY(-1px); }
   /* fantasma */
-  .btn-linha { background: transparent; color: var(--texto); border-color: rgba(255, 179, 181, .35); }
+  .btn-linha { background: transparent; color: var(--texto); border-color: rgba(229, 183, 237, .35); }
   .btn-linha:hover { box-shadow: var(--brilho); border-color: var(--ambar); }
   /* secundário: rubi */
-  .avulsos .btn-linha, .terapias .btn-linha { background: var(--rubi); color: var(--texto); border-color: rgba(255, 179, 181, .3); }
+  .avulsos .btn-linha, .terapias .btn-linha { background: var(--rubi); color: var(--texto); border-color: rgba(229, 183, 237, .3); }
 
   /* Fotos que a Vany ainda precisa tirar */
   .foto {
     position: relative; overflow: hidden; border-radius: .5rem;
     background: linear-gradient(180deg, var(--elevado), var(--container));
-    border: 1px dashed rgba(255, 179, 181, .35);
+    border: 1px dashed rgba(229, 183, 237, .35);
   }
   .foto .pedido {
     position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
@@ -178,7 +178,7 @@ const CONFIG = {
     width: min(86vw, 360px); overflow-y: auto;
     background: var(--container-alto); color: var(--texto);
     border-left: 1px solid var(--borda-suave); border-radius: .75rem 0 0 .75rem;
-    box-shadow: 0 16px 40px -12px rgba(10, 6, 9, .8), 0 0 24px 0 rgba(255, 179, 181, .08);
+    box-shadow: 0 16px 40px -12px rgba(10, 6, 9, .8), 0 0 24px 0 rgba(229, 183, 237, .08);
     padding: 8px 24px 32px;
   }
   .menu-lateral[hidden], .menu-fundo[hidden] { display: none; }
@@ -203,7 +203,7 @@ const CONFIG = {
   .abertura::before {
     content: ""; position: absolute; inset: -10%; z-index: 0; pointer-events: none;
     background:
-      radial-gradient(circle at 30% 16%, rgba(255, 179, 181, .17), transparent 50%),
+      radial-gradient(circle at 30% 16%, rgba(229, 183, 237, .17), transparent 50%),
       radial-gradient(circle at 85% 70%, rgba(137, 24, 42, .24), transparent 55%);
     animation: chama 7s ease-in-out infinite alternate;
   }
@@ -216,7 +216,7 @@ const CONFIG = {
   /* no computador, uma luz suave acompanha o cursor na abertura */
   .abertura::after {
     content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-    background: radial-gradient(420px circle at var(--x, 50%) var(--y, 30%), rgba(255, 179, 181, .07), transparent 60%);
+    background: radial-gradient(420px circle at var(--x, 50%) var(--y, 30%), rgba(229, 183, 237, .07), transparent 60%);
     opacity: 0; transition: opacity .8s ease;
   }
   .abertura.luz::after { opacity: 1; }
@@ -225,7 +225,7 @@ const CONFIG = {
     font-family: var(--serifa); font-style: italic; font-weight: 400;
     font-size: clamp(5.5rem, 28vw, 15rem); line-height: .85; letter-spacing: -.02em;
     color: var(--ambar);
-    text-shadow: 0 0 40px rgba(255, 179, 181, .35);
+    text-shadow: 0 0 40px rgba(229, 183, 237, .35);
     margin: 0 0 .22em -.03em;
   }
   .abertura .foto { aspect-ratio: 4 / 5; margin: 40px 0 0 18%; }
@@ -244,9 +244,9 @@ const CONFIG = {
     color: var(--texto); text-decoration: none; font-weight: 600; font-size: 1rem; line-height: 1.3;
     transition: box-shadow .2s ease, border-color .2s ease;
   }
-  .procura a:hover { box-shadow: var(--brilho); border-color: rgba(255, 179, 181, .5); }
+  .procura a:hover { box-shadow: var(--brilho); border-color: rgba(229, 183, 237, .5); }
   .procura .nao-sei { grid-column: 1 / -1; }
-  .procura .nao-sei a { background: var(--ambar); color: #40000B; border-color: var(--ambar); }
+  .procura .nao-sei a { background: var(--ambar); color: #2D0C38; border-color: var(--ambar); }
   .procura .nao-sei span { font-weight: 400; font-size: .875rem; }
 
   /* O nome acende como vela */
@@ -257,10 +257,10 @@ const CONFIG = {
     100% { opacity: 1; filter: blur(0); }
   }
   @keyframes tremula {
-    0%   { text-shadow: 0 0 40px rgba(255, 179, 181, .30); }
-    45%  { text-shadow: 0 0 48px rgba(255, 179, 181, .42); }
-    60%  { text-shadow: 0 0 36px rgba(255, 179, 181, .28); }
-    100% { text-shadow: 0 0 46px rgba(255, 179, 181, .38); }
+    0%   { text-shadow: 0 0 40px rgba(229, 183, 237, .30); }
+    45%  { text-shadow: 0 0 48px rgba(229, 183, 237, .42); }
+    60%  { text-shadow: 0 0 36px rgba(229, 183, 237, .28); }
+    100% { text-shadow: 0 0 46px rgba(229, 183, 237, .38); }
   }
   .nome { animation: acender 1.6s ease-out both, tremula 6s 1.6s ease-in-out infinite alternate; }
 
@@ -277,13 +277,13 @@ const CONFIG = {
   html { scrollbar-color: var(--rubi) var(--base); scrollbar-width: thin; }
   h1, h2, h3, h4 { text-wrap: balance; }
   p { text-wrap: pretty; }
-  a { text-decoration-thickness: 1px; text-decoration-color: rgba(255, 179, 181, .45); transition: text-decoration-color .3s ease, color .3s ease; }
+  a { text-decoration-thickness: 1px; text-decoration-color: rgba(229, 183, 237, .45); transition: text-decoration-color .3s ease, color .3s ease; }
   a:hover { text-decoration-color: currentColor; }
   .btn-linha { background-image: linear-gradient(rgba(137, 24, 42, .45), rgba(137, 24, 42, .45)); background-repeat: no-repeat; background-position: bottom; background-size: 100% 0; transition: background-size .4s cubic-bezier(.2, .7, .2, 1), box-shadow .3s ease, border-color .3s ease; }
   .btn-linha:hover { background-size: 100% 100%; }
   @media (hover: hover) {
     .rotulo { transition: border-color .5s ease, box-shadow .5s ease; }
-    .rotulo:hover { border-color: rgba(255, 179, 181, .35); box-shadow: 0 16px 40px -12px rgba(10, 6, 9, .8), 0 0 24px 0 rgba(255, 179, 181, .06); }
+    .rotulo:hover { border-color: rgba(229, 183, 237, .35); box-shadow: 0 16px 40px -12px rgba(10, 6, 9, .8), 0 0 24px 0 rgba(229, 183, 237, .06); }
   }
   details[open] .resposta { animation: abrir .45s ease both; }
   @keyframes abrir { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
@@ -319,7 +319,7 @@ const CONFIG = {
     background: var(--faixa, var(--rubi)); color: var(--texto);
     margin: 0 -1.25rem 1.25rem; padding: 10px 1.25rem;
     font: 600 .6875rem var(--rotulo); letter-spacing: .1em; text-transform: uppercase;
-    border-bottom: 1px solid rgba(255, 179, 181, .3);
+    border-bottom: 1px solid rgba(229, 183, 237, .3);
   }
   .rotulo h3 { margin-bottom: .3em; }
   .rotulo .para { color: var(--texto-2); }
@@ -392,7 +392,7 @@ const CONFIG = {
   .indice ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
   .indice a {
     display: inline-flex; align-items: center; min-height: 44px; padding: 6px 14px;
-    background: rgba(53, 20, 63, .6); border: 1px solid rgba(255, 179, 181, .35); border-radius: .25rem;
+    background: rgba(53, 20, 63, .6); border: 1px solid rgba(229, 183, 237, .35); border-radius: .25rem;
     font: 600 .6875rem var(--rotulo); letter-spacing: .1em; text-transform: uppercase;
     color: var(--texto); text-decoration: none; transition: box-shadow .2s ease;
   }
