@@ -9,6 +9,8 @@
    LINKS DE PAGAMENTO, CONTATO E CONFIGURAÇÃO
    Troque só o que está entre aspas. Nada mais precisa mudar.
    ========================================================= */
+document.documentElement.classList.add("js");
+
 const CONFIG = {
   pacotes: {
     // assinatura = Stripe, cartão, renova todo mês
@@ -147,7 +149,14 @@ const CONFIG = {
   .topo {
     position: sticky; top: 0; z-index: 20;
     background: rgba(20, 16, 19, .96);
-    border-bottom: 1px solid var(--borda-suave);
+    border-bottom: 1px solid transparent;
+    transition: background .5s ease, border-color .5s ease;
+  }
+  /* depois de rolar: vidro fosco e um fio fino */
+  .topo.rolou {
+    background: rgba(20, 16, 19, .78);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2);
+    border-bottom-color: var(--borda-suave);
   }
   .topo .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
   .topo .marca { font-family: var(--serifa); font-style: italic; font-size: 1.75rem; text-decoration: none; color: var(--ambar); }
@@ -188,12 +197,29 @@ const CONFIG = {
   [id] { scroll-margin-top: 72px; }
 
   /* Abertura: o nome como desenho, à luz de vela */
-  .abertura {
-    padding: 8px 0 3.5rem; overflow: hidden;
+  .abertura { position: relative; padding: 8px 0 3.5rem; overflow: hidden; isolation: isolate; }
+  .abertura > .container { position: relative; z-index: 1; }
+  /* luz de vela que respira devagar */
+  .abertura::before {
+    content: ""; position: absolute; inset: -10%; z-index: 0; pointer-events: none;
     background:
-      radial-gradient(circle at 28% 16%, rgba(255, 179, 181, .16), transparent 55%),
-      radial-gradient(circle at 85% 70%, rgba(137, 24, 42, .22), transparent 55%);
+      radial-gradient(circle at 30% 16%, rgba(255, 179, 181, .17), transparent 50%),
+      radial-gradient(circle at 85% 70%, rgba(137, 24, 42, .24), transparent 55%);
+    animation: chama 7s ease-in-out infinite alternate;
   }
+  @keyframes chama {
+    0%   { opacity: .8;  transform: scale(1); }
+    40%  { opacity: 1;   transform: scale(1.03); }
+    70%  { opacity: .88; transform: scale(1.01); }
+    100% { opacity: 1;   transform: scale(1.04); }
+  }
+  /* no computador, uma luz suave acompanha o cursor na abertura */
+  .abertura::after {
+    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background: radial-gradient(420px circle at var(--x, 50%) var(--y, 30%), rgba(255, 179, 181, .07), transparent 60%);
+    opacity: 0; transition: opacity .8s ease;
+  }
+  .abertura.luz::after { opacity: 1; }
   .nome {
     position: relative; z-index: 2;
     font-family: var(--serifa); font-style: italic; font-weight: 400;
@@ -230,7 +256,41 @@ const CONFIG = {
     70%  { opacity: .6; }
     100% { opacity: 1; filter: blur(0); }
   }
-  .nome { animation: acender 1.6s ease-out both; }
+  @keyframes tremula {
+    0%   { text-shadow: 0 0 40px rgba(255, 179, 181, .30); }
+    45%  { text-shadow: 0 0 48px rgba(255, 179, 181, .42); }
+    60%  { text-shadow: 0 0 36px rgba(255, 179, 181, .28); }
+    100% { text-shadow: 0 0 46px rgba(255, 179, 181, .38); }
+  }
+  .nome { animation: acender 1.6s ease-out both, tremula 6s 1.6s ease-in-out infinite alternate; }
+
+  /* Fotos: aparecem como olhos se acostumando à luz de vela */
+  .js .foto img { opacity: 0; filter: brightness(.35) blur(8px); transform: scale(1.06);
+    transition: opacity 1.4s ease, filter 1.6s ease, transform 2.2s cubic-bezier(.2, .7, .2, 1); }
+  .js .foto.visivel img { opacity: 1; filter: saturate(.92) contrast(1.04); transform: scale(1); }
+  @media (hover: hover) {
+    .js .foto.visivel:hover img { transform: scale(1.035); }
+  }
+
+  /* Detalhes finos */
+  ::selection { background: rgba(137, 24, 42, .85); color: var(--texto); }
+  html { scrollbar-color: var(--rubi) var(--base); scrollbar-width: thin; }
+  h1, h2, h3, h4 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+  a { text-decoration-thickness: 1px; text-decoration-color: rgba(255, 179, 181, .45); transition: text-decoration-color .3s ease, color .3s ease; }
+  a:hover { text-decoration-color: currentColor; }
+  .btn-linha { background-image: linear-gradient(rgba(137, 24, 42, .45), rgba(137, 24, 42, .45)); background-repeat: no-repeat; background-position: bottom; background-size: 100% 0; transition: background-size .4s cubic-bezier(.2, .7, .2, 1), box-shadow .3s ease, border-color .3s ease; }
+  .btn-linha:hover { background-size: 100% 100%; }
+  @media (hover: hover) {
+    .rotulo { transition: border-color .5s ease, box-shadow .5s ease; }
+    .rotulo:hover { border-color: rgba(255, 179, 181, .35); box-shadow: 0 16px 40px -12px rgba(10, 6, 9, .8), 0 0 24px 0 rgba(255, 179, 181, .06); }
+  }
+  details[open] .resposta { animation: abrir .45s ease both; }
+  @keyframes abrir { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+  .menu-lateral:not([hidden]) { animation: entrar .4s cubic-bezier(.2, .8, .2, 1) both; }
+  .menu-fundo:not([hidden]) { animation: escurecer .4s ease both; }
+  @keyframes entrar { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: none; } }
+  @keyframes escurecer { from { opacity: 0; } to { opacity: 1; } }
 
   /* Sobre */
   .sobre .container { display: grid; gap: 32px; }
@@ -241,7 +301,6 @@ const CONFIG = {
   .pacotes .abre .foto img { object-position: center 55%; }
   .cuidado-abre .foto { aspect-ratio: 4 / 3; margin-top: 2rem; }
   .cuidado-abre .foto img { object-position: center 60%; }
-  .foto img { filter: saturate(.92) contrast(1.04); }
   .sobre dl { margin: 24px 0 0; display: grid; gap: 4px; max-width: var(--medida); }
   .sobre dt { font: 600 .75rem var(--rotulo); letter-spacing: .08em; text-transform: uppercase; color: var(--ambar); margin-top: 10px; }
   .sobre dd { margin: 0; color: var(--texto-2); }
@@ -372,8 +431,8 @@ const CONFIG = {
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .nome { animation: none; }
-    .btn, .procura a, .indice a { transition: none; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .js .foto img { opacity: 1; filter: none; transform: none; }
     .btn-cera:hover, .btn-tinta:hover { transform: none; }
   }
 
@@ -1048,6 +1107,44 @@ const CONFIG = {
       });
     }
   });
+
+  // Topo vira vidro fosco depois de rolar
+  var topo = document.querySelector(".topo");
+  var pedido = false;
+  window.addEventListener("scroll", function () {
+    if (pedido) { return; }
+    pedido = true;
+    requestAnimationFrame(function () { topo.classList.toggle("rolou", window.scrollY > 24); pedido = false; });
+  }, { passive: true });
+
+  // Fotos aparecem quando entram na tela
+  var fotos = document.querySelectorAll(".foto");
+  if ("IntersectionObserver" in window) {
+    var olhar = new IntersectionObserver(function (itens) {
+      itens.forEach(function (i) { if (i.isIntersecting) { i.target.classList.add("visivel"); olhar.unobserve(i.target); } });
+    }, { threshold: 0.15 });
+    fotos.forEach(function (f) { olhar.observe(f); });
+  } else {
+    fotos.forEach(function (f) { f.classList.add("visivel"); });
+  }
+
+  // Luz que acompanha o cursor na abertura (só com mouse)
+  var abertura = document.querySelector(".abertura");
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var luzPedida = false;
+    abertura.addEventListener("pointermove", function (e) {
+      if (luzPedida) { return; }
+      luzPedida = true;
+      requestAnimationFrame(function () {
+        var r = abertura.getBoundingClientRect();
+        abertura.style.setProperty("--x", (e.clientX - r.left) + "px");
+        abertura.style.setProperty("--y", (e.clientY - r.top) + "px");
+        abertura.classList.add("luz");
+        luzPedida = false;
+      });
+    });
+    abertura.addEventListener("pointerleave", function () { abertura.classList.remove("luz"); });
+  }
 
   // Menu lateral
   var menuBtn = document.getElementById("menu-btn");
