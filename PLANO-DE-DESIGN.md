@@ -6,12 +6,14 @@
 A página é o chão do terreiro. O fundo é terra batida. Sobre ele ficam objetos preparados à mão: cada pacote é um rótulo de papel, como os rótulos de banho de ervas, vela e defumador das casas de artigos religiosos. Esse rótulo é o único elemento ousado do site. O resto fica calmo.
 
 ### Cores (todas a confirmar com a Vany)
+Atualizadas a partir da arte mensal da Vany: vinho profundo, cobre rosado e carmim. Ficaram só as cores. Lua, estrelas, cristais, tarô, zodíaco e letra cursiva ficaram de fora, porque estão na lista do que não usar.
+
 | Nome | Hex | Papel |
 |---|---|---|
-| Terra batida | #4A2C1F | Fundo principal da página |
-| Algodão cru | #EDE3D0 | Papel dos rótulos e das seções de leitura longa; texto sobre a terra |
-| Cera de vela | #E7B65A | Botões principais e o nome "Vany" na abertura |
-| Fumo | #241915 | Texto sobre o papel |
+| Vinho de oferenda | #3E1520 | Fundo principal da página |
+| Papel rosado | #F2E6DE | Papel dos rótulos e das seções de leitura longa; texto sobre o vinho |
+| Cobre rosado | #E3A47E | Botões principais e o nome "Vany" na abertura |
+| Fumo | #2A1015 | Texto sobre o papel |
 | Arruda | #55663F | Pacote holístico e links sobre o papel |
 
 Cores próprias de cada pacote (só nos rótulos):

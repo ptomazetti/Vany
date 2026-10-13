@@ -41,7 +41,7 @@ const CONFIG = {
 <meta property="og:image" content="fotos/compartilhamento.jpg">
 <meta property="og:image:alt" content="Vany, mãe de santo e terapeuta holística">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#4A2C1F">
+<meta name="theme-color" content="#3E1520">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,11 +50,11 @@ const CONFIG = {
 <style>
   /* Paleta tirada do mundo da Vany. Confirmar todas as cores com ela. */
   :root {
-    --terra: #4A2C1F;       /* terra batida: fundo */
-    --terra-funda: #3A2117;
-    --algodao: #EDE3D0;     /* algodão cru: papel e texto sobre a terra */
-    --cera: #E7B65A;        /* cera de vela: botões e o nome */
-    --fumo: #241915;        /* fumo: texto sobre o papel */
+    --terra: #3E1520;       /* vinho de oferenda: fundo */
+    --terra-funda: #2E0F17;
+    --algodao: #F2E6DE;     /* papel rosado: rótulos e texto sobre o vinho */
+    --cera: #E3A47E;        /* cobre rosado: botões e o nome */
+    --fumo: #2A1015;        /* fumo: texto sobre o papel */
     --arruda: #55663F;      /* arruda: links sobre o papel */
 
     --titulo: "Rozha One", Georgia, serif;
@@ -103,7 +103,7 @@ const CONFIG = {
   .foto {
     position: relative; overflow: hidden;
     background: var(--terra-funda);
-    border: 2px dashed rgba(231, 182, 90, .6);
+    border: 2px dashed rgba(227, 164, 126, .6);
   }
   .foto .pedido {
     position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
@@ -202,8 +202,8 @@ const CONFIG = {
 
   /* Avulsos: tabela da casa */
   .avulsos ul { list-style: none; margin: 32px 0 0; padding: 0; max-width: 760px; }
-  .avulsos li { padding: 24px 0; border-top: 1px solid rgba(36, 25, 21, .25); }
-  .avulsos li:last-child { border-bottom: 1px solid rgba(36, 25, 21, .25); }
+  .avulsos li { padding: 24px 0; border-top: 1px solid rgba(42, 16, 21, .25); }
+  .avulsos li:last-child { border-bottom: 1px solid rgba(42, 16, 21, .25); }
   .avulsos .linha { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
   .avulsos h3 { font-size: 1.6rem; margin: 0; }
   .avulsos .valor { font-family: var(--titulo); font-size: 1.6rem; }
@@ -223,8 +223,8 @@ const CONFIG = {
   .passos span { max-width: 48ch; }
 
   /* Perguntas e políticas */
-  .perguntas details, .politicas details { border-top: 1px solid rgba(36, 25, 21, .25); max-width: 760px; }
-  .perguntas details:last-of-type, .politicas details:last-of-type { border-bottom: 1px solid rgba(36, 25, 21, .25); }
+  .perguntas details, .politicas details { border-top: 1px solid rgba(42, 16, 21, .25); max-width: 760px; }
+  .perguntas details:last-of-type, .politicas details:last-of-type { border-bottom: 1px solid rgba(42, 16, 21, .25); }
   summary {
     list-style: none; cursor: pointer;
     padding: 18px 44px 18px 0; min-height: 60px; position: relative;
@@ -238,7 +238,7 @@ const CONFIG = {
   details[open] summary::after { content: "–"; }
   details .resposta { padding: 0 0 20px; }
   details ul { padding-left: 22px; max-width: var(--medida); }
-  .politicas { border-top: 1px solid rgba(36, 25, 21, .2); }
+  .politicas { border-top: 1px solid rgba(42, 16, 21, .2); }
 
   /* Contato */
   .contato .opcoes { display: grid; gap: 14px; margin-top: 28px; max-width: 460px; }
