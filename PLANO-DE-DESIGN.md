@@ -102,5 +102,5 @@ O furo com barbante desenhado no topo de cada rótulo. Os cantos cortados e a bo
 Substitui as cores e fontes acima. Base Terra Escura #141013, Rubi Terreiro #89182A, Ametista Noturno #35143F, Lilás #E5B7ED (trocou o âmbar #D97724 e depois o rosa #FFB3B5), texto #F7EFE8 e #C4B2B8. Fontes: EB Garamond (títulos), Manrope (texto), Space Grotesk (rótulos e botões). Cantos de 4px a 12px, cartões com faixa rubi (pacotes espirituais) ou ametista (holístico e coletivo), brilho de vela no foco e no hover.
 O cinza #806C76 não passa no contraste para texto pequeno sobre o fundo escuro e não é usado em texto corrido.
 
-## 6. Cores fortes de bruxa
-Base #0D0810 (noite), superfícies #170E1C, #22122B e #2C1738, violeta vivo #C084FC para textos de destaque, roxo de feitiço #7E22CE para botões (texto branco), sangue #A3001B nas faixas e botões secundários, ametista profunda #3B0764 nos chips.
+## 6. Bordô e dourado
+Base #12060A (bordô quase preto), superfícies #1C0A10, #261018 e #301520, dourado champanhe #D9BC7A em textos de destaque, bordas e brilhos, vermelho bordô #8A1230 nos botões principais (texto claro e borda dourada), bordô profundo #5E0B1C nas faixas e botões secundários. O dourado é claro e frio de propósito, para não puxar para o mostarda.
