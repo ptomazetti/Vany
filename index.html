@@ -132,6 +132,39 @@ const CONFIG = {
   .topo nav a { text-decoration: none; padding: 10px 0; }
   .topo nav a:hover { text-decoration: underline; }
   .topo .so-largo { display: none; }
+  .topo nav { display: none; }
+  .menu-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    min-height: 48px; padding: 0 4px; background: none; border: 0;
+    color: var(--algodao); font: 500 1.05rem var(--texto); cursor: pointer;
+  }
+  .menu-btn svg, .menu-fechar svg { width: 26px; height: 26px; }
+
+  /* Menu lateral: abre na direita, sem animação */
+  .menu-fundo { position: fixed; inset: 0; z-index: 40; background: rgba(20, 6, 10, .6); }
+  .menu-lateral {
+    position: fixed; top: 0; right: 0; bottom: 0; z-index: 41;
+    width: min(86vw, 360px); overflow-y: auto;
+    background: var(--terra-funda); color: var(--algodao);
+    border-left: 1px solid rgba(227, 164, 126, .35);
+    padding: 8px 24px 32px;
+  }
+  .menu-lateral[hidden], .menu-fundo[hidden] { display: none; }
+  .menu-topo { display: flex; align-items: center; justify-content: space-between; min-height: 56px; margin-bottom: 8px; }
+  .menu-topo .marca { font-family: var(--titulo); font-style: italic; font-size: 1.6rem; color: var(--cera); }
+  .menu-fechar {
+    width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center;
+    background: none; border: 0; color: var(--algodao); cursor: pointer; margin-right: -12px;
+  }
+  .menu-lateral ul { list-style: none; margin: 0; padding: 0; }
+  .menu-lateral > ul > li { border-bottom: 1px solid rgba(227, 164, 126, .2); }
+  .menu-lateral a:not(.btn) { display: flex; align-items: center; min-height: 52px; text-decoration: none; font-size: 1.15rem; }
+  .menu-lateral a:not(.btn):hover { color: var(--cera); }
+  .grupo-menu { padding-top: 14px; font-family: var(--titulo); font-style: italic; font-size: 1.15rem; color: var(--cera); }
+  .grupo-menu ul { padding-left: 14px; font-family: var(--texto); font-style: normal; color: var(--algodao); }
+  .grupo-menu ul a:not(.btn) { min-height: 48px; font-size: 1.05rem; }
+  .menu-lateral .btn { width: 100%; margin-top: 24px; }
+  body.menu-aberto { overflow: hidden; }
   [id] { scroll-margin-top: 72px; }
 
   /* Abertura: o nome como desenho */
@@ -333,6 +366,7 @@ const CONFIG = {
   @media (min-width: 720px) {
     section { padding: 104px 0; }
     .topo .so-largo { display: inline; }
+    .topo nav { display: flex; margin-left: auto; margin-right: 12px; }
     .topo .so-curto { display: none; }
     .rotulos { grid-template-columns: repeat(2, 1fr); gap: 52px 40px; }
     .passos { grid-template-columns: repeat(2, 1fr); gap: 36px; }
@@ -360,8 +394,44 @@ const CONFIG = {
       <a href="#perguntas">Dúvidas</a>
       <a href="#contato" class="so-largo">Contato</a>
     </nav>
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu-lateral">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+      Menu
+    </button>
   </div>
 </header>
+
+<!-- Menu lateral -->
+<div class="menu-fundo" id="menu-fundo" hidden></div>
+<nav class="menu-lateral" id="menu-lateral" aria-label="Todas as opções" hidden>
+  <div class="menu-topo">
+    <span class="marca">Vany</span>
+    <button class="menu-fechar" id="menu-fechar" aria-label="Fechar menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+    </button>
+  </div>
+  <ul>
+    <li><a href="#inicio">Início</a></li>
+    <li><a href="#sobre">Sobre a Vany</a></li>
+    <li class="grupo-menu">Trabalhos espirituais
+      <ul>
+        <li><a href="#trabalhos">Pacotes do mês</a></li>
+        <li><a href="#avulsos">Trabalhos avulsos</a></li>
+      </ul>
+    </li>
+    <li class="grupo-menu">Cuidado holístico
+      <ul>
+        <li><a href="#cuidado">Todas as terapias</a></li>
+        <li><a href="#cuidado-pacote">Pacote mensal</a></li>
+      </ul>
+    </li>
+    <li><a href="#como-funciona">Como funciona</a></li>
+    <li><a href="#perguntas">Dúvidas</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li><a href="#politicas">Regras da casa</a></li>
+  </ul>
+  <a class="btn btn-cera" data-link="whatsapp">Chamar no WhatsApp</a>
+</nav>
 
 <main id="inicio-vista" data-vista="inicio">
 
@@ -856,18 +926,6 @@ const CONFIG = {
             <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>Presencial</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
             <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Auriculoterapia.">Agendar no WhatsApp</a>
           </li>
-          <li>
-            <h4>Ventosaterapia</h4>
-            <p>Copos que fazem sucção sobre a pele. Pode deixar marcas roxas por alguns dias.</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>Presencial</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Ventosaterapia.">Agendar no WhatsApp</a>
-          </li>
-          <li>
-            <h4>Shantala</h4>
-            <p>Massagem para bebês, de tradição indiana. [CONFIRMAR: aplicada pela Vany ou ensinada aos pais]</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>Presencial</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Shantala.">Agendar no WhatsApp</a>
-          </li>
         </ul>
       </section>
       <section class="grupo" id="cuidado-emocionais" aria-labelledby="titulo-emocionais">
@@ -878,12 +936,6 @@ const CONFIG = {
             <p>Sessão que olha para as relações e as histórias da sua família. [CONFIRMAR: individual ou em grupo]</p>
             <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
             <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Constelação Familiar.">Agendar no WhatsApp</a>
-          </li>
-          <li>
-            <h4>Hipnoterapia</h4>
-            <p>Sessão com hipnose, em que você fica em relaxamento profundo e consciente.</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Hipnoterapia.">Agendar no WhatsApp</a>
           </li>
           <li>
             <h4>Terapia de Regressão</h4>
@@ -1012,6 +1064,28 @@ const CONFIG = {
       });
     }
   });
+
+  // Menu lateral
+  var menuBtn = document.getElementById("menu-btn");
+  var menu = document.getElementById("menu-lateral");
+  var fundo = document.getElementById("menu-fundo");
+  function abrirMenu() {
+    menu.hidden = false; fundo.hidden = false;
+    document.body.classList.add("menu-aberto");
+    menuBtn.setAttribute("aria-expanded", "true");
+    document.getElementById("menu-fechar").focus();
+  }
+  function fecharMenu(voltarFoco) {
+    menu.hidden = true; fundo.hidden = true;
+    document.body.classList.remove("menu-aberto");
+    menuBtn.setAttribute("aria-expanded", "false");
+    if (voltarFoco) { menuBtn.focus(); }
+  }
+  menuBtn.addEventListener("click", abrirMenu);
+  document.getElementById("menu-fechar").addEventListener("click", function () { fecharMenu(true); });
+  fundo.addEventListener("click", function () { fecharMenu(true); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !menu.hidden) { fecharMenu(true); } });
+  menu.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { fecharMenu(false); }); });
 
   // Duas vistas no mesmo arquivo: início e Cuidado holístico.
   // Sem JavaScript, as duas aparecem uma depois da outra.
