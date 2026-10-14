@@ -146,6 +146,9 @@ const CONFIG = {
   .foto img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
   .foto:has(img) { border: 0; }
 
+  .pular { position: absolute; left: 12px; top: -60px; z-index: 50; padding: 12px 16px; border-radius: .25rem; background: var(--roxo-forte); color: #FFF8EC; text-decoration: none; }
+  .pular:focus { top: 12px; }
+
   /* Topo */
   .topo {
     position: sticky; top: 0; z-index: 20;
@@ -160,7 +163,7 @@ const CONFIG = {
     border-bottom-color: var(--borda-suave);
   }
   .topo .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
-  .topo .marca, .menu-topo .marca { display: inline-flex; align-items: center; gap: 10px; font-family: var(--serifa); font-size: 1.4rem; text-decoration: none; color: var(--ambar); white-space: nowrap; }
+  .topo .marca, .menu-topo .marca { min-height: 44px; display: inline-flex; align-items: center; gap: 10px; font-family: var(--serifa); font-size: 1.4rem; text-decoration: none; color: var(--ambar); white-space: nowrap; }
   .marca img { width: 28px; height: auto; }
   .topo nav { display: none; gap: 22px; }
   .topo nav a { font: 600 .75rem var(--rotulo); letter-spacing: .08em; text-transform: uppercase; color: var(--texto); text-decoration: none; padding: 12px 0; }
@@ -231,9 +234,14 @@ const CONFIG = {
     filter: drop-shadow(0 0 22px rgba(217, 188, 122, .28));
     display: inline-block; margin: 0 0 0 -.03em; padding: .04em .1em .24em 0;
   }
-  .logo-abertura { background: none; -webkit-text-fill-color: initial; padding: 0; margin: 8px 0 1.25rem; line-height: 0; }
-  .logo-abertura img { width: clamp(220px, 62vw, 400px); height: auto; }
-  .abertura h1 { max-width: 18ch; margin: 4px 0 12px; }
+  .logo-abertura { background: none; -webkit-text-fill-color: initial; padding: 0; margin: 4px auto 1rem; line-height: 0; text-align: center; display: block; }
+  .logo-abertura img { width: clamp(170px, 46vw, 320px); height: auto; margin: 0 auto; }
+  .abertura .texto { text-align: center; }
+  .abertura .frase { margin-left: auto; margin-right: auto; max-width: 46ch; }
+  .procura { margin-left: auto; margin-right: auto; max-width: 760px; }
+  .procura h2 { text-align: center; }
+  .procura a { align-items: center; text-align: center; }
+  .abertura h1 { max-width: 18ch; margin: 4px auto 12px; }
   .abertura .frase { color: var(--texto-2); }
 
   /* O que você procura? */
@@ -312,7 +320,15 @@ const CONFIG = {
   /* Pacotes: cartões com faixa rubi ou ametista */
   .pacotes .abre { margin-bottom: 2rem; }
   .pacotes .abre p { color: var(--texto-2); }
-  .rotulos { display: grid; gap: 1.25rem; }
+  /* No celular, pacotes lado a lado com deslize: a página fica bem mais curta */
+  .rotulos {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 86%; gap: 12px; align-items: stretch;
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 1.25rem;
+    margin: 0 -1.25rem; padding: 0 1.25rem 10px; scrollbar-width: thin;
+  }
+  .rotulo { scroll-snap-align: start; }
+  .deslize { font: 600 .75rem var(--rotulo); letter-spacing: .08em; text-transform: uppercase; color: var(--texto-2); margin: 0 0 12px; }
+  .deslize::after { content: "  \203A"; color: var(--ambar); }
   .rotulo {
     background: linear-gradient(180deg, var(--elevado), var(--container));
     border: 1px solid var(--borda-suave); border-radius: .5rem;
@@ -322,7 +338,7 @@ const CONFIG = {
   .rotulo .faixa {
     background: var(--faixa, var(--rubi)); color: var(--texto);
     margin: 0 -1.25rem 1.25rem; padding: 10px 1.25rem;
-    font: 600 .6875rem var(--rotulo); letter-spacing: .1em; text-transform: uppercase;
+    font: 600 .75rem var(--rotulo); letter-spacing: .1em; text-transform: uppercase;
     border-bottom: 1px solid rgba(217, 188, 122, .3);
   }
   .rotulo h3 { margin-bottom: .3em; }
@@ -351,7 +367,7 @@ const CONFIG = {
   .oraculo .opcao small { display: block; font-weight: 400; font-size: .875rem; color: var(--texto-2); margin-top: 2px; }
   .artes {
     display: grid; grid-auto-flow: column; grid-auto-columns: 78%; gap: 12px;
-    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 1.25rem; margin: 2rem -1.25rem 0; padding: 0 1.25rem 8px;
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 1.25rem; margin: 0 -1.25rem; padding: 0 1.25rem 8px;
     scrollbar-width: thin;
   }
   .artes img {
@@ -371,7 +387,7 @@ const CONFIG = {
   .oraculo li a:hover { background: rgba(217, 188, 122, .06); }
   .oraculo .opcao { grid-area: opcao; font-weight: 600; }
   .oraculo .valor { grid-area: valor; font-family: var(--serifa); font-size: 1.5rem; color: var(--ambar); white-space: nowrap; }
-  .oraculo .agendar { grid-area: agendar; font: 600 .6875rem var(--rotulo); letter-spacing: .1em; text-transform: uppercase; color: var(--texto-2); }
+  .oraculo .agendar { grid-area: agendar; font: 600 .75rem var(--rotulo); letter-spacing: .1em; text-transform: uppercase; color: var(--texto-2); }
   .oraculo li a:hover .agendar { color: var(--ambar); }
   @media (min-width: 1024px) { .oraculos { grid-template-columns: repeat(3, 1fr); align-items: start; } }
 
@@ -434,7 +450,7 @@ const CONFIG = {
   .indice a {
     display: inline-flex; align-items: center; min-height: 44px; padding: 6px 14px;
     background: rgba(74, 10, 24, .6); border: 1px solid rgba(217, 188, 122, .35); border-radius: .25rem;
-    font: 600 .6875rem var(--rotulo); letter-spacing: .1em; text-transform: uppercase;
+    font: 600 .75rem var(--rotulo); letter-spacing: .1em; text-transform: uppercase;
     color: var(--texto); text-decoration: none; transition: box-shadow .2s ease;
   }
   .indice a:hover { box-shadow: var(--brilho); }
@@ -446,7 +462,7 @@ const CONFIG = {
   .terapias p { margin: 0 0 10px; color: var(--texto-2); }
   .ficha { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 0 0 14px; font-size: .875rem; }
   .ficha div { display: flex; gap: 6px; align-items: baseline; }
-  .ficha dt { font: 600 .6875rem var(--rotulo); letter-spacing: .1em; text-transform: uppercase; color: var(--texto-2); }
+  .ficha dt { font: 600 .75rem var(--rotulo); letter-spacing: .1em; text-transform: uppercase; color: var(--texto-2); }
   .ficha dd { margin: 0; }
   .terapias .btn { min-height: 48px; }
   .ponte { margin-top: 2rem; }
@@ -458,18 +474,18 @@ const CONFIG = {
   footer .marca { margin: 0 0 8px; }
   footer .marca img { width: 200px; height: auto; }
   footer nav { display: grid; margin: 20px 0; }
-  footer nav a { color: var(--texto); text-decoration: none; padding: 9px 0; }
+  footer nav a { color: var(--texto); text-decoration: none; padding: 9px 0; min-height: 44px; display: flex; align-items: center; }
   footer nav a:hover { color: var(--ambar); }
 
   /* WhatsApp fixo */
   .whats {
     position: fixed; right: 16px; bottom: 16px; z-index: 30;
-    width: 62px; height: 62px; border-radius: 50%;
+    width: 56px; height: 56px; border-radius: 50%;
     background: #1F7A4D; color: #fff;
     display: flex; align-items: center; justify-content: center;
     box-shadow: 0 8px 24px -6px rgba(10, 6, 9, .8);
   }
-  .whats svg { width: 32px; height: 32px; }
+  .whats svg { width: 30px; height: 30px; }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -484,14 +500,15 @@ const CONFIG = {
     section { padding: 5rem 0; }
     h1 { font-size: 3.5rem; line-height: 1.15; letter-spacing: -.02em; }
     h2 { font-size: 2.5rem; }
-    .rotulos { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .rotulos { grid-auto-flow: row; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; overflow: visible; margin: 0; padding: 0; }
+    .deslize { display: none; }
     .passos { grid-template-columns: repeat(2, 1fr); }
     .terapias { grid-template-columns: 1fr 1fr; column-gap: 1.5rem; }
   }
   /* Computador */
   @media (min-width: 1024px) {
     .container { padding: 0 3rem; }
-    .abertura .texto, .procura { max-width: 760px; }
+    .abertura .texto { max-width: 820px; margin: 0 auto; }
     .cuidado-abre { display: grid; grid-template-columns: 1.2fr .8fr; gap: 0 3.5rem; align-items: start; }
     .cuidado-abre > * { grid-column: 1; }
     .cuidado-abre .foto { grid-column: 2; grid-row: 1 / span 5; margin-top: 0; aspect-ratio: 3 / 4; }
@@ -505,6 +522,7 @@ const CONFIG = {
 </head>
 <body>
 
+<a class="pular" href="#inicio">Pular para o conteúdo</a>
 <header class="topo">
   <div class="container">
     <a href="#inicio" class="marca"><img src="fotos/logo-simbolo.webp" width="160" height="200" alt="" aria-hidden="true">The Velvet Moon</a>
@@ -552,7 +570,7 @@ const CONFIG = {
   <!-- 1. ABERTURA -->
   <section class="abertura" id="inicio">
     <div class="container">
-      <h2 class="nome logo-abertura"><img src="fotos/logo.webp" width="688" height="672" alt="The Velvet Moon, oráculos e rituais" fetchpriority="high"></h2>
+      <div class="nome logo-abertura"><img src="fotos/logo.webp" width="688" height="672" alt="The Velvet Moon, oráculos e rituais" fetchpriority="high"></div>
       <div class="texto">
         <h1>Você sabe quem faz, como faz e quando faz.</h1>
         <p class="frase">Sou a Vany. Faço trabalhos espirituais e terapias holísticas para quem está no Brasil ou fora dele.</p>
@@ -601,6 +619,7 @@ const CONFIG = {
         </div>
       </div>
 
+      <p class="deslize" aria-hidden="true">Deslize para ver os 6 pacotes</p>
       <div class="rotulos">
 
         <article class="rotulo r-iansa" id="pacote-pagina-virada">
@@ -711,6 +730,7 @@ const CONFIG = {
     <div class="container">
       <h2>Consultas</h2>
       <p class="intro-consultas">Normalmente é o primeiro passo, antes de qualquer trabalho. Escolha o oráculo e a leitura, e a Vany combina o horário com você pelo WhatsApp. Todas as consultas são online. [PREENCHER: duração]</p>
+      <p class="deslize" aria-hidden="true" style="margin-top:2rem">Deslize para ver as 3 artes</p>
       <div class="artes" aria-label="Artes das consultas">
         <img src="fotos/arte-tarot.webp" width="853" height="1280" loading="lazy" alt="Arte da consulta com tarot: 1 pergunta R$ 20,00, até 3 perguntas R$ 50,00, jogo completo R$ 120,00">
         <img src="fotos/arte-cartas-cigana.webp" width="853" height="1280" loading="lazy" alt="Arte da consulta com cartas ciganas: até 3 perguntas R$ 50,00, até 5 perguntas R$ 70,00, 1 campo R$ 100,00, jogo completo R$ 120,00, jogo completo com ritual de prosperidade R$ 180,00">
@@ -1217,7 +1237,16 @@ const CONFIG = {
   menuBtn.addEventListener("click", abrirMenu);
   document.getElementById("menu-fechar").addEventListener("click", function () { fecharMenu(true); });
   fundo.addEventListener("click", function () { fecharMenu(true); });
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !menu.hidden) { fecharMenu(true); } });
+  document.addEventListener("keydown", function (e) {
+    if (menu.hidden) { return; }
+    if (e.key === "Escape") { fecharMenu(true); return; }
+    if (e.key === "Tab") {
+      var focaveis = menu.querySelectorAll("a, button");
+      var primeiro = focaveis[0], ultimo = focaveis[focaveis.length - 1];
+      if (e.shiftKey && document.activeElement === primeiro) { e.preventDefault(); ultimo.focus(); }
+      else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primeiro.focus(); }
+    }
+  });
   menu.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { fecharMenu(false); }); });
 
   // Duas vistas no mesmo arquivo: início e Cuidado holístico.
