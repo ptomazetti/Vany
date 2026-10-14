@@ -24,7 +24,6 @@ const CONFIG = {
     coletivo:      { assinatura: "[PREENCHER]", pix: "[PREENCHER]", paypal: "[PREENCHER]" }
   },
   avulsos: {
-    consulta:     { pix: "[PREENCHER]", cartao: "[PREENCHER]", paypal: "[PREENCHER]" },
     caminhos:     { pix: "[PREENCHER]", cartao: "[PREENCHER]", paypal: "[PREENCHER]" },
     limpeza:      { pix: "[PREENCHER]", cartao: "[PREENCHER]", paypal: "[PREENCHER]" },
     protecao:     { pix: "[PREENCHER]", cartao: "[PREENCHER]", paypal: "[PREENCHER]" },
@@ -337,6 +336,33 @@ const CONFIG = {
 
   .pacotes .lembrete { margin-top: 1.5rem; font-size: .875rem; color: var(--texto-2); }
 
+
+  /* Consultas: lista de preços, como um cardápio */
+  .intro-consultas { color: var(--texto-2); }
+  .oraculos { display: grid; gap: 1.25rem; margin-top: 2rem; }
+  .oraculo {
+    background: linear-gradient(180deg, var(--elevado), var(--container));
+    border: 1px solid var(--borda-suave); border-radius: .5rem;
+    padding: 1.5rem 1.25rem 1rem; overflow: hidden;
+    box-shadow: inset 0 0 0 4px var(--elevado), inset 0 0 0 5px rgba(217, 188, 122, .22);
+  }
+  .oraculo .foto { aspect-ratio: 16 / 10; margin: -1.5rem -1.25rem 1.25rem; border-radius: .5rem .5rem 0 0; border: 0; border-bottom: 1px solid rgba(217, 188, 122, .3); }
+  .oraculo h3 { text-align: center; color: var(--ambar); font-style: italic; font-weight: 500; font-size: 2rem; margin-bottom: .2em; }
+  .oraculo > p { text-align: center; color: var(--texto-2); font-size: 1rem; margin: 0 auto 1rem; }
+  .oraculo ul { list-style: none; margin: 0; padding: 0; }
+  .oraculo li { border-top: 1px solid; border-image: var(--fio) 1; }
+  .oraculo li a {
+    display: grid; grid-template-columns: 1fr auto; grid-template-areas: "opcao valor" "agendar agendar";
+    gap: 2px 12px; align-items: baseline; padding: 14px 4px; min-height: 56px;
+    color: var(--texto); text-decoration: none; transition: background .3s ease;
+  }
+  .oraculo li a:hover { background: rgba(217, 188, 122, .06); }
+  .oraculo .opcao { grid-area: opcao; font-weight: 600; }
+  .oraculo .valor { grid-area: valor; font-family: var(--serifa); font-size: 1.5rem; color: var(--ambar); white-space: nowrap; }
+  .oraculo .agendar { grid-area: agendar; font: 600 .6875rem var(--rotulo); letter-spacing: .1em; text-transform: uppercase; color: var(--texto-2); }
+  .oraculo li a:hover .agendar { color: var(--ambar); }
+  @media (min-width: 1024px) { .oraculos { grid-template-columns: repeat(3, 1fr); align-items: start; } }
+
   /* Trabalhos espirituais (avulsos) */
   .avulsos ul { list-style: none; margin: 2rem 0 0; padding: 0; max-width: 760px; }
   .avulsos li { padding: 1.5rem 0; border-bottom: 1px solid; border-image: var(--fio) 1; }
@@ -471,6 +497,7 @@ const CONFIG = {
     <a href="#inicio" class="marca">Vany</a>
     <nav aria-label="Menu principal">
       <a href="#pacotes">Pacotes mensais</a>
+      <a href="#consultas">Consultas</a>
       <a href="#trabalhos">Trabalhos espirituais</a>
       <a href="#cuidado">Cuidado holístico</a>
       <a href="#perguntas">Dúvidas</a>
@@ -496,6 +523,7 @@ const CONFIG = {
     <li><a href="#inicio">Início</a></li>
     <li><a href="#sobre">Sobre a Vany</a></li>
     <li><a href="#pacotes">Pacotes mensais</a></li>
+    <li><a href="#consultas">Consultas</a></li>
     <li><a href="#trabalhos">Trabalhos espirituais</a></li>
     <li><a href="#cuidado">Cuidado holístico</a></li>
     <li><a href="#como-funciona">Como funciona</a></li>
@@ -665,18 +693,53 @@ const CONFIG = {
     </div>
   </section>
 
+  <!-- CONSULTAS E ORÁCULOS -->
+  <section class="consultas" id="consultas">
+    <div class="container">
+      <h2>Consultas</h2>
+      <p class="intro-consultas">Normalmente é o primeiro passo, antes de qualquer trabalho. Escolha o oráculo e a leitura, e a Vany combina o horário com você pelo WhatsApp. [PREENCHER: duração e se é online, presencial ou os dois]</p>
+      <div class="oraculos">
+        <article class="oraculo" id="consulta-tarot">
+          <div class="foto"><img src="fotos/consulta-tarot.jpg" width="560" height="350" alt="Cartas de tarô O Sol, A Imperatriz e A Lua sobre veludo vermelho" loading="lazy"></div>
+          <h3>Tarô</h3>
+          <p>Leitura de cartas de tarô sobre o seu momento ou sobre perguntas específicas.</p>
+          <ul>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Tarô, 1 pergunta (R$ 20,00)."><span class="opcao">1 pergunta</span><span class="valor">R$ 20,00</span><span class="agendar">Agendar</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Tarô, Até 3 perguntas (R$ 50,00)."><span class="opcao">Até 3 perguntas</span><span class="valor">R$ 50,00</span><span class="agendar">Agendar</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Tarô, Jogo completo (R$ 120,00)."><span class="opcao">Jogo completo</span><span class="valor">R$ 120,00</span><span class="agendar">Agendar</span></a></li>
+          </ul>
+        </article>
+        <article class="oraculo" id="consulta-cigano">
+          <div class="foto"><img src="fotos/consulta-cigano.jpg" width="490" height="306" alt="Cartas do baralho cigano sobre veludo vermelho, com moedas douradas" loading="lazy"></div>
+          <h3>Baralho Cigano</h3>
+          <p>Leitura com as 36 cartas do baralho cigano.</p>
+          <ul>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Até 3 perguntas (R$ 50,00)."><span class="opcao">Até 3 perguntas</span><span class="valor">R$ 50,00</span><span class="agendar">Agendar</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Até 5 perguntas (R$ 70,00)."><span class="opcao">Até 5 perguntas</span><span class="valor">R$ 70,00</span><span class="agendar">Agendar</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, 1 campo (R$ 100,00)."><span class="opcao">1 campo</span><span class="valor">R$ 100,00</span><span class="agendar">Agendar</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Jogo completo (R$ 120,00)."><span class="opcao">Jogo completo</span><span class="valor">R$ 120,00</span><span class="agendar">Agendar</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Jogo completo com Ritual de Prosperidade (R$ 180,00)."><span class="opcao">Jogo completo com Ritual de Prosperidade</span><span class="valor">R$ 180,00</span><span class="agendar">Agendar</span></a></li>
+          </ul>
+        </article>
+        <article class="oraculo" id="consulta-buzios">
+          <div class="foto"><img src="fotos/consulta-buzios.jpg" width="640" height="400" alt="Búzios dispostos em uma travessa de madeira, com guias, flores e vela" loading="lazy"></div>
+          <h3>Búzios de Orixá</h3>
+          <p>Jogo de búzios para orientação sobre o seu caminho.</p>
+          <ul>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Búzios de Orixá, Jogo de búzios (R$ 127,00)."><span class="opcao">Jogo de búzios</span><span class="valor">R$ 127,00</span><span class="agendar">Agendar</span></a></li>
+          </ul>
+        </article>
+      </div>
+      <p class="aviso-compra">As consultas são orientações espirituais, baseadas em fé. Não são previsão garantida e não substituem médico, psicólogo ou advogado. Para maiores de 18 anos. Leia as <a href="#politicas">Regras da casa</a>.</p>
+    </div>
+  </section>
+
   <!-- 4. TRABALHOS ESPIRITUAIS (AVULSOS) -->
   <section class="avulsos papel" id="trabalhos">
     <div class="container">
       <h2>Trabalhos espirituais</h2>
-      <p>Para quem quer um trabalho só, sem pacote mensal. Se não souber qual escolher, comece pela consulta.</p>
+      <p>Para quem quer um trabalho só, sem pacote mensal. Se não souber qual escolher, comece por uma <a href="#consultas">consulta</a>.</p>
       <ul>
-        <li>
-          <div class="linha"><h3>Consulta de búzios, tarô ou cartas</h3><span class="valor">R$ [PREENCHER]</span></div>
-          <p>Normalmente é o primeiro passo, antes de qualquer trabalho. [PREENCHER: como é feita e quanto tempo dura]</p>
-          <a class="btn btn-linha" data-link="avulsos.consulta.pix">Pagar no Pix</a>
-          <p class="outras">Ou pague <a data-link="avulsos.consulta.cartao">no cartão</a> ou <a data-link="avulsos.consulta.paypal">no PayPal</a>.</p>
-        </li>
         <li>
           <div class="linha"><h3>Abertura de caminhos</h3><span class="valor">R$ [PREENCHER]</span></div>
           <p>Para quando a vida parece travada.</p>
@@ -1018,18 +1081,6 @@ const CONFIG = {
       <section class="grupo" id="cuidado-autoconhecimento" aria-labelledby="titulo-autoconhecimento">
         <h3 id="titulo-autoconhecimento">Autoconhecimento e leitura</h3>
         <ul class="terapias">
-          <li>
-            <h4>Tarô</h4>
-            <p>Leitura de cartas de tarô sobre o seu momento ou sobre uma pergunta específica.</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Tarô.">Agendar no WhatsApp</a>
-          </li>
-          <li>
-            <h4>Baralho Cigano</h4>
-            <p>Leitura com as 36 cartas do baralho cigano.</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano.">Agendar no WhatsApp</a>
-          </li>
           <li>
             <h4>Numerologia</h4>
             <p>Estudo dos números do seu nome e da sua data de nascimento.</p>
