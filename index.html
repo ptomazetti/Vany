@@ -40,15 +40,16 @@ const CONFIG = {
 };
 </script>
 
-<title>Vany | Trabalhos espirituais e terapias holísticas</title>
-<meta name="description" content="Trabalhos espirituais e terapias holísticas com a Vany, para quem está no Brasil ou fora dele. Pacotes mensais e acompanhamento pelo WhatsApp.">
+<title>The Velvet Moon | Oráculos e rituais com a Vany</title>
+<link rel="icon" type="image/png" href="fotos/favicon.png">
+<meta name="description" content="The Velvet Moon: oráculos, trabalhos espirituais e terapias holísticas com a Vany, para quem está no Brasil ou fora dele. Pacotes mensais e acompanhamento pelo WhatsApp.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Vany | Trabalhos espirituais e terapias holísticas">
+<meta property="og:title" content="The Velvet Moon | Oráculos e rituais com a Vany">
 <meta property="og:description" content="Trabalhos espirituais e terapias holísticas com a Vany, para quem está no Brasil ou fora dele. Pacotes mensais e acompanhamento pelo WhatsApp.">
 <!-- O WhatsApp e o Instagram só mostram a imagem com o endereço completo: trocar pelo domínio do site -->
-<meta property="og:image" content="https://[PREENCHER-DOMINIO]/fotos/altar-velas.jpg">
-<meta property="og:image:alt" content="Mesa de trabalho à luz de velas">
+<meta property="og:image" content="https://[PREENCHER-DOMINIO]/fotos/originais/logo-the-velvet-moon.jpg">
+<meta property="og:image:alt" content="Logo The Velvet Moon, oráculos e rituais">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#12060A">
 
@@ -159,7 +160,8 @@ const CONFIG = {
     border-bottom-color: var(--borda-suave);
   }
   .topo .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
-  .topo .marca { font-family: var(--serifa); font-style: italic; font-size: 1.75rem; text-decoration: none; color: var(--ambar); }
+  .topo .marca, .menu-topo .marca { display: inline-flex; align-items: center; gap: 10px; font-family: var(--serifa); font-size: 1.4rem; text-decoration: none; color: var(--ambar); white-space: nowrap; }
+  .marca img { width: 28px; height: auto; }
   .topo nav { display: none; gap: 22px; }
   .topo nav a { font: 600 .75rem var(--rotulo); letter-spacing: .08em; text-transform: uppercase; color: var(--texto); text-decoration: none; padding: 12px 0; }
   .topo nav a:hover { color: var(--ambar); }
@@ -183,7 +185,6 @@ const CONFIG = {
   }
   .menu-lateral[hidden], .menu-fundo[hidden] { display: none; }
   .menu-topo { display: flex; align-items: center; justify-content: space-between; min-height: 56px; margin-bottom: 8px; }
-  .menu-topo .marca { font-family: var(--serifa); font-style: italic; font-size: 1.75rem; color: var(--ambar); }
   .menu-fechar {
     width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center;
     background: none; border: 0; color: var(--texto); cursor: pointer; margin-right: -12px;
@@ -230,7 +231,8 @@ const CONFIG = {
     filter: drop-shadow(0 0 22px rgba(217, 188, 122, .28));
     display: inline-block; margin: 0 0 0 -.03em; padding: .04em .1em .24em 0;
   }
-  .abertura .foto { aspect-ratio: 4 / 5; margin: 40px 0 0 18%; }
+  .logo-abertura { background: none; -webkit-text-fill-color: initial; padding: 0; margin: 8px 0 1.25rem; line-height: 0; }
+  .logo-abertura img { width: clamp(220px, 62vw, 400px); height: auto; }
   .abertura h1 { max-width: 18ch; margin: 4px 0 12px; }
   .abertura .frase { color: var(--texto-2); }
 
@@ -343,10 +345,20 @@ const CONFIG = {
   .oraculo {
     background: linear-gradient(180deg, var(--elevado), var(--container));
     border: 1px solid var(--borda-suave); border-radius: .5rem;
-    padding: 1.5rem 1.25rem 1rem; overflow: hidden;
+    padding: 1.5rem 1.25rem 1rem;
     box-shadow: inset 0 0 0 4px var(--elevado), inset 0 0 0 5px rgba(217, 188, 122, .22);
   }
-  .oraculo .foto { aspect-ratio: 16 / 10; margin: -1.5rem -1.25rem 1.25rem; border-radius: .5rem .5rem 0 0; border: 0; border-bottom: 1px solid rgba(217, 188, 122, .3); }
+  .oraculo .opcao small { display: block; font-weight: 400; font-size: .875rem; color: var(--texto-2); margin-top: 2px; }
+  .artes {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 78%; gap: 12px;
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 1.25rem; margin: 2rem -1.25rem 0; padding: 0 1.25rem 8px;
+    scrollbar-width: thin;
+  }
+  .artes img {
+    width: 100%; height: auto; scroll-snap-align: start; border-radius: .5rem;
+    border: 1px solid rgba(217, 188, 122, .3); box-shadow: 0 16px 40px -12px rgba(5, 1, 3, .8);
+  }
+  @media (min-width: 768px) { .artes { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); overflow: visible; margin: 2rem 0 0; padding: 0; } }
   .oraculo h3 { text-align: center; color: var(--ambar); font-style: italic; font-weight: 500; font-size: 2rem; margin-bottom: .2em; }
   .oraculo > p { text-align: center; color: var(--texto-2); font-size: 1rem; margin: 0 auto 1rem; }
   .oraculo ul { list-style: none; margin: 0; padding: 0; }
@@ -443,7 +455,8 @@ const CONFIG = {
 
   /* Rodapé */
   footer { background: var(--mais-baixo); border-top: 1px solid var(--borda-suave); padding: 3rem 0 7rem; font-size: .875rem; color: var(--texto-2); }
-  footer .marca { font-family: var(--serifa); font-style: italic; font-size: 2.5rem; color: var(--ambar); margin: 0; }
+  footer .marca { margin: 0 0 8px; }
+  footer .marca img { width: 200px; height: auto; }
   footer nav { display: grid; margin: 20px 0; }
   footer nav a { color: var(--texto); text-decoration: none; padding: 9px 0; }
   footer nav a:hover { color: var(--ambar); }
@@ -494,7 +507,7 @@ const CONFIG = {
 
 <header class="topo">
   <div class="container">
-    <a href="#inicio" class="marca">Vany</a>
+    <a href="#inicio" class="marca"><img src="fotos/logo-simbolo.webp" width="160" height="200" alt="" aria-hidden="true">The Velvet Moon</a>
     <nav aria-label="Menu principal">
       <a href="#pacotes">Pacotes mensais</a>
       <a href="#consultas">Consultas</a>
@@ -514,7 +527,7 @@ const CONFIG = {
 <div class="menu-fundo" id="menu-fundo" hidden></div>
 <nav class="menu-lateral" id="menu-lateral" aria-label="Todas as opções" hidden>
   <div class="menu-topo">
-    <span class="marca">Vany</span>
+    <span class="marca"><img src="fotos/logo-simbolo.webp" width="160" height="200" alt="" aria-hidden="true">The Velvet Moon</span>
     <button class="menu-fechar" id="menu-fechar" aria-label="Fechar menu">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
     </button>
@@ -539,7 +552,7 @@ const CONFIG = {
   <!-- 1. ABERTURA -->
   <section class="abertura" id="inicio">
     <div class="container">
-      <p class="nome">Vany</p>
+      <h2 class="nome logo-abertura"><img src="fotos/logo.webp" width="688" height="672" alt="The Velvet Moon, oráculos e rituais" fetchpriority="high"></h2>
       <div class="texto">
         <h1>Você sabe quem faz, como faz e quando faz.</h1>
         <p class="frase">Sou a Vany. Faço trabalhos espirituais e terapias holísticas para quem está no Brasil ou fora dele.</p>
@@ -697,10 +710,14 @@ const CONFIG = {
   <section class="consultas" id="consultas">
     <div class="container">
       <h2>Consultas</h2>
-      <p class="intro-consultas">Normalmente é o primeiro passo, antes de qualquer trabalho. Escolha o oráculo e a leitura, e a Vany combina o horário com você pelo WhatsApp. [PREENCHER: duração e se é online, presencial ou os dois]</p>
+      <p class="intro-consultas">Normalmente é o primeiro passo, antes de qualquer trabalho. Escolha o oráculo e a leitura, e a Vany combina o horário com você pelo WhatsApp. Todas as consultas são online. [PREENCHER: duração]</p>
+      <div class="artes" aria-label="Artes das consultas">
+        <img src="fotos/arte-tarot.webp" width="853" height="1280" loading="lazy" alt="Arte da consulta com tarot: 1 pergunta R$ 20,00, até 3 perguntas R$ 50,00, jogo completo R$ 120,00">
+        <img src="fotos/arte-cartas-cigana.webp" width="853" height="1280" loading="lazy" alt="Arte da consulta com cartas ciganas: até 3 perguntas R$ 50,00, até 5 perguntas R$ 70,00, 1 campo R$ 100,00, jogo completo R$ 120,00, jogo completo com ritual de prosperidade R$ 180,00">
+        <img src="fotos/arte-buzios.webp" width="853" height="1280" loading="lazy" alt="Arte da consulta com búzios de orixá: jogo de búzios R$ 127,00">
+      </div>
       <div class="oraculos">
         <article class="oraculo" id="consulta-tarot">
-          <div class="foto"><img src="fotos/consulta-tarot.jpg" width="560" height="350" alt="Cartas de tarô O Sol, A Imperatriz e A Lua sobre veludo vermelho" loading="lazy"></div>
           <h3>Tarô</h3>
           <p>Leitura de cartas de tarô sobre o seu momento ou sobre perguntas específicas.</p>
           <ul>
@@ -710,19 +727,17 @@ const CONFIG = {
           </ul>
         </article>
         <article class="oraculo" id="consulta-cigano">
-          <div class="foto"><img src="fotos/consulta-cigano.jpg" width="490" height="306" alt="Cartas do baralho cigano sobre veludo vermelho, com moedas douradas" loading="lazy"></div>
           <h3>Baralho Cigano</h3>
           <p>Leitura com as 36 cartas do baralho cigano.</p>
           <ul>
           <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Até 3 perguntas (R$ 50,00)."><span class="opcao">Até 3 perguntas</span><span class="valor">R$ 50,00</span><span class="agendar">Agendar</span></a></li>
           <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Até 5 perguntas (R$ 70,00)."><span class="opcao">Até 5 perguntas</span><span class="valor">R$ 70,00</span><span class="agendar">Agendar</span></a></li>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, 1 campo (R$ 100,00)."><span class="opcao">1 campo</span><span class="valor">R$ 100,00</span><span class="agendar">Agendar</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, 1 campo (R$ 100,00)."><span class="opcao">1 campo<small>Leitura de uma área da sua vida, como amor, trabalho ou dinheiro.</small></span><span class="valor">R$ 100,00</span><span class="agendar">Agendar</span></a></li>
           <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Jogo completo (R$ 120,00)."><span class="opcao">Jogo completo</span><span class="valor">R$ 120,00</span><span class="agendar">Agendar</span></a></li>
           <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Jogo completo com Ritual de Prosperidade (R$ 180,00)."><span class="opcao">Jogo completo com Ritual de Prosperidade</span><span class="valor">R$ 180,00</span><span class="agendar">Agendar</span></a></li>
           </ul>
         </article>
         <article class="oraculo" id="consulta-buzios">
-          <div class="foto"><img src="fotos/consulta-buzios.jpg" width="640" height="400" alt="Búzios dispostos em uma travessa de madeira, com guias, flores e vela" loading="lazy"></div>
           <h3>Búzios de Orixá</h3>
           <p>Jogo de búzios para orientação sobre o seu caminho.</p>
           <ul>
@@ -1105,7 +1120,7 @@ const CONFIG = {
 <!-- 9. RODAPÉ -->
 <footer>
   <div class="container">
-    <p class="marca">Vany</p>
+    <p class="marca"><img src="fotos/logo.webp" width="688" height="672" alt="The Velvet Moon, oráculos e rituais" loading="lazy"></p>
     <p>Mãe de santo e terapeuta holística.</p>
     <nav aria-label="Políticas">
       <a href="#politica-identificacao">Quem presta o serviço</a>
