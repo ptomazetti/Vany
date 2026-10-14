@@ -33,6 +33,14 @@ const CONFIG = {
     afastamento:  { pix: "[PREENCHER]", cartao: "[PREENCHER]", paypal: "[PREENCHER]" },
     familia:      { pix: "[PREENCHER]", cartao: "[PREENCHER]", paypal: "[PREENCHER]" }
   },
+  // Ateliê: só Pix e cartão, sem PayPal
+  atelie: {
+    ritualOxum:      { pix: "[PREENCHER]", cartao: "[PREENCHER]" },
+    ritualRainha:    { pix: "[PREENCHER]", cartao: "[PREENCHER]" },
+    guiaCigana:      { pix: "[PREENCHER]", cartao: "[PREENCHER]" },
+    protecaoCarro:   { pix: "[PREENCHER]", cartao: "[PREENCHER]" },
+    protecaoCasa:    { pix: "[PREENCHER]", cartao: "[PREENCHER]" }
+  },
   portalCliente: "[PREENCHER: link do portal do cliente Stripe]",
   whatsapp: "https://wa.me/555197089510",
   email: "[PREENCHER: e-mail]",
@@ -42,11 +50,11 @@ const CONFIG = {
 
 <title>The Velvet Moon | Oráculos e rituais com a Vany</title>
 <link rel="icon" type="image/png" href="fotos/favicon.png">
-<meta name="description" content="The Velvet Moon: oráculos, trabalhos espirituais e terapias holísticas com a Vany, para quem está no Brasil ou fora dele. Pacotes mensais e acompanhamento pelo WhatsApp.">
+<meta name="description" content="The Velvet Moon: oráculos, trabalhos espirituais, terapias holísticas e o Ateliê de caixas de ritual com a Vany. Pacotes mensais e acompanhamento pelo WhatsApp.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="The Velvet Moon | Oráculos e rituais com a Vany">
-<meta property="og:description" content="Trabalhos espirituais e terapias holísticas com a Vany, para quem está no Brasil ou fora dele. Pacotes mensais e acompanhamento pelo WhatsApp.">
+<meta property="og:description" content="Oráculos, trabalhos espirituais, terapias holísticas e o Ateliê de caixas de ritual com a Vany. Pacotes mensais e acompanhamento pelo WhatsApp.">
 <!-- O WhatsApp e o Instagram só mostram a imagem com o endereço completo: trocar pelo domínio do site -->
 <meta property="og:image" content="https://[PREENCHER-DOMINIO]/fotos/originais/logo-the-velvet-moon.jpg">
 <meta property="og:image:alt" content="Logo The Velvet Moon, oráculos e rituais">
@@ -391,6 +399,22 @@ const CONFIG = {
   .oraculo li a:hover .agendar { color: var(--ambar); }
   @media (min-width: 1024px) { .oraculos { grid-template-columns: repeat(3, 1fr); align-items: start; } }
 
+
+  /* Ateliê */
+  .intro-atelie { color: var(--texto-2); }
+  .ficha-atelie { margin: 1.25rem 0 0; padding: 14px 16px; border: 1px solid var(--borda-suave); border-radius: .5rem; gap: 8px 24px; }
+  .atelie h3 { margin-top: 2.5rem; }
+  .pecas { display: grid; gap: 1.25rem; }
+  .peca .moldura { padding-bottom: 1.25rem; }
+  .rotulo .faixa { max-width: none; }
+  .peca h4 { font-size: 1.75rem; margin: 0 0 .3em; }
+  .peca .ficha { margin: 0 0 14px; }
+  .peca .ficha dt:only-child::after { content: none; }
+  .entrega-atelie { margin-top: 2rem; }
+  .nota-atelie { padding: 14px 16px; border-radius: .5rem; background: linear-gradient(180deg, var(--elevado), var(--container)); border: 1px solid var(--borda-suave); }
+  @media (min-width: 768px) { .pecas { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .pecas-3 { grid-template-columns: repeat(3, 1fr); } }
+
   /* Trabalhos espirituais (avulsos) */
   .avulsos ul { list-style: none; margin: 2rem 0 0; padding: 0; max-width: 760px; }
   .avulsos li { padding: 1.5rem 0; border-bottom: 1px solid; border-image: var(--fio) 1; }
@@ -558,6 +582,7 @@ const CONFIG = {
       <a href="#consultas">Consultas</a>
       <a href="#pacotes">Pacotes mensais</a>
       <a href="#trabalhos">Trabalhos espirituais</a>
+      <a href="#atelie">Ateliê</a>
       <a href="#cuidado">Cuidado holístico</a>
       <a href="#perguntas">Dúvidas</a>
       <a href="#contato">Contato</a>
@@ -584,6 +609,7 @@ const CONFIG = {
     <li><a href="#consultas">Consultas</a></li>
     <li><a href="#pacotes">Pacotes mensais</a></li>
     <li><a href="#trabalhos">Trabalhos espirituais</a></li>
+    <li><a href="#atelie">Ateliê</a></li>
     <li><a href="#cuidado">Cuidado holístico</a></li>
     <li><a href="#como-funciona">Como funciona</a></li>
     <li><a href="#perguntas">Dúvidas</a></li>
@@ -876,6 +902,107 @@ const CONFIG = {
     </div>
   </section>
 
+  <!-- ATELIÊ: caixas de ritual, guias e proteções enviadas pelos Correios
+       Configuração: se os links de pagamento forem da Stripe, ligar a coleta de endereço de entrega,
+       só para o Brasil (shipping address collection). Conferir essa opção no painel da Stripe. -->
+  <section class="atelie" id="atelie">
+    <div class="container">
+      <h2>Ateliê</h2>
+      <p class="intro-atelie">Caixas de ritual, guias e proteções preparadas pela Vany dentro do axé, para você continuar o ritual em casa. Feito sob encomenda, em pequena quantidade.</p>
+      <dl class="ficha ficha-atelie">
+        <div><dt>Entrega</dt><dd>só no Brasil [CONFIRMAR]</dd></div>
+        <div><dt>Preparo</dt><dd>até [PREENCHER] dias úteis</dd></div>
+        <div><dt>Envio</dt><dd>Correios, com rastreio</dd></div>
+        <div><dt>Frete</dt><dd>[CONFIRMAR: incluso ou à parte]</dd></div>
+      </dl>
+
+      <h3>Caixas de ritual</h3>
+      <div class="pecas pecas-2">
+          <article class="rotulo peca" id="atelie-ritualOxum">
+            <div class="moldura">
+              <p class="faixa">Caixa de ritual</p>
+              <h4>Ritual de Oxum</h4>
+              <p class="inclui">Na caixa [CONFIRMAR]:</p>
+              <ul><li>Perfume</li><li>Banho</li><li>Sabonete</li><li>Item de proteção</li><li>Cristal</li></ul>
+              <p class="preco">R$ [PREENCHER]</p>
+              <dl class="ficha"><div><dt>Feito sob encomenda</dt></div><div><dt>Validade</dt><dd>na etiqueta</dd></div></dl>
+              <div class="botoes">
+                <a class="btn btn-tinta" data-link="atelie.ritualOxum.pix">Pagar no Pix</a>
+                <a class="btn btn-linha" data-link="atelie.ritualOxum.cartao">Pagar no cartão</a>
+              </div>
+            </div>
+          </article>
+          <article class="rotulo peca" id="atelie-ritualRainha">
+            <div class="moldura">
+              <p class="faixa">Caixa de ritual</p>
+              <h4>Ritual da Rainha</h4>
+              <p class="inclui">Na caixa [CONFIRMAR]:</p>
+              <ul><li>Sabonete</li><li>Óleo</li><li>[CONFIRMAR: perfume ou vinho]</li><li>[CONFIRMAR: outro item]</li></ul>
+              <p class="preco">R$ [PREENCHER]</p>
+              <dl class="ficha"><div><dt>Feito sob encomenda</dt></div><div><dt>Validade</dt><dd>na etiqueta</dd></div></dl>
+              <div class="botoes">
+                <a class="btn btn-tinta" data-link="atelie.ritualRainha.pix">Pagar no Pix</a>
+                <a class="btn btn-linha" data-link="atelie.ritualRainha.cartao">Pagar no cartão</a>
+              </div>
+            </div>
+          </article>
+      </div>
+
+      <h3>Guias e proteções</h3>
+      <div class="pecas pecas-3">
+          <article class="rotulo peca" id="atelie-guiaCigana">
+            <div class="moldura">
+              <p class="faixa">Guia</p>
+              <h4>Guia da Cigana</h4>
+              <p class="para">Trabalhada pela Cigana para você. Chega pronta, com o ritual feito.</p>
+              <p class="inclui">Inclui:</p>
+              <ul><li>[PREENCHER]</li></ul>
+              <p class="preco">R$ [PREENCHER]</p>
+              <dl class="ficha"><div><dt>Feito sob encomenda</dt></div><div><dt>Validade</dt><dd>na etiqueta</dd></div></dl>
+              <div class="botoes">
+                <a class="btn btn-tinta" data-link="atelie.guiaCigana.pix">Pagar no Pix</a>
+                <a class="btn btn-linha" data-link="atelie.guiaCigana.cartao">Pagar no cartão</a>
+              </div>
+            </div>
+          </article>
+          <article class="rotulo peca" id="atelie-protecaoCarro">
+            <div class="moldura">
+              <p class="faixa">Proteção</p>
+              <h4>Proteção para o carro</h4>
+              <p class="para">[CONFIRMAR: produto enviado ou trabalho à distância]</p>
+              <p class="inclui">Inclui:</p>
+              <ul><li>[PREENCHER]</li></ul>
+              <p class="preco">R$ [PREENCHER]</p>
+              <dl class="ficha"><div><dt>Feito sob encomenda</dt></div><div><dt>Validade</dt><dd>na etiqueta</dd></div></dl>
+              <div class="botoes">
+                <a class="btn btn-tinta" data-link="atelie.protecaoCarro.pix">Pagar no Pix</a>
+                <a class="btn btn-linha" data-link="atelie.protecaoCarro.cartao">Pagar no cartão</a>
+              </div>
+            </div>
+          </article>
+          <article class="rotulo peca" id="atelie-protecaoCasa">
+            <div class="moldura">
+              <p class="faixa">Proteção</p>
+              <h4>Proteção para a casa</h4>
+              <p class="para">[CONFIRMAR: produto enviado ou trabalho à distância]</p>
+              <p class="inclui">Inclui:</p>
+              <ul><li>[PREENCHER]</li></ul>
+              <p class="preco">R$ [PREENCHER]</p>
+              <dl class="ficha"><div><dt>Feito sob encomenda</dt></div><div><dt>Validade</dt><dd>na etiqueta</dd></div></dl>
+              <div class="botoes">
+                <a class="btn btn-tinta" data-link="atelie.protecaoCasa.pix">Pagar no Pix</a>
+                <a class="btn btn-linha" data-link="atelie.protecaoCasa.cartao">Pagar no cartão</a>
+              </div>
+            </div>
+          </article>
+      </div>
+
+      <p class="entrega-atelie">Depois do pagamento, a Vany prepara a sua peça no axé em até [PREENCHER] dias e envia pelos Correios com código de rastreio. Cada peça vai com a orientação do ritual.</p>
+      <p class="nota-atelie">Mora fora do Brasil? O Ateliê não envia para o exterior, porque perfume não pode ir pelo correio internacional. Você pode contratar o trabalho à distância em <a href="#trabalhos">Rituais e trabalhos espirituais</a>.</p>
+      <p class="aviso-compra">Antes de pagar: você pode desistir em até 7 dias depois de receber a peça. Os itens são de uso externo e ritualístico, não são remédio. Ao pagar, você confirma que tem 18 anos ou mais e leu as <a href="#politicas">Regras da casa</a>. [CONFIRMAR: endereço de entrega pedido na página de pagamento ou no WhatsApp]</p>
+    </div>
+  </section>
+
   <!-- 5. COMO FUNCIONA -->
   <section class="como" id="como-funciona">
     <div class="container">
@@ -918,12 +1045,20 @@ const CONFIG = {
         <div class="resposta"><p>Pode. Em até 7 dias depois do pagamento, você desiste e recebe o valor de volta, pelo <a href="#politica-arrependimento">direito de arrependimento</a>. Depois disso, a assinatura no cartão é cancelada a qualquer momento, sem multa, pelo <a data-link="portalCliente">portal do cliente</a>, e o cancelamento vale para as próximas cobranças. Leia a <a href="#politica-cancelamento">regra de cancelamento</a>.</p></div>
       </details>
       <details>
+        <summary>O valor inclui os materiais?</summary>
+        <div class="resposta"><p>[CONFIRMAR: se o valor inclui os materiais e os reforços]</p></div>
+      </details>
+      <details>
+        <summary>Quanto tempo leva para a caixa chegar?</summary>
+        <div class="resposta"><p>O preparo leva até [PREENCHER] dias, mais o prazo dos Correios. O código de rastreio chega pelo WhatsApp. Como a caixa leva líquidos, os Correios podem mandar por transporte terrestre, que demora mais.</p></div>
+      </details>
+      <details>
         <summary>Atende fora do Brasil?</summary>
-        <div class="resposta"><p>Atende. A Vany trabalha com clientes no Brasil e no exterior, em português. O cartão e o PayPal funcionam de qualquer país. [PREENCHER: confirmar se o Pix serve para quem está fora]</p></div>
+        <div class="resposta"><p>Atende. Consultas, pacotes e trabalhos espirituais são feitos para clientes no Brasil e no exterior, em português. O cartão e o PayPal funcionam de qualquer país. [PREENCHER: confirmar se o Pix serve para quem está fora]</p><p>O Ateliê entrega só no Brasil. Envio para o exterior por Fedex tem valor à parte.</p></div>
       </details>
       <details>
         <summary>Como posso pagar?</summary>
-        <div class="resposta"><p>Cartão de crédito, em assinatura mensal pela Stripe. Pix, para pagar um mês. PayPal, para pagar um mês, bom para quem está fora do Brasil. Este site não guarda dados de cartão.</p></div>
+        <div class="resposta"><p>Cartão de crédito, em assinatura mensal pela Stripe. Pix, para pagar um mês. PayPal, para pagar um mês, bom para quem está fora do Brasil. Este site não guarda dados de cartão.</p><p>No Ateliê, você paga no Pix ou no cartão.</p></div>
       </details>
     </div>
   </section>
@@ -999,7 +1134,18 @@ const CONFIG = {
         <div class="resposta">
           <p>Os preços estão em reais (R$) e já incluem tudo. Não existe taxa extra cobrada pela Vany.</p>
           <p>O valor é o mesmo no cartão, no Pix e no PayPal.</p>
+          <p>No Ateliê, o frete [CONFIRMAR: está incluso ou é cobrado à parte].</p>
           <p>Quem paga de fora do Brasil pode ter cobrança de câmbio ou IOF feita pelo próprio banco ou cartão. Esse custo não é da Vany e não aparece no site.</p>
+        </div>
+      </details>
+
+      <details id="politica-atelie">
+        <summary>Ateliê: entrega, prazo e trocas</summary>
+        <div class="resposta">
+          <p>O Ateliê entrega só no Brasil, pelos Correios, com código de rastreio.</p>
+          <p>O preparo leva até [PREENCHER] dias, contados a partir do pagamento. A validade de cada peça está na etiqueta.</p>
+          <p>Você pode desistir em até 7 dias depois de receber a peça. [CONFIRMAR COM ADVOGADO: devolução de peça feita sob encomenda e quem paga o frete de volta]</p>
+          <p>Se a peça chegar quebrada ou com defeito, mande uma foto pelo WhatsApp. [CONFIRMAR COM ADVOGADO: prazo para reclamar de defeito e troca ou reembolso]</p>
         </div>
       </details>
 
@@ -1011,9 +1157,10 @@ const CONFIG = {
           <ul>
             <li>Nome, e-mail, telefone e dados da compra: para identificar o pagamento, falar com você e cumprir obrigações fiscais.</li>
             <li>O que você conta no WhatsApp para fazer o trabalho.</li>
+            <li>Endereço de entrega, só para quem compra no Ateliê: para enviar a peça.</li>
           </ul>
           <p>Algumas dessas informações são dados sensíveis pela lei, como fé, religião, saúde e vida íntima. Eles só são usados com o seu consentimento, pedido no início do atendimento, e só para fazer o seu trabalho. Você pode retirar o consentimento a qualquer momento.</p>
-          <p>Com quem os dados são compartilhados: Stripe e PayPal, que processam os pagamentos, e WhatsApp, por onde a conversa acontece. Essas empresas podem guardar dados fora do Brasil, com as proteções que oferecem aos seus clientes. [PREENCHER: outras ferramentas que a Vany usa, como planilha ou agenda]</p>
+          <p>Com quem os dados são compartilhados: Stripe e PayPal, que processam os pagamentos, WhatsApp, por onde a conversa acontece, e Correios, que entregam as peças do Ateliê. Essas empresas podem guardar dados fora do Brasil, com as proteções que oferecem aos seus clientes. [PREENCHER: outras ferramentas que a Vany usa, como planilha ou agenda]</p>
           <p>Os dados não são vendidos. Ficam guardados por [PREENCHER: prazo] ou pelo tempo que a lei exigir.</p>
           <p>Você pode pedir a qualquer momento: confirmação de que tenho seus dados, uma cópia deles, correção, exclusão, informação sobre com quem foram compartilhados e a retirada do consentimento. Basta escrever pelo e-mail ou WhatsApp. Se não ficar satisfeita, pode reclamar na Autoridade Nacional de Proteção de Dados (ANPD).</p>
           <p>Este site não usa cookies de rastreamento nem ferramentas de análise. As fontes das letras vêm do Google Fonts, que recebe o endereço de internet de quem visita.</p>
@@ -1032,7 +1179,7 @@ const CONFIG = {
         <div class="resposta">
           <p>Os trabalhos daqui são espirituais, baseados em fé. As terapias holísticas são práticas complementares. Não há garantia de resultado nem de prazo, e nenhum trabalho promete cura.</p>
           <p>A Vany não faz diagnóstico de doenças, não receita remédios e nunca pede que você pare um tratamento. Os trabalhos não substituem médico, psicólogo, advogado ou polícia.</p>
-          <p>Banhos de ervas, óleos e defumação são de uso externo e não são remédio. Avise antes se estiver grávida, amamentando, tiver alergia, asma ou pele sensível.</p>
+          <p>Banhos de ervas, óleos, perfumes, sabonetes, defumação e as peças do Ateliê são de uso externo e não são remédio. Não ingerir. Manter longe de crianças e animais. Avise antes se estiver grávida, amamentando, tiver alergia, asma ou pele sensível.</p>
           <p>Nenhum trabalho tem o objetivo de fazer mal a alguém nem de tirar a liberdade de escolha de outra pessoa.</p>
           <p>Os serviços são só para maiores de 18 anos.</p>
           <p>Se você estiver em perigo, ligue 190 (Polícia). Para violência contra a mulher, ligue 180. Se estiver em sofrimento emocional, o CVV atende de graça pelo 188, a qualquer hora.</p>
@@ -1110,6 +1257,7 @@ const CONFIG = {
       <a href="#politica-precos">Preços e pagamento</a>
       <a href="#politica-privacidade">Privacidade e dados pessoais</a>
       <a href="#politica-seguranca">Segurança do pagamento</a>
+      <a href="#politica-atelie">Ateliê: entrega e trocas</a>
       <a href="#aviso">Aviso importante</a>
     </nav>
     <p class="miudo">[PREENCHER: nome ou razão social], CPF/CNPJ [PREENCHER]. Pagamentos processados pela Stripe e pelo PayPal.</p>
