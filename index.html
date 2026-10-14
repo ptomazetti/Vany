@@ -465,6 +465,18 @@ const CONFIG = {
   .ficha dt { font: 600 .75rem var(--rotulo); letter-spacing: .1em; text-transform: uppercase; color: var(--texto-2); }
   .ficha dd { margin: 0; }
   .terapias .btn { min-height: 48px; }
+  .cuidado-abre h2 { font-size: clamp(2rem, 8.5vw, 3.25rem); letter-spacing: .02em; }
+  .praticas { list-style: none; margin: 0 0 1.5rem; padding: 0; display: grid; }
+  .praticas li { padding: 14px 0 14px 26px; position: relative; border-bottom: 1px solid; border-image: var(--fio) 1; }
+  .praticas li::before { content: ""; position: absolute; left: 4px; top: 1.35em; width: 7px; height: 7px; transform: rotate(45deg); background: var(--ambar); }
+  .hora-marcada { font-family: var(--serifa); font-style: italic; font-size: 1.375rem; color: var(--ambar); }
+  @media (min-width: 768px) { .praticas { grid-template-columns: 1fr 1fr; column-gap: 2rem; } }
+  .texto-dela { max-width: 68ch; }
+  .texto-dela h3 { margin-top: 2.5rem; }
+  .lista-dela { margin: 0 0 1em; padding-left: 22px; }
+  .lista-dela li::marker { color: var(--ambar); }
+  .assinatura, .subtitulo-dela { font-family: var(--serifa); font-style: italic; font-size: 1.375rem; color: var(--ambar); margin-top: 1.5rem; }
+  .subtitulo-dela { margin-top: 0; }
   .ponte { margin-top: 2rem; }
   .aviso-compra { margin-top: 2rem; font-size: .875rem; color: var(--texto-2); padding-left: 14px; border-left: 2px solid var(--ambar); }
   .aviso-pequeno { margin-top: 3rem; font-size: .875rem; color: var(--texto-2); }
@@ -584,7 +596,7 @@ const CONFIG = {
           <li><a href="#pacote-fogo-padilha">Desejo e rivais</a></li>
           <li><a href="#pacote-brilho">Autoestima e brilho</a></li>
           <li><a href="#cuidado">Desacelerar e me cuidar</a></li>
-          <li><a href="#cuidado-autoconhecimento">Me conhecer melhor</a></li>
+          <li><a href="#cuidado-praticas">Me conhecer melhor</a></li>
           <!-- Se a Vany escolher a consulta como porta de entrada, trocar este link por href="#trabalhos" -->
           <li class="nao-sei"><a data-link="whatsapp" data-msg="Oi, Vany! Ainda não sei o que escolher.">Ainda não sei<span>Me conta o seu momento que eu te ajudo a escolher.</span></a></li>
         </ul>
@@ -593,18 +605,25 @@ const CONFIG = {
     </div>
   </section>
 
-  <!-- 2. SOBRE -->
+  <!-- 2. SOBRE: texto enviado pela Vanessa, não alterar -->
   <section class="sobre" id="sobre">
     <div class="container">
-      <div>
-        <h2>Sobre a Vany</h2>
-        <p>Vany responde a Iansã e à Pombagira Rainha.</p>
-        <p>[PREENCHER: história curta da Vany, com as palavras dela]</p>
-        <dl>
-          <dt>Tradição</dt><dd>[PREENCHER: Umbanda / Candomblé / outra]</dd>
-          <dt>Atendimento</dt><dd>[PREENCHER: online / presencial / os dois]</dd>
-          <dt>Para quem</dt><dd>Clientes no Brasil e no exterior, em português.</dd>
-        </dl>
+      <div class="texto-dela">
+      <h2>Sobre a Vany</h2>
+      <p>Olá!<br>Meu nome é Vanessa!</p>
+      <p>Sou Yalorixá de matriz afro-brasileira, oraculista, dirigente espiritual e terapeuta holística.</p>
+      <p>Minha caminhada espiritual foi construída ao longo dos anos, com muita dedicação, amor e respeito a espiritualidade.</p>
+      <p>Sou umbandista Cacicada há 20 anos, tenho uma trajetória na Quimbanda de 15 anos e, há 10 anos, exerço minha caminhada como Mãe de Santo na Nação Cabinda.</p>
+      <p>Sou filha de Iansã e Oxum, Ogum e Bará.</p>
+      <p>Minha vivência religiosa é marcada pelo respeito às tradições, aos fundamentos e à espiritualidade, incluindo os caminhos da Umbanda,  Quimbanda, Nação e da Cultura Cigana.</p>
+
+      <h3>🌹 Minhas entidades e minha ancestralidade</h3>
+      <p>Na Umbanda, minha caminhada é acompanhada pela Cabocla Jurema Mãe de Umbanda, pela Preta-Velha Maria Conga e pela Erê Mariazinha da Praia.</p>
+      <p>Na Quimbanda, minha caminhada espiritual está ligada à Rainha das Sete Encruzilhadas, ao Exu-Rei das Sete Encruzilhadas, à Maria Mulambo das Almas e ao Exu Tranca-Rua das Almas.</p>
+      <p>Também honro a ancestralidade da Cigana Puerê, presença importante na minha trajetória espiritual desde os meus 16 anos de idade.</p>
+      <p>Cada entidade possui sua história, seus fundamentos e suas particularidades. Desenvolvo meu trabalho com respeito à espiritualidade e à história de cada consulente, valorizando o acolhimento e a responsabilidade de cada pessoa.</p>
+      <p>Acredito que minha caminhada é única e merece ser recebida sem julgamentos, com respeito à história, à fé e ao momento da vida de cada pessoa.</p>
+      <p class="assinatura">Vanessa | Yalorixá e Terapeuta Holística.</p>
       </div>
     </div>
   </section>
@@ -728,8 +747,16 @@ const CONFIG = {
   <!-- CONSULTAS E ORÁCULOS -->
   <section class="consultas" id="consultas">
     <div class="container">
-      <h2>Consultas</h2>
-      <p class="intro-consultas">Normalmente é o primeiro passo, antes de qualquer trabalho. Escolha o oráculo e a leitura, e a Vany combina o horário com você pelo WhatsApp. Todas as consultas são online. [PREENCHER: duração]</p>
+      <h2>🌹 Consultas oraculares</h2>
+      <div class="texto-dela">
+        <p>Realizo consultas individuais, com hora marcada e de forma online, utilizando os seguintes oráculos:</p>
+        <ul class="lista-dela">
+          <li>TAROT</li>
+          <li>Cartas Cigana</li>
+          <li>Búzios</li>
+        </ul>
+        <p>Cada consulta é conduzida com seriedade, responsabilidade, discrição e respeito à individualidade de cada consulente.</p>
+      </div>
       <p class="deslize" aria-hidden="true" style="margin-top:2rem">Deslize para ver as 3 artes</p>
       <div class="artes" aria-label="Artes das consultas">
         <img src="fotos/arte-tarot.webp" width="853" height="1280" loading="lazy" alt="Arte da consulta com tarot: 1 pergunta R$ 20,00, até 3 perguntas R$ 50,00, jogo completo R$ 120,00">
@@ -772,8 +799,11 @@ const CONFIG = {
   <!-- 4. TRABALHOS ESPIRITUAIS (AVULSOS) -->
   <section class="avulsos papel" id="trabalhos">
     <div class="container">
-      <h2>Trabalhos espirituais</h2>
-      <p>Para quem quer um trabalho só, sem pacote mensal. Se não souber qual escolher, comece por uma <a href="#consultas">consulta</a>.</p>
+      <h2>🌹 Rituais e trabalhos espirituais</h2>
+      <div class="texto-dela">
+        <p>Realizo rituais ligados à Umbanda e Quimbanda, Orixás e Cultura Cigana, além de trabalhos espirituais personalizados, conforme a natureza de cada prática.</p>
+        <p>Os rituais são realizados à distância, sem atendimento presencial.<br>Cada pessoa acompanha seu trabalho individualmente, com discrição, privacidade e respeito.</p>
+      </div>
       <ul>
         <li>
           <div class="linha"><h3>Abertura de caminhos</h3><span class="valor">R$ [PREENCHER]</span></div>
@@ -1007,129 +1037,42 @@ const CONFIG = {
 <!-- CUIDADO HOLÍSTICO: abre como uma página própria pelo link #cuidado -->
 <main class="cuidado papel" id="cuidado" data-vista="cuidado">
   <div class="container">
+    <!-- Texto enviado pela Vany: não alterar -->
     <div class="cuidado-abre">
-      <h2>Cuidado holístico</h2>
-      <p class="frase">Um tempo só seu, para desacelerar, respirar e se ouvir.</p>
-      <p>Não sabe qual escolher? Me conta o seu momento no WhatsApp que eu te indico.</p>
-      <a class="btn btn-tinta" data-link="whatsapp" data-msg="Oi, Vany! Quero ajuda para escolher uma terapia.">Chamar no WhatsApp</a>
+      <h2>TERAPIA HOLÍSTICA &amp; INTEGRATIVA</h2>
+      <p>Meu trabalho como Terapeuta Holística e Integrativa é voltado ao cuidado geral do ser, considerando as dimensões físicas, emocionais, mental e energética, respeitando a individualidade e a trajetória de cada pessoa.</p>
+      <p>Por meio de práticas integrativas e recursos tradicionais, ofereço atendimentos individualizados que buscam favorecer o relaxamento,  equilíbrio, autocuidado, conexão interior e o bem-estar.</p>
+      <a class="btn btn-tinta" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar um atendimento de terapia holística.">Agendar no WhatsApp</a>
       <div class="foto">
         <img src="fotos/cesta-oferenda.jpg" width="963" height="1280" alt="Cesta com pães, maçã e pipoca, incensos acesos, cartas e lanterna" loading="lazy">
       </div>
     </div>
 
-    <nav class="indice" aria-label="Grupos de terapias">
-      <ul>
-          <li><a href="#cuidado-energeticas">Energéticas</a></li>
-          <li><a href="#cuidado-radiestesia">Radiestesia</a></li>
-          <li><a href="#cuidado-elementos">Com elementos</a></li>
-          <li><a href="#cuidado-autoconhecimento">Autoconhecimento e leitura</a></li>
+    <section class="grupo" id="cuidado-praticas" aria-labelledby="titulo-praticas">
+      <h3 id="titulo-praticas">Práticas e recursos oferecidos:</h3>
+      <ul class="praticas">
+        <li>Reiki à distância;</li>
+        <li>Radiestesia e harmonização energética;</li>
+        <li>Benzimento;</li>
+        <li>Banimento energético;</li>
+        <li>Cristalterapia;</li>
+        <li>Terapia floral;</li>
+        <li>Fitoterapia e saberes tradicionais relacionados às plantas;</li>
+        <li>Numerologia;</li>
+        <li>Mapa astral;</li>
+        <li>Técnicas e práticas de Feng Shui, voltadas à harmonização dos ambientes;</li>
+        <li>Tarot Terapêutico.</li>
       </ul>
-    </nav>
+      <p class="hora-marcada">Os atendimentos são realizados com hora marcada.</p>
+      <a class="btn btn-tinta" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar um atendimento de terapia holística.">Agendar no WhatsApp</a>
+    </section>
 
-      <section class="grupo" id="cuidado-energeticas" aria-labelledby="titulo-energeticas">
-        <h3 id="titulo-energeticas">Energéticas</h3>
-        <ul class="terapias">
-          <li>
-            <h4>Reiki</h4>
-            <p>Técnica de origem japonesa de imposição de mãos. Você fica na maca, de roupa, ou recebe à distância.</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Reiki.">Agendar no WhatsApp</a>
-          </li>
-          <li>
-            <h4>Apometria</h4>
-            <p>Terapia de base espiritualista, conduzida por mim em sessão guiada, presencial ou à distância.</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Apometria.">Agendar no WhatsApp</a>
-          </li>
-          <li>
-            <h4>Barras de Access</h4>
-            <p>Toque leve em 32 pontos da cabeça, com você deitada na maca.</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Barras de Access.">Agendar no WhatsApp</a>
-          </li>
-          <li>
-            <h4>Limpeza e harmonização energética</h4>
-            <p>Sessão para limpar e equilibrar a sua energia. [CONFIRMAR COMO A VANY FAZ]</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Limpeza e harmonização energética.">Agendar no WhatsApp</a>
-          </li>
-          <li>
-            <h4>Alinhamento de chakras</h4>
-            <p>Trabalho focado nos sete chakras principais, um por um.</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Alinhamento de chakras.">Agendar no WhatsApp</a>
-          </li>
-        </ul>
-      </section>
-      <section class="grupo" id="cuidado-radiestesia" aria-labelledby="titulo-radiestesia">
-        <h3 id="titulo-radiestesia">Radiestesia</h3>
-        <ul class="terapias">
-          <li>
-            <h4>Mesa Radiônica</h4>
-            <p>Uso de uma mesa com gráficos e um pêndulo para avaliar e trabalhar a sua energia. Pode ser feita à distância.</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Mesa Radiônica.">Agendar no WhatsApp</a>
-          </li>
-          <li>
-            <h4>Radiestesia com pêndulo</h4>
-            <p>Uso do pêndulo para leitura e ajuste da sua energia.</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Radiestesia com pêndulo.">Agendar no WhatsApp</a>
-          </li>
-        </ul>
-      </section>
-      <section class="grupo" id="cuidado-elementos" aria-labelledby="titulo-elementos">
-        <h3 id="titulo-elementos">Com elementos</h3>
-        <ul class="terapias">
-          <li>
-            <h4>Cristaloterapia</h4>
-            <p>Cristais posicionados sobre o corpo ou ao redor dele.</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Cristaloterapia.">Agendar no WhatsApp</a>
-          </li>
-          <li>
-            <h4>Cromoterapia</h4>
-            <p>Uso de cores, com luz ou objetos coloridos, durante a sessão.</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Cromoterapia.">Agendar no WhatsApp</a>
-          </li>
-          <li>
-            <h4>Aromaterapia</h4>
-            <p>Uso de óleos essenciais escolhidos para o seu momento.</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Aromaterapia.">Agendar no WhatsApp</a>
-          </li>
-          <li>
-            <h4>Banho de ervas</h4>
-            <p>Banho preparado com ervas escolhidas para o seu momento.</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Banho de ervas.">Agendar no WhatsApp</a>
-          </li>
-          <li>
-            <h4>Defumação</h4>
-            <p>Queima de ervas para limpar o ambiente ou a pessoa.</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Defumação.">Agendar no WhatsApp</a>
-          </li>
-        </ul>
-      </section>
-      <section class="grupo" id="cuidado-autoconhecimento" aria-labelledby="titulo-autoconhecimento">
-        <h3 id="titulo-autoconhecimento">Autoconhecimento e leitura</h3>
-        <ul class="terapias">
-          <li>
-            <h4>Numerologia</h4>
-            <p>Estudo dos números do seu nome e da sua data de nascimento.</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Numerologia.">Agendar no WhatsApp</a>
-          </li>
-          <li>
-            <h4>Mapa astral</h4>
-            <p>Leitura da posição dos astros no dia, na hora e no local em que você nasceu.</p>
-            <dl class="ficha"><div><dt>Duração</dt><dd>[PREENCHER] min</dd></div><div><dt>Onde</dt><dd>[PREENCHER: online / presencial]</dd></div><div><dt>Valor</dt><dd>R$ [PREENCHER]</dd></div></dl>
-            <a class="btn btn-linha" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Mapa astral.">Agendar no WhatsApp</a>
-          </li>
-        </ul>
-      </section>
+    <section class="grupo texto-dela" id="cuidado-cafeomancia" aria-labelledby="titulo-cafeomancia">
+      <h3 id="titulo-cafeomancia">CAFÉOMANCIA E RUNAS</h3>
+      <p class="subtitulo-dela">🌹Atendimento Terapêutico</p>
+      <p>Além das práticas terapêuticas e integrativas, também realizo atendimentos individuais com caféomancia e runas, recursos de leitura simbólica e interpretação utilizados para explorar questões pessoais, refletir sobre diferentes caminhos e ampliar a compreensão de situações vivenciadas.</p>
+      <a class="btn btn-tinta" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar um atendimento com caféomancia e runas.">Agendar no WhatsApp</a>
+    </section>
 
     <p class="ponte">Prefere acompanhamento todo mês? <a href="#pacotes">Veja os pacotes mensais</a>.</p>
 
