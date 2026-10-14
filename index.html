@@ -404,7 +404,13 @@ const CONFIG = {
   .intro-atelie { color: var(--texto-2); }
   .ficha-atelie { margin: 1.25rem 0 0; padding: 14px 16px; border: 1px solid var(--borda-suave); border-radius: .5rem; gap: 8px 24px; }
   .atelie h3 { margin-top: 2.5rem; }
-  .pecas { display: grid; gap: 1.25rem; }
+  /* No celular, as peças ficam lado a lado com deslize, como os pacotes */
+  .pecas {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 86%; gap: 12px; align-items: stretch;
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 1.25rem;
+    margin: 0 -1.25rem; padding: 0 1.25rem 10px; scrollbar-width: thin;
+  }
+  .peca { scroll-snap-align: start; }
   .peca .moldura { padding-bottom: 1.25rem; }
   .rotulo .faixa { max-width: none; }
   .peca h4 { font-size: 1.75rem; margin: 0 0 .3em; }
@@ -412,7 +418,7 @@ const CONFIG = {
   .peca .ficha dt:only-child::after { content: none; }
   .entrega-atelie { margin-top: 2rem; }
   .nota-atelie { padding: 14px 16px; border-radius: .5rem; background: linear-gradient(180deg, var(--elevado), var(--container)); border: 1px solid var(--borda-suave); }
-  @media (min-width: 768px) { .pecas { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 768px) { .pecas { grid-auto-flow: row; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; overflow: visible; margin: 0; padding: 0; } }
   @media (min-width: 1024px) { .pecas-3 { grid-template-columns: repeat(3, 1fr); } }
 
   /* Trabalhos espirituais (avulsos) */
@@ -917,6 +923,7 @@ const CONFIG = {
       </dl>
 
       <h3>Caixas de ritual</h3>
+      <p class="deslize" aria-hidden="true">Deslize para ver as 2 caixas</p>
       <div class="pecas pecas-2">
           <article class="rotulo peca" id="atelie-ritualOxum">
             <div class="moldura">
@@ -949,6 +956,7 @@ const CONFIG = {
       </div>
 
       <h3>Guias e proteções</h3>
+      <p class="deslize" aria-hidden="true">Deslize para ver as 3 peças</p>
       <div class="pecas pecas-3">
           <article class="rotulo peca" id="atelie-guiaCigana">
             <div class="moldura">
