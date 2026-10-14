@@ -481,6 +481,17 @@ const CONFIG = {
   .icone-whats { width: 1.25em; height: 1.25em; flex-shrink: 0; }
   .oraculo .agendar { display: inline-flex; align-items: center; gap: 6px; }
   .oraculo .agendar .icone-whats { width: 1.35em; height: 1.35em; }
+  .linhagens { display: grid; gap: 12px; margin: 1rem 0 1.5rem; }
+  .linhagem { padding: 1rem 1.25rem; border-radius: .5rem; border: 1px solid var(--borda-suave); border-left: 2px solid var(--ambar);
+    background: linear-gradient(180deg, var(--elevado), var(--container)); }
+  .linhagem p { margin: 0; }
+  @media (min-width: 1024px) { .sobre .texto-dela { max-width: none; } .sobre .texto-dela > p, .sobre .texto-dela > h3 { max-width: 68ch; } .linhagens { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 768px) {
+    #trabalhos ul { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2rem; max-width: none; }
+    #trabalhos li:last-child { border-bottom: 1px solid; }
+    #trabalhos .linha { display: block; }
+    #trabalhos .valor { display: block; margin-top: 4px; }
+  }
   .ponte { margin-top: 2rem; }
   .aviso-compra { margin-top: 2rem; font-size: .875rem; color: var(--texto-2); padding-left: 14px; border-left: 2px solid var(--ambar); }
   .aviso-pequeno { margin-top: 3rem; font-size: .875rem; color: var(--texto-2); }
@@ -544,8 +555,8 @@ const CONFIG = {
   <div class="container">
     <a href="#inicio" class="marca"><img src="fotos/logo-simbolo.webp" width="160" height="200" alt="" aria-hidden="true">The Velvet Moon</a>
     <nav aria-label="Menu principal">
-      <a href="#pacotes">Pacotes mensais</a>
       <a href="#consultas">Consultas</a>
+      <a href="#pacotes">Pacotes mensais</a>
       <a href="#trabalhos">Trabalhos espirituais</a>
       <a href="#cuidado">Cuidado holístico</a>
       <a href="#perguntas">Dúvidas</a>
@@ -570,8 +581,8 @@ const CONFIG = {
   <ul>
     <li><a href="#inicio">Início</a></li>
     <li><a href="#sobre">Sobre a Vany</a></li>
-    <li><a href="#pacotes">Pacotes mensais</a></li>
     <li><a href="#consultas">Consultas</a></li>
+    <li><a href="#pacotes">Pacotes mensais</a></li>
     <li><a href="#trabalhos">Trabalhos espirituais</a></li>
     <li><a href="#cuidado">Cuidado holístico</a></li>
     <li><a href="#como-funciona">Como funciona</a></li>
@@ -623,13 +634,67 @@ const CONFIG = {
       <p>Minha vivência religiosa é marcada pelo respeito às tradições, aos fundamentos e à espiritualidade, incluindo os caminhos da Umbanda,  Quimbanda, Nação e da Cultura Cigana.</p>
 
       <h3><img class="icone" src="fotos/logo-simbolo.webp" width="160" height="200" alt="" aria-hidden="true">Minhas entidades e minha ancestralidade</h3>
-      <p>Na Umbanda, minha caminhada é acompanhada pela Cabocla Jurema Mãe de Umbanda, pela Preta-Velha Maria Conga e pela Erê Mariazinha da Praia.</p>
-      <p>Na Quimbanda, minha caminhada espiritual está ligada à Rainha das Sete Encruzilhadas, ao Exu-Rei das Sete Encruzilhadas, à Maria Mulambo das Almas e ao Exu Tranca-Rua das Almas.</p>
-      <p>Também honro a ancestralidade da Cigana Puerê, presença importante na minha trajetória espiritual desde os meus 16 anos de idade.</p>
+      <div class="linhagens">
+        <div class="linhagem"><p>Na Umbanda, minha caminhada é acompanhada pela Cabocla Jurema Mãe de Umbanda, pela Preta-Velha Maria Conga e pela Erê Mariazinha da Praia.</p></div>
+        <div class="linhagem"><p>Na Quimbanda, minha caminhada espiritual está ligada à Rainha das Sete Encruzilhadas, ao Exu-Rei das Sete Encruzilhadas, à Maria Mulambo das Almas e ao Exu Tranca-Rua das Almas.</p></div>
+        <div class="linhagem"><p>Também honro a ancestralidade da Cigana Puerê, presença importante na minha trajetória espiritual desde os meus 16 anos de idade.</p></div>
+      </div>
       <p>Cada entidade possui sua história, seus fundamentos e suas particularidades. Desenvolvo meu trabalho com respeito à espiritualidade e à história de cada consulente, valorizando o acolhimento e a responsabilidade de cada pessoa.</p>
       <p>Acredito que minha caminhada é única e merece ser recebida sem julgamentos, com respeito à história, à fé e ao momento da vida de cada pessoa.</p>
       <p class="assinatura">Vanessa | Yalorixá e Terapeuta Holística.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- CONSULTAS E ORÁCULOS -->
+  <section class="consultas" id="consultas">
+    <div class="container">
+      <h2><img class="icone" src="fotos/logo-simbolo.webp" width="160" height="200" alt="" aria-hidden="true">Consultas oraculares</h2>
+      <div class="texto-dela">
+        <p>Realizo consultas individuais, com hora marcada e de forma online, utilizando os seguintes oráculos:</p>
+        <ul class="lista-dela">
+          <li>TAROT</li>
+          <li>Cartas Cigana</li>
+          <li>Búzios</li>
+        </ul>
+        <p>Cada consulta é conduzida com seriedade, responsabilidade, discrição e respeito à individualidade de cada consulente.</p>
+      </div>
+      <p class="deslize" aria-hidden="true" style="margin-top:2rem">Deslize para ver as 3 artes</p>
+      <div class="artes" aria-label="Artes das consultas">
+        <img src="fotos/arte-tarot.webp" width="853" height="1280" loading="lazy" alt="Arte da consulta com tarot: 1 pergunta R$ 20,00, até 3 perguntas R$ 50,00, jogo completo R$ 120,00">
+        <img src="fotos/arte-cartas-cigana.webp" width="853" height="1280" loading="lazy" alt="Arte da consulta com cartas ciganas: até 3 perguntas R$ 50,00, até 5 perguntas R$ 70,00, 1 campo R$ 100,00, jogo completo R$ 120,00, jogo completo com ritual de prosperidade R$ 180,00">
+        <img src="fotos/arte-buzios.webp" width="853" height="1280" loading="lazy" alt="Arte da consulta com búzios de orixá: jogo de búzios R$ 127,00">
+      </div>
+      <div class="oraculos">
+        <article class="oraculo" id="consulta-tarot">
+          <h3>Tarô</h3>
+          <p>Leitura de cartas de tarô sobre o seu momento ou sobre perguntas específicas.</p>
+          <ul>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Tarô, 1 pergunta (R$ 20,00)."><span class="opcao">1 pergunta</span><span class="valor">R$ 20,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Tarô, Até 3 perguntas (R$ 50,00)."><span class="opcao">Até 3 perguntas</span><span class="valor">R$ 50,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Tarô, Jogo completo (R$ 120,00)."><span class="opcao">Jogo completo</span><span class="valor">R$ 120,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
+          </ul>
+        </article>
+        <article class="oraculo" id="consulta-cigano">
+          <h3>Baralho Cigano</h3>
+          <p>Leitura com as 36 cartas do baralho cigano.</p>
+          <ul>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Até 3 perguntas (R$ 50,00)."><span class="opcao">Até 3 perguntas</span><span class="valor">R$ 50,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Até 5 perguntas (R$ 70,00)."><span class="opcao">Até 5 perguntas</span><span class="valor">R$ 70,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, 1 campo (R$ 100,00)."><span class="opcao">1 campo<small>Leitura de uma área da sua vida, como amor, trabalho ou dinheiro.</small></span><span class="valor">R$ 100,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Jogo completo (R$ 120,00)."><span class="opcao">Jogo completo</span><span class="valor">R$ 120,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Jogo completo com Ritual de Prosperidade (R$ 180,00)."><span class="opcao">Jogo completo com Ritual de Prosperidade</span><span class="valor">R$ 180,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
+          </ul>
+        </article>
+        <article class="oraculo" id="consulta-buzios">
+          <h3>Búzios de Orixá</h3>
+          <p>Jogo de búzios para orientação sobre o seu caminho.</p>
+          <ul>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Búzios de Orixá, Jogo de búzios (R$ 127,00)."><span class="opcao">Jogo de búzios</span><span class="valor">R$ 127,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
+          </ul>
+        </article>
+      </div>
+      <p class="aviso-compra">As consultas são orientações espirituais, baseadas em fé. Não são previsão garantida e não substituem médico, psicólogo ou advogado. Para maiores de 18 anos. Leia as <a href="#politicas">Regras da casa</a>.</p>
     </div>
   </section>
 
@@ -744,60 +809,7 @@ const CONFIG = {
 
       </div>
 
-      <p class="aviso-compra">Antes de pagar: a assinatura renova sozinha todo mês até você cancelar. Você pode desistir em até 7 dias e receber o valor de volta. Ao pagar, você confirma que tem 18 anos ou mais e leu as <a href="#politicas">Regras da casa</a>.</p>
-      <p class="lembrete">Os trabalhos espirituais são baseados em fé, e as terapias holísticas são complementares. Não existe resultado garantido nem prazo garantido.</p>
-    </div>
-  </section>
-
-  <!-- CONSULTAS E ORÁCULOS -->
-  <section class="consultas" id="consultas">
-    <div class="container">
-      <h2><img class="icone" src="fotos/logo-simbolo.webp" width="160" height="200" alt="" aria-hidden="true">Consultas oraculares</h2>
-      <div class="texto-dela">
-        <p>Realizo consultas individuais, com hora marcada e de forma online, utilizando os seguintes oráculos:</p>
-        <ul class="lista-dela">
-          <li>TAROT</li>
-          <li>Cartas Cigana</li>
-          <li>Búzios</li>
-        </ul>
-        <p>Cada consulta é conduzida com seriedade, responsabilidade, discrição e respeito à individualidade de cada consulente.</p>
-      </div>
-      <p class="deslize" aria-hidden="true" style="margin-top:2rem">Deslize para ver as 3 artes</p>
-      <div class="artes" aria-label="Artes das consultas">
-        <img src="fotos/arte-tarot.webp" width="853" height="1280" loading="lazy" alt="Arte da consulta com tarot: 1 pergunta R$ 20,00, até 3 perguntas R$ 50,00, jogo completo R$ 120,00">
-        <img src="fotos/arte-cartas-cigana.webp" width="853" height="1280" loading="lazy" alt="Arte da consulta com cartas ciganas: até 3 perguntas R$ 50,00, até 5 perguntas R$ 70,00, 1 campo R$ 100,00, jogo completo R$ 120,00, jogo completo com ritual de prosperidade R$ 180,00">
-        <img src="fotos/arte-buzios.webp" width="853" height="1280" loading="lazy" alt="Arte da consulta com búzios de orixá: jogo de búzios R$ 127,00">
-      </div>
-      <div class="oraculos">
-        <article class="oraculo" id="consulta-tarot">
-          <h3>Tarô</h3>
-          <p>Leitura de cartas de tarô sobre o seu momento ou sobre perguntas específicas.</p>
-          <ul>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Tarô, 1 pergunta (R$ 20,00)."><span class="opcao">1 pergunta</span><span class="valor">R$ 20,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Tarô, Até 3 perguntas (R$ 50,00)."><span class="opcao">Até 3 perguntas</span><span class="valor">R$ 50,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Tarô, Jogo completo (R$ 120,00)."><span class="opcao">Jogo completo</span><span class="valor">R$ 120,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
-          </ul>
-        </article>
-        <article class="oraculo" id="consulta-cigano">
-          <h3>Baralho Cigano</h3>
-          <p>Leitura com as 36 cartas do baralho cigano.</p>
-          <ul>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Até 3 perguntas (R$ 50,00)."><span class="opcao">Até 3 perguntas</span><span class="valor">R$ 50,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Até 5 perguntas (R$ 70,00)."><span class="opcao">Até 5 perguntas</span><span class="valor">R$ 70,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, 1 campo (R$ 100,00)."><span class="opcao">1 campo<small>Leitura de uma área da sua vida, como amor, trabalho ou dinheiro.</small></span><span class="valor">R$ 100,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Jogo completo (R$ 120,00)."><span class="opcao">Jogo completo</span><span class="valor">R$ 120,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Jogo completo com Ritual de Prosperidade (R$ 180,00)."><span class="opcao">Jogo completo com Ritual de Prosperidade</span><span class="valor">R$ 180,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
-          </ul>
-        </article>
-        <article class="oraculo" id="consulta-buzios">
-          <h3>Búzios de Orixá</h3>
-          <p>Jogo de búzios para orientação sobre o seu caminho.</p>
-          <ul>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Búzios de Orixá, Jogo de búzios (R$ 127,00)."><span class="opcao">Jogo de búzios</span><span class="valor">R$ 127,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
-          </ul>
-        </article>
-      </div>
-      <p class="aviso-compra">As consultas são orientações espirituais, baseadas em fé. Não são previsão garantida e não substituem médico, psicólogo ou advogado. Para maiores de 18 anos. Leia as <a href="#politicas">Regras da casa</a>.</p>
+      <p class="aviso-compra">Antes de pagar: a assinatura renova sozinha todo mês até você cancelar. Você pode desistir em até 7 dias e receber o valor de volta. Os trabalhos são baseados em fé, sem resultado nem prazo garantido. Ao pagar, você confirma que tem 18 anos ou mais e leu as <a href="#politicas">Regras da casa</a>.</p>
     </div>
   </section>
 
