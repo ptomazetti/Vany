@@ -477,6 +477,10 @@ const CONFIG = {
   .lista-dela li::marker { color: var(--ambar); }
   .assinatura, .subtitulo-dela { font-family: var(--serifa); font-style: italic; font-size: 1.375rem; color: var(--ambar); margin-top: 1.5rem; }
   .subtitulo-dela { margin-top: 0; }
+  .icone { display: inline-block; width: auto; height: 1.25em; vertical-align: -.22em; margin-right: .45em; filter: drop-shadow(0 0 6px rgba(217, 188, 122, .35)); }
+  .icone-whats { width: 1.25em; height: 1.25em; flex-shrink: 0; }
+  .oraculo .agendar { display: inline-flex; align-items: center; gap: 6px; }
+  .oraculo .agendar .icone-whats { width: 1.35em; height: 1.35em; }
   .ponte { margin-top: 2rem; }
   .aviso-compra { margin-top: 2rem; font-size: .875rem; color: var(--texto-2); padding-left: 14px; border-left: 2px solid var(--ambar); }
   .aviso-pequeno { margin-top: 3rem; font-size: .875rem; color: var(--texto-2); }
@@ -534,6 +538,7 @@ const CONFIG = {
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="icone-whats" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3z"/></symbol></svg>
 <a class="pular" href="#inicio">Pular para o conteúdo</a>
 <header class="topo">
   <div class="container">
@@ -574,7 +579,7 @@ const CONFIG = {
     <li><a href="#contato">Contato</a></li>
     <li><a href="#politicas">Regras da casa</a></li>
   </ul>
-  <a class="btn btn-cera" data-link="whatsapp">Chamar no WhatsApp</a>
+  <a class="btn btn-cera" data-link="whatsapp"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Chamar no WhatsApp</a>
 </nav>
 
 <main id="inicio-vista" data-vista="inicio">
@@ -617,7 +622,7 @@ const CONFIG = {
       <p>Sou filha de Iansã e Oxum, Ogum e Bará.</p>
       <p>Minha vivência religiosa é marcada pelo respeito às tradições, aos fundamentos e à espiritualidade, incluindo os caminhos da Umbanda,  Quimbanda, Nação e da Cultura Cigana.</p>
 
-      <h3>🌹 Minhas entidades e minha ancestralidade</h3>
+      <h3><img class="icone" src="fotos/logo-simbolo.webp" width="160" height="200" alt="" aria-hidden="true">Minhas entidades e minha ancestralidade</h3>
       <p>Na Umbanda, minha caminhada é acompanhada pela Cabocla Jurema Mãe de Umbanda, pela Preta-Velha Maria Conga e pela Erê Mariazinha da Praia.</p>
       <p>Na Quimbanda, minha caminhada espiritual está ligada à Rainha das Sete Encruzilhadas, ao Exu-Rei das Sete Encruzilhadas, à Maria Mulambo das Almas e ao Exu Tranca-Rua das Almas.</p>
       <p>Também honro a ancestralidade da Cigana Puerê, presença importante na minha trajetória espiritual desde os meus 16 anos de idade.</p>
@@ -747,7 +752,7 @@ const CONFIG = {
   <!-- CONSULTAS E ORÁCULOS -->
   <section class="consultas" id="consultas">
     <div class="container">
-      <h2>🌹 Consultas oraculares</h2>
+      <h2><img class="icone" src="fotos/logo-simbolo.webp" width="160" height="200" alt="" aria-hidden="true">Consultas oraculares</h2>
       <div class="texto-dela">
         <p>Realizo consultas individuais, com hora marcada e de forma online, utilizando os seguintes oráculos:</p>
         <ul class="lista-dela">
@@ -768,27 +773,27 @@ const CONFIG = {
           <h3>Tarô</h3>
           <p>Leitura de cartas de tarô sobre o seu momento ou sobre perguntas específicas.</p>
           <ul>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Tarô, 1 pergunta (R$ 20,00)."><span class="opcao">1 pergunta</span><span class="valor">R$ 20,00</span><span class="agendar">Agendar</span></a></li>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Tarô, Até 3 perguntas (R$ 50,00)."><span class="opcao">Até 3 perguntas</span><span class="valor">R$ 50,00</span><span class="agendar">Agendar</span></a></li>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Tarô, Jogo completo (R$ 120,00)."><span class="opcao">Jogo completo</span><span class="valor">R$ 120,00</span><span class="agendar">Agendar</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Tarô, 1 pergunta (R$ 20,00)."><span class="opcao">1 pergunta</span><span class="valor">R$ 20,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Tarô, Até 3 perguntas (R$ 50,00)."><span class="opcao">Até 3 perguntas</span><span class="valor">R$ 50,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Tarô, Jogo completo (R$ 120,00)."><span class="opcao">Jogo completo</span><span class="valor">R$ 120,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
           </ul>
         </article>
         <article class="oraculo" id="consulta-cigano">
           <h3>Baralho Cigano</h3>
           <p>Leitura com as 36 cartas do baralho cigano.</p>
           <ul>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Até 3 perguntas (R$ 50,00)."><span class="opcao">Até 3 perguntas</span><span class="valor">R$ 50,00</span><span class="agendar">Agendar</span></a></li>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Até 5 perguntas (R$ 70,00)."><span class="opcao">Até 5 perguntas</span><span class="valor">R$ 70,00</span><span class="agendar">Agendar</span></a></li>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, 1 campo (R$ 100,00)."><span class="opcao">1 campo<small>Leitura de uma área da sua vida, como amor, trabalho ou dinheiro.</small></span><span class="valor">R$ 100,00</span><span class="agendar">Agendar</span></a></li>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Jogo completo (R$ 120,00)."><span class="opcao">Jogo completo</span><span class="valor">R$ 120,00</span><span class="agendar">Agendar</span></a></li>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Jogo completo com Ritual de Prosperidade (R$ 180,00)."><span class="opcao">Jogo completo com Ritual de Prosperidade</span><span class="valor">R$ 180,00</span><span class="agendar">Agendar</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Até 3 perguntas (R$ 50,00)."><span class="opcao">Até 3 perguntas</span><span class="valor">R$ 50,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Até 5 perguntas (R$ 70,00)."><span class="opcao">Até 5 perguntas</span><span class="valor">R$ 70,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, 1 campo (R$ 100,00)."><span class="opcao">1 campo<small>Leitura de uma área da sua vida, como amor, trabalho ou dinheiro.</small></span><span class="valor">R$ 100,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Jogo completo (R$ 120,00)."><span class="opcao">Jogo completo</span><span class="valor">R$ 120,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Baralho Cigano, Jogo completo com Ritual de Prosperidade (R$ 180,00)."><span class="opcao">Jogo completo com Ritual de Prosperidade</span><span class="valor">R$ 180,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
           </ul>
         </article>
         <article class="oraculo" id="consulta-buzios">
           <h3>Búzios de Orixá</h3>
           <p>Jogo de búzios para orientação sobre o seu caminho.</p>
           <ul>
-          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Búzios de Orixá, Jogo de búzios (R$ 127,00)."><span class="opcao">Jogo de búzios</span><span class="valor">R$ 127,00</span><span class="agendar">Agendar</span></a></li>
+          <li><a data-link="whatsapp" data-msg="Oi, Vany! Quero agendar: Búzios de Orixá, Jogo de búzios (R$ 127,00)."><span class="opcao">Jogo de búzios</span><span class="valor">R$ 127,00</span><span class="agendar"><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</span></a></li>
           </ul>
         </article>
       </div>
@@ -799,7 +804,7 @@ const CONFIG = {
   <!-- 4. TRABALHOS ESPIRITUAIS (AVULSOS) -->
   <section class="avulsos papel" id="trabalhos">
     <div class="container">
-      <h2>🌹 Rituais e trabalhos espirituais</h2>
+      <h2><img class="icone" src="fotos/logo-simbolo.webp" width="160" height="200" alt="" aria-hidden="true">Rituais e trabalhos espirituais</h2>
       <div class="texto-dela">
         <p>Realizo rituais ligados à Umbanda e Quimbanda, Orixás e Cultura Cigana, além de trabalhos espirituais personalizados, conforme a natureza de cada prática.</p>
         <p>Os rituais são realizados à distância, sem atendimento presencial.<br>Cada pessoa acompanha seu trabalho individualmente, com discrição, privacidade e respeito.</p>
@@ -1042,7 +1047,7 @@ const CONFIG = {
       <h2>TERAPIA HOLÍSTICA &amp; INTEGRATIVA</h2>
       <p>Meu trabalho como Terapeuta Holística e Integrativa é voltado ao cuidado geral do ser, considerando as dimensões físicas, emocionais, mental e energética, respeitando a individualidade e a trajetória de cada pessoa.</p>
       <p>Por meio de práticas integrativas e recursos tradicionais, ofereço atendimentos individualizados que buscam favorecer o relaxamento,  equilíbrio, autocuidado, conexão interior e o bem-estar.</p>
-      <a class="btn btn-tinta" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar um atendimento de terapia holística.">Agendar no WhatsApp</a>
+      <a class="btn btn-tinta" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar um atendimento de terapia holística."><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</a>
       <div class="foto">
         <img src="fotos/cesta-oferenda.jpg" width="963" height="1280" alt="Cesta com pães, maçã e pipoca, incensos acesos, cartas e lanterna" loading="lazy">
       </div>
@@ -1064,14 +1069,14 @@ const CONFIG = {
         <li>Tarot Terapêutico.</li>
       </ul>
       <p class="hora-marcada">Os atendimentos são realizados com hora marcada.</p>
-      <a class="btn btn-tinta" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar um atendimento de terapia holística.">Agendar no WhatsApp</a>
+      <a class="btn btn-tinta" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar um atendimento de terapia holística."><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</a>
     </section>
 
     <section class="grupo texto-dela" id="cuidado-cafeomancia" aria-labelledby="titulo-cafeomancia">
       <h3 id="titulo-cafeomancia">CAFÉOMANCIA E RUNAS</h3>
-      <p class="subtitulo-dela">🌹Atendimento Terapêutico</p>
+      <p class="subtitulo-dela"><img class="icone" src="fotos/logo-simbolo.webp" width="160" height="200" alt="" aria-hidden="true">Atendimento Terapêutico</p>
       <p>Além das práticas terapêuticas e integrativas, também realizo atendimentos individuais com caféomancia e runas, recursos de leitura simbólica e interpretação utilizados para explorar questões pessoais, refletir sobre diferentes caminhos e ampliar a compreensão de situações vivenciadas.</p>
-      <a class="btn btn-tinta" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar um atendimento com caféomancia e runas.">Agendar no WhatsApp</a>
+      <a class="btn btn-tinta" data-link="whatsapp" data-msg="Oi, Vany! Quero agendar um atendimento com caféomancia e runas."><svg class="icone-whats" aria-hidden="true"><use href="#icone-whats"></use></svg>Agendar no WhatsApp</a>
     </section>
 
     <p class="ponte">Prefere acompanhamento todo mês? <a href="#pacotes">Veja os pacotes mensais</a>.</p>
